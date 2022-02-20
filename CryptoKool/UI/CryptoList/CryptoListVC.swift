@@ -54,6 +54,7 @@ final class CryptoListVC: UITableViewController {
         viewModel.fetchCryptoList(amount: 100)
         setupNavigationBar()
         setTableView()
+        setupPullToRefresh()
         setupObserver()
         timer = Timer.scheduledTimer(timeInterval: fetchCycle, target: self, selector: #selector(callFetchData), userInfo: nil, repeats: true)
     }
@@ -108,9 +109,17 @@ final class CryptoListVC: UITableViewController {
         viewModel.cryptoList.signal.observe { [weak self] _ in
             CKLog.info(message: "Reload tableview...")
             self?.loadingIndicatorView.stopAnimating()
+            self?.tableView.refreshControl?.endRefreshing()
             self?.stackView.isHidden = true
             self?.tableView.reloadData()
         }
+    }
+    
+    private func setupPullToRefresh() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(callFetchData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func reset() {
