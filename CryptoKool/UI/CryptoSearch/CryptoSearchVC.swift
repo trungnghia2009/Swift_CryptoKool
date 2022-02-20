@@ -7,17 +7,23 @@
 
 import UIKit
 import ReactiveSwift
-import ReactiveCocoa
 
 final class CryptoSearchVC: UITableViewController {
 
     // MARK: - Properties
-    private let searchController = UISearchController()
     private let viewModel = CryptoSearchVM(service: CrytoService(coinGeckoService: CoinGeckoService()), state: .begin)
+    private let searchController = UISearchController()
+    private var debouncer: Debouncer!
+    private var textFieldValue = "" {
+        didSet {
+            debouncer.call()
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        debouncer = Debouncer(delay: 0.5, callback: callSearchAPI)
         setupNavigationBar()
         setupTableView()
         configureSearchController()
@@ -48,7 +54,6 @@ final class CryptoSearchVC: UITableViewController {
     
     private func configureSearchController() {
         searchController.delegate = self
-        searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = true
         searchController.searchBar.placeholder = "Search..."
@@ -56,17 +61,6 @@ final class CryptoSearchVC: UITableViewController {
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         definesPresentationContext = false
-        
-        // Using debounce for sending key
-        searchController.searchBar.searchTextField.reactive
-            .controlEvents(.editingChanged)
-            .debounce(0.5, on: QueueScheduler.main)
-            .observeValues { [weak self] (textField) in
-                if let text = textField.text, text.count > 0 {
-                    self?.viewModel.searchMovies(searchKey: text)
-                }
-                
-            }
     }
     
     private func setupTableView() {
@@ -74,6 +68,12 @@ final class CryptoSearchVC: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 70
         tableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func callSearchAPI() {
+        guard !textFieldValue.isEmpty else { return }
+        CKLog.info(message: "Search value: \(textFieldValue)")
+        viewModel.searchMovies(searchKey: textFieldValue)
     }
     
     // MARK: - Selectors
@@ -119,21 +119,22 @@ extension CryptoSearchVC {
     }
 }
 
-// MARK: - UISearchResultsUpdating
-extension CryptoSearchVC: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchKey = searchController.searchBar.text else { return }
-        if searchKey.count == 0 {
-            viewModel.setState(state: .begin)
-            viewModel.searchList.value.removeAll()
-        }
-    }
-}
-
 // MARK: UISearchControllerDelegate
 extension CryptoSearchVC: UISearchControllerDelegate {
     func presentSearchController(_ searchController: UISearchController) {
         searchController.searchBar.becomeFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        textFieldValue = searchText
+        if searchText.count == 1 {
+            viewModel.setState(state: .loading)
+            tableView.reloadData()
+        }
+        if searchText.isEmpty {
+            viewModel.setState(state: .begin)
+            viewModel.searchList.value.removeAll()
+        }
     }
 }
 

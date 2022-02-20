@@ -10,6 +10,7 @@ import ReactiveSwift
 
 enum SearchState {
     case begin
+    case loading
     case noResult
 }
 
@@ -59,6 +60,8 @@ final class CryptoSearchVM {
         switch state {
         case .begin:
             return "Please type your keyword."
+        case .loading:
+            return "Loading..."
         case .noResult:
             return "There is no result."
         }

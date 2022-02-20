@@ -7,7 +7,6 @@ target 'CryptoKool' do
 
   # Pods for CryptoKool
   pod 'ReactiveSwift', '~> 6.1'
-  pod 'ReactiveCocoa', '~> 10.1'
   pod 'SDWebImage', '~> 5.0'
   pod 'lottie-ios'
 

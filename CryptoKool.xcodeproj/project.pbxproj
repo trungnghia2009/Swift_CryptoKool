@@ -53,6 +53,7 @@
 		2C63C3FA27BFF1A100339740 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C63C3F827BFF1A100339740 /* love.json */; };
 		2C63C40127BFFA2000339740 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C63C40327BFFA2000339740 /* Localizable.strings */; };
 		2C715F6327C25110001AFC00 /* testCase1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C715F6227C25110001AFC00 /* testCase1.swift */; };
+		2C715F8727C27C7A001AFC00 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C715F8627C27C7A001AFC00 /* Debouncer.swift */; };
 		2C7FA29327C15F19000141C1 /* SearchCryptoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FA29227C15F19000141C1 /* SearchCryptoUseCase.swift */; };
 		2C93A99527C1C8DD0063AF98 /* CryptoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93A99427C1C8DD0063AF98 /* CryptoDetailVC.swift */; };
 		2C93A99727C1C8ED0063AF98 /* CryptoDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93A99627C1C8ED0063AF98 /* CryptoDetailVM.swift */; };
@@ -135,6 +136,7 @@
 		2C63C40427BFFA3B00339740 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2C63C40527BFFA3B00339740 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2C715F6227C25110001AFC00 /* testCase1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testCase1.swift; sourceTree = "<group>"; };
+		2C715F8627C27C7A001AFC00 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		2C7FA29227C15F19000141C1 /* SearchCryptoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCryptoUseCase.swift; sourceTree = "<group>"; };
 		2C93A99427C1C8DD0063AF98 /* CryptoDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVC.swift; sourceTree = "<group>"; };
 		2C93A99627C1C8ED0063AF98 /* CryptoDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVM.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				2C63C3E927BFE6AE00339740 /* CKLog.swift */,
 				2C63C3F127BFEDBF00339740 /* PresenterManager.swift */,
 				2C63C3F527BFEF0000339740 /* Helpers.swift */,
+				2C715F8627C27C7A001AFC00 /* Debouncer.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				2C63C3E127BFE34500339740 /* SafeArray.swift in Sources */,
 				2C63C3F627BFEF0000339740 /* Helpers.swift in Sources */,
 				2C7FA29327C15F19000141C1 /* SearchCryptoUseCase.swift in Sources */,
+				2C715F8727C27C7A001AFC00 /* Debouncer.swift in Sources */,
 				2C93A99927C1CA1C0063AF98 /* FetchCryptoDetailUseCase.swift in Sources */,
 				2C93A99527C1C8DD0063AF98 /* CryptoDetailVC.swift in Sources */,
 				2C63C3A327BFE02500339740 /* SceneDelegate.swift in Sources */,
