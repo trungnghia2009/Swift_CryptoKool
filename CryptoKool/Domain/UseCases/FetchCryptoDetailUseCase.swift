@@ -8,7 +8,7 @@
 import Foundation
 import ReactiveSwift
 
-class FetchCryptoDetailUseCase: CryptoUseCaseWithParam {
+final class FetchCryptoDetailUseCase: CryptoUseCaseWithParam {
     typealias Param = String
     typealias ReturnValue = CryptoDetailEntity
     private let service: CryptoServiceInterface

@@ -13,7 +13,6 @@ enum CoinGeckoServiceError: Error {
     case statusCodeError
     case dataError
     case decodingError
-    case urlSessionError(String)
 }
 
 final class CoinGeckoService: CoinGeckoInterface {

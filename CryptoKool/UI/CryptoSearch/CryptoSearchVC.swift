@@ -43,7 +43,7 @@ final class CryptoSearchVC: UITableViewController {
     
     // MARK: - Helpers
     private func setupObserver() {
-        viewModel.searchList.signal.observe { [weak self] _ in
+        viewModel.state.signal.observe { [weak self] _ in
             CKLog.info(message: "Reload data...")
             self?.tableView.reloadData()
         }
@@ -73,9 +73,8 @@ final class CryptoSearchVC: UITableViewController {
     }
     
     private func callSearchAPI() {
-        guard !textFieldValue.isEmpty else { return }
         CKLog.info(message: "Search value: \(textFieldValue)")
-        viewModel.searchMovies(searchKey: textFieldValue)
+        viewModel.searchCrypto(searchKey: textFieldValue)
     }
     
     // MARK: - Selectors
@@ -86,11 +85,10 @@ final class CryptoSearchVC: UITableViewController {
 extension CryptoSearchVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel.numberOfRowsInSection(section) == 0 {
-            tableView.setEmptyMessage(message: viewModel.setTextResult(), size: 20)
+            tableView.setEmptyMessage(message: viewModel.getState().rawValue, size: 20)
         } else {
             tableView.restore()
         }
-        
         return viewModel.numberOfRowsInSection(section)
     }
     
@@ -129,14 +127,6 @@ extension CryptoSearchVC: UISearchControllerDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         textFieldValue = searchText
-        if searchText.count == 1 {
-            viewModel.setState(state: .loading)
-            tableView.reloadData()
-        }
-        if searchText.isEmpty {
-            viewModel.setState(state: .begin)
-            viewModel.searchList.value.removeAll()
-        }
     }
 }
 

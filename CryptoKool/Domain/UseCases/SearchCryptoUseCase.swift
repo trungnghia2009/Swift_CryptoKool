@@ -8,7 +8,7 @@
 import Foundation
 import ReactiveSwift
 
-class SearchCryptoUseCase: CryptoUseCaseWithParam {
+final class SearchCryptoUseCase: CryptoUseCaseWithParam {
     typealias Param = String
     typealias ReturnValue = [CryptoSearchEntity]
     private let service: CryptoServiceInterface
