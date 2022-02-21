@@ -65,7 +65,6 @@ class MockCongeckoAPI_Success: CoinGeckoInterface {
                 observer.send(error: CoinGeckoServiceError.decodingError)
                 observer.sendCompleted()
             }
-            
         }
     }
     
