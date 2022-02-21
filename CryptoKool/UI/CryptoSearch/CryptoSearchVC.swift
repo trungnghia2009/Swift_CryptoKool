@@ -11,7 +11,7 @@ import ReactiveSwift
 final class CryptoSearchVC: UITableViewController {
 
     // MARK: - Properties
-    private let viewModel = CryptoSearchVM(service: CrytoService(coinGeckoService: CoinGeckoService()), state: .begin)
+    private let viewModel = CryptoSearchVM(service: CrytoService(coinGeckoService: CoinGeckoService()))
     private let searchController = UISearchController()
     private var debouncer: Debouncer!
     private var textFieldValue = "" {
@@ -23,7 +23,9 @@ final class CryptoSearchVC: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        debouncer = Debouncer(delay: 0.5, callback: callSearchAPI)
+        debouncer = Debouncer(delay: 0.5) { [weak self] in
+            self?.callSearchAPI()
+        }
         setupNavigationBar()
         setupTableView()
         configureSearchController()

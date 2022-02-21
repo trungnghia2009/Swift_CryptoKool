@@ -17,12 +17,11 @@ enum SearchState {
 final class CryptoSearchVM {
     
     private let service: CryptoServiceInterface
-    private var state: SearchState
+    private var state: SearchState = .begin
     private(set) var searchList = MutableProperty<[CryptoSearchEntity]>([])
     
-    init(service: CryptoServiceInterface, state: SearchState) {
+    init(service: CryptoServiceInterface) {
         self.service = service
-        self.state = state
     }
     
     deinit {
