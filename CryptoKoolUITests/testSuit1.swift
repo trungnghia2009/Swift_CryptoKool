@@ -7,7 +7,7 @@
 
 import XCTest
 
-class testCase1: BaseTestCase {
+class TestSuit1: BaseTestCase {
 
     func testCase1_navigate_from_List_view_to_bitcoin_detail_view() throws {
         Logger.info(msg: "Start testCase1...")

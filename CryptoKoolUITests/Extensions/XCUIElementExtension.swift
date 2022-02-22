@@ -9,12 +9,12 @@ import Foundation
 
 import Foundation
 import XCTest
-class XCUIElementExtensions: XCTestCase {
+
+class XCUIElementExtensions {
   
   /**
    Wait for element appear. Loop: it will take the snapshot of accessibility hierarchy and check if the element appears.
    */
-  //MARK: iOS 11
   func waitForElementToAppear(seconds: Int, element: XCUIElement) -> Bool {
     Logger.info(msg: "Waiting for Element to appear...")
     let result = element.waitForExistence(timeout: TimeInterval(seconds))
@@ -24,7 +24,6 @@ class XCUIElementExtensions: XCTestCase {
   /**
    Wait for element disappear. Loop: it will take the snapshot of accessibility hierarchy and check if the element disappears.
    */
-  //MARK: iOS 11
   func waitForElementToDisppear(seconds: Int, element: XCUIElement) -> Bool {
     Logger.info(msg: "Waiting for Element to disappear...")
     
