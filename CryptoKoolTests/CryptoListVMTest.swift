@@ -11,29 +11,44 @@ import XCTest
 class CryptoListVMTest: XCTestCase {
 
     func test_fetch_data_successfully() throws {
-        let sut = CryptoListVM(service: CrytoService(coinGeckoService: MockCongeckoAPI_Success()))
+        let service: CryptoServiceInterface = CryptoService(coinGeckoService: MockCongeckoAPI_Success1())
+        let sut = CryptoListVM(service: service)
 
-        XCTAssertTrue(sut.numberOfRowsInSection(0) == 0)
-        sut.fetchCryptoList(amount: 100)
-        XCTAssertTrue(sut.numberOfRowsInSection(0) == 100)
+        XCTAssertEqual(sut.numberOfRowsInSection(0), 0)
+        sut.fetchCryptoList()
+        XCTAssertEqual(sut.numberOfRowsInSection(0), 100)
         let cryptoList = sut.cryptoList.value
         for i in 0..<cryptoList.count {
-            XCTAssertTrue(sut.cryptoAtIndex(i) == cryptoList[i])
+            XCTAssertEqual(sut.cryptoAtIndex(i), cryptoList[i])
         }
         
         let cell = CryptoListCell()
         for i in 0..<cryptoList.count {
             let cryptoListCellVM = CryptoListCellVM(crpto: cryptoList[i])
             cell.viewModel = cryptoListCellVM
+            
+            // Test CryptoDetailVM
+            let cryptoDetailEntity = cryptoList[i].mapToDetailEntity()
+            let cryptoDetailVM = CryptoDetailVM(service: service, entity: cryptoDetailEntity)
+            
+            XCTAssertEqual(cryptoDetailVM.getSymbol(), "\(cryptoDetailEntity.symbol.uppercased())/USD")
+            XCTAssertEqual(cryptoDetailVM.imageURL, nil)
+            XCTAssertEqual(cryptoDetailVM.checkPrice, .zero)
+            XCTAssertEqual(cryptoDetailVM.currentPrice, "$0.00")
+            XCTAssertEqual(cryptoDetailVM.priceChangePercentage24h, "0.00")
+            XCTAssertEqual(cryptoDetailVM.rank, "Rank: N/A")
+            XCTAssertEqual(cryptoDetailVM.homepageLink, "N/A")
+            XCTAssertEqual(cryptoDetailVM.high24h, "0.00")
+            XCTAssertEqual(cryptoDetailVM.low24h, "0.00")
         }
     }
     
     func test_fetch_data_failed() throws {
-        let sut = CryptoListVM(service: CrytoService(coinGeckoService: MockCongeckoAPI_Fail()))
+        let sut = CryptoListVM(service: CryptoService(coinGeckoService: MockCongeckoAPI_Fail()))
 
-        XCTAssertTrue(sut.numberOfRowsInSection(0) == 0)
-        sut.fetchCryptoList(amount: 100)
-        XCTAssertTrue(sut.numberOfRowsInSection(0) == 0)
+        XCTAssertEqual(sut.numberOfRowsInSection(0), 0)
+        sut.fetchCryptoList()
+        XCTAssertEqual(sut.numberOfRowsInSection(0), 0)
         
     }
 

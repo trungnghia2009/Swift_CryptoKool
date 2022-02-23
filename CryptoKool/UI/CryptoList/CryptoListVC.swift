@@ -10,7 +10,7 @@ import UIKit
 final class CryptoListVC: UITableViewController {
     
     // MARK: Properties
-    private let cryptoService =  CrytoService(coinGeckoService: CoinGeckoService())
+    private let cryptoService =  CryptoService(coinGeckoService: CoinGeckoService())
     private var viewModel: CryptoListVM?
     private var timer: Timer?
     private let fetchCycle: Double = 30

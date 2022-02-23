@@ -14,7 +14,7 @@ protocol CryptoServiceInterface: AnyObject {
     func searchCrypto(keyword: String) -> SignalProducer<[CryptoSearchEntity], Error>
 }
 
-final class CrytoService: CryptoServiceInterface {
+final class CryptoService: CryptoServiceInterface {
 
     var coinGeckoService: CoinGeckoInterface
     

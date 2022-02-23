@@ -44,6 +44,7 @@ final class CryptoDetailVM {
     }
     
     private func parsePrice(price: Double) -> String {
+        CKLog.info(message: "Price is :\(price)")
         if price < 0.0099 {
             return "$\(String(format: "%.8f", price))"
         } else if price < 100000 {

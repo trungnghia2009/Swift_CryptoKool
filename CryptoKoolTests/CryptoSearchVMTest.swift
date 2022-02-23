@@ -11,7 +11,9 @@ import XCTest
 class CryptoSearchVMTest: XCTestCase {
 
     func test_search_successfully_then_delete_keyword() throws {
-        let sut = CryptoSearchVM(service: CrytoService(coinGeckoService: MockCongeckoAPI_Success()))
+        let service: CryptoServiceInterface = CryptoService(coinGeckoService: MockCongeckoAPI_Success1())
+        let sut = CryptoSearchVM(service: service)
+        
         XCTAssertTrue(sut.numberOfRowsInSection(0) == 0)
         XCTAssertTrue(sut.getState() == .begin)
         
@@ -30,6 +32,19 @@ class CryptoSearchVMTest: XCTestCase {
         for i in 0..<searchList.count {
             let cryptoSearchCellVM = CryptoSearchCellVM(crpto: searchList[i])
             cell.viewModel = cryptoSearchCellVM
+            
+            // Test CryptoDetailVM
+            let cryptoDetailEntity = searchList[i].mapToDetailEntity()
+            let cryptoDetailVM = CryptoDetailVM(service: sut.getService(), entity: cryptoDetailEntity)
+            XCTAssertEqual(cryptoDetailVM.getSymbol(), "\(cryptoDetailEntity.symbol.uppercased())/USD")
+            XCTAssertEqual(cryptoDetailVM.imageURL, nil)
+            XCTAssertEqual(cryptoDetailVM.checkPrice, .zero)
+            XCTAssertEqual(cryptoDetailVM.currentPrice, "$0.00")
+            XCTAssertEqual(cryptoDetailVM.priceChangePercentage24h, "0.00")
+            XCTAssertEqual(cryptoDetailVM.rank, "Rank: N/A")
+            XCTAssertEqual(cryptoDetailVM.homepageLink, "N/A")
+            XCTAssertEqual(cryptoDetailVM.high24h, "0.00")
+            XCTAssertEqual(cryptoDetailVM.low24h, "0.00")
         }
         
         sut.searchCrypto(searchKey: "")
@@ -38,7 +53,7 @@ class CryptoSearchVMTest: XCTestCase {
     }
     
     func test_search_with_no_data() throws {
-        let sut = CryptoSearchVM(service: CrytoService(coinGeckoService: MockCongeckoAPI_NoData()))
+        let sut = CryptoSearchVM(service: CryptoService(coinGeckoService: MockCongeckoAPI_NoData()))
         XCTAssertTrue(sut.numberOfRowsInSection(0) == 0)
         XCTAssertTrue(sut.getState() == .begin)
         sut.searchCrypto(searchKey: "xxxxxx")
@@ -46,7 +61,7 @@ class CryptoSearchVMTest: XCTestCase {
     }
     
     func test_search_data_failed() throws {
-        let sut = CryptoSearchVM(service: CrytoService(coinGeckoService: MockCongeckoAPI_Fail()))
+        let sut = CryptoSearchVM(service: CryptoService(coinGeckoService: MockCongeckoAPI_Fail()))
         XCTAssertTrue(sut.numberOfRowsInSection(0) == 0)
         XCTAssertTrue(sut.getState() == .begin)
         sut.searchCrypto(searchKey: "fail for sure")
