@@ -57,6 +57,10 @@ final class CryptoSearchVM {
         
     }
     
+    func getService() -> CryptoServiceInterface {
+        return service
+    }
+    
     func numberOfRowsInSection(_ section: Int) -> Int {
         let numberOfRows = searchList.count
         return numberOfRows

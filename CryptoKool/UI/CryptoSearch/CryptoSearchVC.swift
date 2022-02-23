@@ -11,7 +11,7 @@ import ReactiveSwift
 final class CryptoSearchVC: UITableViewController {
 
     // MARK: - Properties
-    private let viewModel = CryptoSearchVM(service: CrytoService(coinGeckoService: CoinGeckoService()))
+    private let viewModel: CryptoSearchVM
     private let searchController = UISearchController()
     private var debouncer: Debouncer!
     private var textFieldValue = "" {
@@ -21,6 +21,15 @@ final class CryptoSearchVC: UITableViewController {
     }
     
     // MARK: - Lifecycle
+    init(viewModel: CryptoSearchVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         debouncer = Debouncer(delay: 0.5) { [weak self] in
@@ -93,7 +102,8 @@ extension CryptoSearchVC {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoSearchCell.reuseIdentifier, for: indexPath) as? CryptoSearchCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoSearchCell.reuseIdentifier, for: indexPath) as? CryptoSearchCell
+        else {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
@@ -113,8 +123,10 @@ extension CryptoSearchVC {
         guard let controller = storyboard.instantiateViewController(withIdentifier: "CryptoDetailVC") as? CryptoDetailVC else {
             return
         }
-        controller.id = selectedItem.id
-        controller.symbol = selectedItem.symbol
+        
+        let cryptoDetailEntity = selectedItem.mapToDetailEntity()
+        let cryptoDetailVM = CryptoDetailVM(service: viewModel.getService(), entity: cryptoDetailEntity)
+        controller.viewModel = cryptoDetailVM
         navigationController?.pushViewController(controller, animated: true)
     }
 }

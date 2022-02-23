@@ -13,4 +13,19 @@ struct CryptoSearchEntity: Equatable {
     let name: String
     let rank: Int?
     let imageURL: String?
+    
+    func mapToDetailEntity() -> CryptoDetailEntity {
+        let cryptoDetailEntity = CryptoDetailEntity(id: self.id,
+                                                    symbol: self.symbol,
+                                                    name: self.name,
+                                                    imageURL: nil,
+                                                    homePage: [String](),
+                                                    currentPrice: nil,
+                                                    priceChangePercentage24h: nil,
+                                                    rank: self.rank,
+                                                    high24h: nil,
+                                                    low24h: nil,
+                                                    marketCap: nil)
+        return cryptoDetailEntity
+    }
 }

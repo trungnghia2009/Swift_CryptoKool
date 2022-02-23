@@ -18,18 +18,15 @@ final class CryptoDetailVC: UIViewController {
     @IBOutlet weak var low24hLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     
-    
-    private let viewModel = CryptoDetailVM(service: CrytoService(coinGeckoService: CoinGeckoService()))
     private var timer: Timer?
     private let fetchCycle: Double = 30
-    var id: String!
-    var symbol: String!
+    var viewModel: CryptoDetailVM?
     
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchCryptoDetail(id: id)
-        navigationItem.title = "\(symbol.uppercased())" + "/USD"
+        viewModel?.fetchCryptoDetail()
+        navigationItem.title = viewModel?.getSymbol()
         setupObserver()
         timer = Timer.scheduledTimer(timeInterval: fetchCycle, target: self, selector: #selector(callFetchData), userInfo: nil, repeats: true)
     }
@@ -45,7 +42,7 @@ final class CryptoDetailVC: UIViewController {
     }
     
     private func setupObserver() {
-        viewModel.cryptoDetail.signal.observe { [weak self] _ in
+        viewModel?.cryptoDetail.signal.observe { [weak self] _ in
             self?.setupUI()
         }
     }
@@ -53,6 +50,10 @@ final class CryptoDetailVC: UIViewController {
     
     // MARK: Helpers
     private func setupUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
         if let imageURL = viewModel.imageURL,
            let url = URL(string: imageURL) {
             imageView.backgroundColor = .tertiarySystemGroupedBackground
@@ -89,7 +90,7 @@ final class CryptoDetailVC: UIViewController {
     // MARK: Selectors
     @objc private func callFetchData() {
         CKLog.info(message: "Fetching crpto detail again...")
-        viewModel.fetchCryptoDetail(id: id)
+        viewModel?.fetchCryptoDetail()
     }
 
 }

@@ -365,7 +365,6 @@
 				2C711E2A27C3CBD200C68CA8 /* Extensions */,
 				2C711E3327C3CD7F00C68CA8 /* TestPOM */,
 				2C711E3227C3CD7100C68CA8 /* TestSuites */,
-				2C715F6227C25110001AFC00 /* testSuit1.swift */,
 			);
 			path = CryptoKoolUITests;
 			sourceTree = "<group>";
@@ -539,6 +538,7 @@
 		2C711E3227C3CD7100C68CA8 /* TestSuites */ = {
 			isa = PBXGroup;
 			children = (
+				2C715F6227C25110001AFC00 /* testSuit1.swift */,
 			);
 			path = TestSuites;
 			sourceTree = "<group>";

@@ -100,7 +100,6 @@ final class CryptoListCell: UITableViewCell {
         }
         cryptoPriceChangePercentage24hLabel.text = viewModel.priceChangePercentage24h
         
-        
         if let imageURL = viewModel.imageURL,
            let url = URL(string: imageURL) {
             cryptoImageView.backgroundColor = .tertiarySystemGroupedBackground

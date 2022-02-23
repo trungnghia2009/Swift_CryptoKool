@@ -29,9 +29,9 @@ final class CryptoListVM {
         return cryptoList.value[index]
     }
     
-    func fetchCryptoList(amount: Int) {
+    func fetchCryptoList() {
         let useCase = FetchCryptoList(service: service)
-        useCase.execute(param: amount)
+        useCase.execute(param: 100)
             .observe(on: UIScheduler())
             .startWithResult({ [weak self] result in
                 switch result {

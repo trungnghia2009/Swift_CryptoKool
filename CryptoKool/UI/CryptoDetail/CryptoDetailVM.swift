@@ -11,19 +11,22 @@ import ReactiveSwift
 final class CryptoDetailVM {
     
     private let service: CryptoServiceInterface
+    private let entity: CryptoDetailEntity
+    
     private(set) var cryptoDetail = MutableProperty<CryptoDetailEntity?>(nil)
     
-    init(service: CryptoServiceInterface) {
+    init(service: CryptoServiceInterface, entity: CryptoDetailEntity) {
         self.service = service
+        self.entity = entity
     }
     
     deinit {
         CKLog.info(message: "Deinit CryptoDetailVM...")
     }
     
-    func fetchCryptoDetail(id: String) {
+    func fetchCryptoDetail() {
         let useCase = FetchCryptoDetailUseCase(service: service)
-        useCase.execute(param: id)
+        useCase.execute(param: entity.id)
             .observe(on: UIScheduler())
             .startWithResult { [weak self] result in
                 switch result {
@@ -34,6 +37,10 @@ final class CryptoDetailVM {
                     CKLog.error(message: "Got error: \(error)")
                 }
             }
+    }
+    
+    func getSymbol() -> String {
+        return "\(entity.symbol.uppercased())/USD"
     }
     
     private func parsePrice(price: Double) -> String {
