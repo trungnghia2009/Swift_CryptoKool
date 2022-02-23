@@ -47,7 +47,6 @@ final class CryptoDetailVC: UIViewController {
         }
     }
     
-    
     // MARK: Helpers
     private func setupUI() {
         guard let viewModel = viewModel else {
@@ -92,7 +91,6 @@ final class CryptoDetailVC: UIViewController {
         CKLog.info(message: "Fetching crpto detail again...")
         viewModel?.fetchCryptoDetail()
     }
-
 }
 
 private extension NSAttributedString {

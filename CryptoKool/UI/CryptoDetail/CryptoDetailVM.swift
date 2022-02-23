@@ -47,11 +47,11 @@ final class CryptoDetailVM {
         CKLog.info(message: "Price is :\(price)")
         if price < 0.0099 {
             return "$\(String(format: "%.8f", price))"
-        } else if price < 100000 {
-            return "$\(String(format: "%.2f", price))"
-        } else {
-            return "$\(String(format: "%.0f", price))"
         }
+        if price < 100000 {
+            return "$\(String(format: "%.2f", price))"
+        }
+        return "$\(String(format: "%.0f", price))"
     }
     
     var imageURL: String? {
@@ -78,9 +78,9 @@ final class CryptoDetailVM {
         }
         if price > 0 {
             return "+\(String(format: "%.2f", price))" + "%"
-        } else {
-            return "\(String(format: "%.2f", price))" + "%"
         }
+        return "\(String(format: "%.2f", price))" + "%"
+        
     }
     
     var rank: String {
@@ -112,6 +112,4 @@ final class CryptoDetailVM {
         }
         return parsePrice(price: price)
     }
-    
 }
-

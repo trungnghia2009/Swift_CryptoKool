@@ -47,24 +47,24 @@ final class CryptoListCellVM {
         guard let price = crypto.currentPrice else {
             return "$0.00"
         }
+        
         if price < 0.0099 {
             return "$\(String(format: "%.8f", price))"
         }
         if price < 100000 {
             return "$\(String(format: "%.2f", price))"
-        } else {
-            return "$\(String(format: "%.0f", price))"
         }
+        return "$\(String(format: "%.0f", price))"
     }
     
     var priceChangePercentage24h: String {
         guard let price = crypto.priceChangePercentage24h else {
             return "0.00"
         }
+        
         if price > 0 {
             return "+\(String(format: "%.2f", price))" + "%"
-        } else {
-            return "\(String(format: "%.2f", price))" + "%"
         }
+        return "\(String(format: "%.2f", price))" + "%"
     }
 }

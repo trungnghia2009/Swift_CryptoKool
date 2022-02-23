@@ -54,7 +54,6 @@ final class CryptoSearchVM {
                     CKLog.error(message: error.localizedDescription)
                 }
             })
-        
     }
     
     func getService() -> CryptoServiceInterface {
@@ -73,6 +72,4 @@ final class CryptoSearchVM {
     func getState() -> SearchState {
         return state.value
     }
-    
-    
 }

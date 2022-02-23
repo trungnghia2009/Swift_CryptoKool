@@ -85,9 +85,6 @@ final class CryptoSearchVC: UITableViewController {
         CKLog.info(message: "Search value: \(textFieldValue)")
         viewModel.searchCrypto(searchKey: textFieldValue)
     }
-    
-    // MARK: - Selectors
-    
 }
 
 // MARK: - UITableViewDataSource

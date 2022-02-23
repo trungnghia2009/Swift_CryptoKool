@@ -187,5 +187,4 @@ final class CoinGeckoService: CoinGeckoInterface {
             }.resume()
         }
     }
-    
 }

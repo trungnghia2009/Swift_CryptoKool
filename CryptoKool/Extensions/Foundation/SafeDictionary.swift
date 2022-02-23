@@ -23,7 +23,6 @@ class SafeDictionary<K: Hashable, V> {
             concurrentQueue.async(flags: .barrier) { [weak self] in
                 self?.dict[key] = newValue
             }
-            
         }
     }
     
