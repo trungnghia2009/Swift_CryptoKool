@@ -106,7 +106,7 @@ extension CryptoSearchVC {
         cell.accessoryType = .disclosureIndicator
         
         let cryptoSearchEntity = viewModel.cryptoAtIndex(indexPath.row)
-        cell.viewModel = CryptoSearchCellVM(crpto: cryptoSearchEntity)
+        cell.viewModel = CryptoSearchCellVM(crypto: cryptoSearchEntity)
         return cell
     }
 }

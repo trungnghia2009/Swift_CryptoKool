@@ -17,8 +17,8 @@ final class CryptoListCellVM {
     
     private let crypto: CryptoEntity
     
-    init(crpto: CryptoEntity) {
-        self.crypto = crpto
+    init(crypto: CryptoEntity) {
+        self.crypto = crypto
     }
     
     var cryptoName: String {

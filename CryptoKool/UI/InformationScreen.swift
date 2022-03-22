@@ -1,5 +1,5 @@
 //
-//  InfomationScreen.swift
+//  InformationScreen.swift
 //  CryptoKool
 //
 //  Created by trungnghia on 19/02/2022.
@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-final class InfomationScreen: UIViewController {
+final class InformationScreen: UIViewController {
 
     // MARK: Properties
     private let waitingAnimationView = AnimationView(animation: Animation.named("cryptocurrency"))

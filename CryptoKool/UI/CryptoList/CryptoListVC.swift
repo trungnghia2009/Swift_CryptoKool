@@ -134,7 +134,7 @@ final class CryptoListVC: UITableViewController {
     // MARK: Selectors
     @objc private func didTapRightBarButton() {
         CKLog.info(message: "Did tap right bar button")
-        navigationController?.pushViewController(InfomationScreen(), animated: true)
+        navigationController?.pushViewController(InformationScreen(), animated: true)
     }
     
     @objc private func didTapLeftBarButton() {
@@ -168,8 +168,8 @@ extension CryptoListVC {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
-        let crytoEntity = viewModel.cryptoAtIndex(indexPath.row)
-        cell.viewModel = CryptoListCellVM(crpto: crytoEntity)
+        let cryptoEntity = viewModel.cryptoAtIndex(indexPath.row)
+        cell.viewModel = CryptoListCellVM(crypto: cryptoEntity)
         return cell
     }
 }

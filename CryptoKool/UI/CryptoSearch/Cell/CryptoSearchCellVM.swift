@@ -11,8 +11,8 @@ final class CryptoSearchCellVM {
     
     private let crypto: CryptoSearchEntity
     
-    init(crpto: CryptoSearchEntity) {
-        self.crypto = crpto
+    init(crypto: CryptoSearchEntity) {
+        self.crypto = crypto
     }
     
     var cryptoName: String {

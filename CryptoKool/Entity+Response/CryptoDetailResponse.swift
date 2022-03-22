@@ -13,7 +13,7 @@ struct CryptoDetailResponse: Decodable {
     let name: String
     let imageURL: Image
     let links: Links
-    let marketData: MarketData // for geting price
+    let marketData: MarketData // for getting price
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

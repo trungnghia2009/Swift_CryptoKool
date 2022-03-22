@@ -43,7 +43,7 @@ final class CryptoListCell: UITableViewCell {
         return label
     }()
     
-    private let cryptoCurentPriceLabel: UILabel = {
+    private let cryptoCurrentPriceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
         return label
@@ -70,7 +70,7 @@ final class CryptoListCell: UITableViewCell {
         nameStack.centerY(inView: self, left: cryptoImageView.rightAnchor, paddingLeft: 12)
         nameStack.anchor(right: self.rightAnchor, paddingRight: 90)
         
-        let priceStack = UIStackView(arrangedSubviews: [cryptoCurentPriceLabel, cryptoPriceChangePercentage24hLabel])
+        let priceStack = UIStackView(arrangedSubviews: [cryptoCurrentPriceLabel, cryptoPriceChangePercentage24hLabel])
         priceStack.axis = .vertical
         priceStack.spacing = 5
         priceStack.alignment = .trailing
@@ -87,7 +87,7 @@ final class CryptoListCell: UITableViewCell {
     private func setup() {
         guard let viewModel = viewModel else { return }
         cryptoNameLabel.text = viewModel.cryptoName
-        cryptoCurentPriceLabel.text = viewModel.currentPrice
+        cryptoCurrentPriceLabel.text = viewModel.currentPrice
         cryptoRankLabel.text = viewModel.rank
         
         switch viewModel.checkPrice {

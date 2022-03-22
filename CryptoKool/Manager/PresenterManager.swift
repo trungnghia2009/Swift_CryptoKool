@@ -16,6 +16,7 @@ final class PresenterManager {
     enum VC {
         case firstScreen
         case cryptoListScreen
+        case informationScreen
     }
     
     func show(vc: VC) {
@@ -26,7 +27,8 @@ final class PresenterManager {
             viewController = FirstScreen()
         case .cryptoListScreen:
             viewController = UINavigationController(rootViewController: CryptoListVC())
- 
+        case .informationScreen:
+            viewController = UINavigationController(rootViewController: InformationScreen())
         }
         
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,

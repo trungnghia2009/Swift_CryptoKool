@@ -24,7 +24,7 @@ class CryptoListVMTest: XCTestCase {
         
         let cell = CryptoListCell()
         for i in 0..<cryptoList.count {
-            let cryptoListCellVM = CryptoListCellVM(crpto: cryptoList[i])
+            let cryptoListCellVM = CryptoListCellVM(crypto: cryptoList[i])
             cell.viewModel = cryptoListCellVM
             
             // Test CryptoDetailVM

@@ -88,7 +88,7 @@ final class CryptoDetailVC: UIViewController {
     
     // MARK: Selectors
     @objc private func callFetchData() {
-        CKLog.info(message: "Fetching crpto detail again...")
+        CKLog.info(message: "Fetching crypto detail again...")
         viewModel?.fetchCryptoDetail()
     }
 }

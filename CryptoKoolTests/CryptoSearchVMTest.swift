@@ -30,7 +30,7 @@ class CryptoSearchVMTest: XCTestCase {
         
         let cell = CryptoSearchCell()
         for i in 0..<searchList.count {
-            let cryptoSearchCellVM = CryptoSearchCellVM(crpto: searchList[i])
+            let cryptoSearchCellVM = CryptoSearchCellVM(crypto: searchList[i])
             cell.viewModel = cryptoSearchCellVM
             
             // Test CryptoDetailVM

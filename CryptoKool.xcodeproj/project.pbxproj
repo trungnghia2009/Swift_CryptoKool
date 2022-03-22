@@ -15,6 +15,8 @@
 		07671F5227C3598400AC5C2C /* MockCoinGeckoAPI+Fail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07671F5127C3598400AC5C2C /* MockCoinGeckoAPI+Fail.swift */; };
 		07671F5427C35FE100AC5C2C /* CryptoSearchVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07671F5327C35FE100AC5C2C /* CryptoSearchVMTest.swift */; };
 		079032E427C398A700354A98 /* CryptoDetailVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079032E327C398A700354A98 /* CryptoDetailVMTest.swift */; };
+		0794161127E9A0B000C08793 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794161027E9A0B000C08793 /* DeepLink.swift */; };
+		07A2109827D9E60A0050BCA4 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 07A2109727D9E60A0050BCA4 /* Algorithms */; };
 		2C578A6227C679E700FDCEE4 /* cryptoDetail2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C578A6027C679E700FDCEE4 /* cryptoDetail2.json */; };
 		2C578A6327C679E700FDCEE4 /* cryptoDetail3.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C578A6127C679E700FDCEE4 /* cryptoDetail3.json */; };
 		2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DB027C0727F006B439D /* CryptoService.swift */; };
@@ -27,7 +29,7 @@
 		2C5B5DC027C099F4006B439D /* CryptoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DBF27C099F4006B439D /* CryptoListVC.swift */; };
 		2C5B5DC227C09A2F006B439D /* CryptoListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DC127C09A2F006B439D /* CryptoListVM.swift */; };
 		2C5B5DC427C09A68006B439D /* CryptoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DC327C09A68006B439D /* CryptoListCell.swift */; };
-		2C5B5DC727C0A80A006B439D /* InfomationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DC627C0A80A006B439D /* InfomationScreen.swift */; };
+		2C5B5DC727C0A80A006B439D /* InformationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DC627C0A80A006B439D /* InformationScreen.swift */; };
 		2C5B5DCB27C0DE5C006B439D /* cryptocurrency.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C5B5DCA27C0DE5C006B439D /* cryptocurrency.json */; };
 		2C5B5DCD27C0E85D006B439D /* QueryLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DCC27C0E85D006B439D /* QueryLink.swift */; };
 		2C5B5DCF27C0EA6D006B439D /* CryptoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DCE27C0EA6D006B439D /* CryptoResponse.swift */; };
@@ -109,6 +111,8 @@
 		07671F5127C3598400AC5C2C /* MockCoinGeckoAPI+Fail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockCoinGeckoAPI+Fail.swift"; sourceTree = "<group>"; };
 		07671F5327C35FE100AC5C2C /* CryptoSearchVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoSearchVMTest.swift; sourceTree = "<group>"; };
 		079032E327C398A700354A98 /* CryptoDetailVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVMTest.swift; sourceTree = "<group>"; };
+		0794161027E9A0B000C08793 /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
+		07A2109927D9E6240050BCA4 /* MyTesting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyTesting.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		15B5639B9870F2754ADF7224 /* Pods-CryptoKoolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKoolTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoKoolTests/Pods-CryptoKoolTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C578A6027C679E700FDCEE4 /* cryptoDetail2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cryptoDetail2.json; sourceTree = "<group>"; };
 		2C578A6127C679E700FDCEE4 /* cryptoDetail3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cryptoDetail3.json; sourceTree = "<group>"; };
@@ -122,7 +126,7 @@
 		2C5B5DBF27C099F4006B439D /* CryptoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListVC.swift; sourceTree = "<group>"; };
 		2C5B5DC127C09A2F006B439D /* CryptoListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListVM.swift; sourceTree = "<group>"; };
 		2C5B5DC327C09A68006B439D /* CryptoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListCell.swift; sourceTree = "<group>"; };
-		2C5B5DC627C0A80A006B439D /* InfomationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfomationScreen.swift; sourceTree = "<group>"; };
+		2C5B5DC627C0A80A006B439D /* InformationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationScreen.swift; sourceTree = "<group>"; };
 		2C5B5DCA27C0DE5C006B439D /* cryptocurrency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cryptocurrency.json; sourceTree = "<group>"; };
 		2C5B5DCC27C0E85D006B439D /* QueryLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryLink.swift; sourceTree = "<group>"; };
 		2C5B5DCE27C0EA6D006B439D /* CryptoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoResponse.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A2109827D9E60A0050BCA4 /* Algorithms in Frameworks */,
 				FED1996D0F6C8895F84F6681 /* Pods_CryptoKool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +342,7 @@
 		2C63C39F27BFE02500339740 /* CryptoKool */ = {
 			isa = PBXGroup;
 			children = (
+				07A2109927D9E6240050BCA4 /* MyTesting.playground */,
 				2C63C3D527BFE15B00339740 /* Application */,
 				2C63C3D027BFE03C00339740 /* UI */,
 				2C63C3FD27BFF91100339740 /* Entity+Response */,
@@ -378,7 +384,7 @@
 		2C63C3D027BFE03C00339740 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2C5B5DC627C0A80A006B439D /* InfomationScreen.swift */,
+				2C5B5DC627C0A80A006B439D /* InformationScreen.swift */,
 				2C63C3E627BFE3CB00339740 /* FirstScreen.swift */,
 				2C5B5DA827C064C6006B439D /* CryptoList */,
 				2C5B5DAA27C064EC006B439D /* CryptoSearch */,
@@ -483,6 +489,7 @@
 				2C63C3F127BFEDBF00339740 /* PresenterManager.swift */,
 				2C63C3F527BFEF0000339740 /* Helpers.swift */,
 				2C715F8627C27C7A001AFC00 /* Debouncer.swift */,
+				0794161027E9A0B000C08793 /* DeepLink.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -602,6 +609,9 @@
 			dependencies = (
 			);
 			name = CryptoKool;
+			packageProductDependencies = (
+				07A2109727D9E60A0050BCA4 /* Algorithms */,
+			);
 			productName = CryptoKool;
 			productReference = 2C63C39D27BFE02500339740 /* CryptoKool.app */;
 			productType = "com.apple.product-type.application";
@@ -679,6 +689,9 @@
 				vi,
 			);
 			mainGroup = 2C63C39427BFE02500339740;
+			packageReferences = (
+				07A2109627D9E60A0050BCA4 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 2C63C39E27BFE02500339740 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -865,11 +878,12 @@
 				2C5B5DB727C074A1006B439D /* MockCoinGeckoService.swift in Sources */,
 				2C5B5DE427C13607006B439D /* CryptoSearchCellVM.swift in Sources */,
 				2C5B5DD227C0EABA006B439D /* CryptoSearchResponse.swift in Sources */,
-				2C5B5DC727C0A80A006B439D /* InfomationScreen.swift in Sources */,
+				2C5B5DC727C0A80A006B439D /* InformationScreen.swift in Sources */,
 				2C5B5DE227C135C6006B439D /* CryptoSearchCell.swift in Sources */,
 				2C63C3DF27BFE2EC00339740 /* UIViewController.swift in Sources */,
 				2C5B5DB527C0748F006B439D /* CoinGeckoService.swift in Sources */,
 				2C5B5DD827C0F09A006B439D /* FetchCryptoListUseCase.swift in Sources */,
+				0794161127E9A0B000C08793 /* DeepLink.swift in Sources */,
 				2C5B5DCD27C0E85D006B439D /* QueryLink.swift in Sources */,
 				2C63C3F427BFEEC200339740 /* ActionButton.swift in Sources */,
 				2C5B5DB927C0833D006B439D /* CryptoEntity.swift in Sources */,
@@ -1078,8 +1092,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1108,8 +1122,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1257,6 +1271,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		07A2109627D9E60A0050BCA4 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07A2109727D9E60A0050BCA4 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07A2109627D9E60A0050BCA4 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C63C39527BFE02500339740 /* Project object */;
 }

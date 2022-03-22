@@ -95,8 +95,8 @@ final class CryptoDetailVM {
             return "N/A"
         }
         
-        let finalhomePage = homepage.filter { !$0.isEmpty }
-        return finalhomePage.first ?? "N/A"
+        let finalHomePage = homepage.filter { !$0.isEmpty }
+        return finalHomePage.first ?? "N/A"
     }
     
     var high24h: String? {
