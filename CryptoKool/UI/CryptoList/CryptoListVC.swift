@@ -23,7 +23,7 @@ final class CryptoListVC: UITableViewController {
         button.setDimensions(width: 50, height: 50)
         button.layer.cornerRadius = 25
         button.addShadow()
-        button.addTarget(self, action: #selector(didTapSearchButton), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(didTapSearchButton), for: .touchUpInside)
         return button
     }()
     

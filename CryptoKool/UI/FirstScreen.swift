@@ -21,7 +21,7 @@ final class FirstScreen: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(didTapStartNowButton), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(didTapStartNowButton), for: .touchUpInside)
         return button
     }()
     
@@ -38,7 +38,7 @@ final class FirstScreen: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.textAlignment = .left
         label.textColor = .systemGray
-        label.text = "APIs was provided by"
+        label.text = "APIs provided by"
         return label
     }()
     
