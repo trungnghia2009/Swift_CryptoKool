@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class CryptoDetailVC: UIViewController {
     
@@ -20,6 +21,7 @@ final class CryptoDetailVC: UIViewController {
     
     private var timer: Timer?
     private let fetchCycle: Double = 30
+    private var subscriptions = [AnyCancellable]()
     var viewModel: CryptoDetailVM?
     
     // MARK: Lifecycle
@@ -42,9 +44,11 @@ final class CryptoDetailVC: UIViewController {
     }
     
     private func setupObserver() {
-        viewModel?.cryptoDetail.signal.observe { [weak self] _ in
-            self?.setupUI()
-        }
+        viewModel?.cryptoDetail
+            .dropFirst(1)
+            .sink(receiveValue: { [weak self] _ in
+                self?.setupUI()
+            }).store(in: &subscriptions)
     }
     
     // MARK: Helpers

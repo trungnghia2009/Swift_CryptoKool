@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
 final class SearchCryptoUseCase: CryptoUseCaseWithParam {
     typealias Param = String
@@ -17,7 +17,7 @@ final class SearchCryptoUseCase: CryptoUseCaseWithParam {
         self.service = service
     }
     
-    func execute(param: Param) -> SignalProducer<ReturnValue, Error> {
+    func execute(param: Param) -> AnyPublisher<ReturnValue, Error> {
         service.searchCrypto(keyword: param)
     }
 }

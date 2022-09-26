@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
 enum SearchState: String {
     case begin = "Please type your keyword."
@@ -19,8 +19,9 @@ enum SearchState: String {
 final class CryptoSearchVM {
     
     private let service: CryptoServiceInterface
-    private(set) var state = MutableProperty<SearchState>(.begin)
+    private(set) var state = CurrentValueSubject<SearchState, Never>(.begin)
     private(set) var searchList = [CryptoSearchEntity]()
+    private var subscriptions = Set<AnyCancellable>()
     
     init(service: CryptoServiceInterface) {
         self.service = service
@@ -33,27 +34,27 @@ final class CryptoSearchVM {
     func searchCrypto(searchKey: String) {
         if searchKey.isEmpty {
             searchList.removeAll()
-            state.value = .begin
+            state.send(.begin)
             return
         }
-        state.value = .loading
+        
+        state.send(.loading)
         let useCase = SearchCryptoUseCase(service: service)
         useCase.execute(param: searchKey)
-            .observe(on: UIScheduler())
-            .startWithResult({ [weak self] result in
-                switch result {
-                case .success(let list):
-                    CKLog.info(message: "Got list success... : \(list.count)")
-                    self?.searchList = list
-                    if list.count == 0 {
-                        self?.state.value = .noResult
-                    } else {
-                        self?.state.value = .done
-                    }
-                case .failure(let error):
-                    CKLog.error(message: error.localizedDescription)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    CKLog.error(message: "Retrieving data with error: \(error)")
                 }
-            })
+            } receiveValue: { [weak self] crytoList in
+                CKLog.info(message: "Got list success... : \(crytoList.count)")
+                self?.searchList = crytoList
+                if crytoList.count == 0 {
+                    self?.state.send(.noResult)
+                } else {
+                    self?.state.send(.done)
+                }
+            }.store(in: &subscriptions)
     }
     
     func getService() -> CryptoServiceInterface {

@@ -6,14 +6,15 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
 final class CryptoDetailVM {
     
     private let service: CryptoServiceInterface
     private let entity: CryptoDetailEntity
+    private var subscriptions = Set<AnyCancellable>()
     
-    private(set) var cryptoDetail = MutableProperty<CryptoDetailEntity?>(nil)
+    private(set) var cryptoDetail = CurrentValueSubject<CryptoDetailEntity?, Never>(nil)
     
     init(service: CryptoServiceInterface, entity: CryptoDetailEntity) {
         self.service = service
@@ -27,16 +28,15 @@ final class CryptoDetailVM {
     func fetchCryptoDetail() {
         let useCase = FetchCryptoDetailUseCase(service: service)
         useCase.execute(param: entity.id)
-            .observe(on: UIScheduler())
-            .startWithResult { [weak self] result in
-                switch result {
-                case .success(let detail):
-                    CKLog.info(message: "Got detail successfully: \(detail)")
-                    self?.cryptoDetail.value = detail
-                case .failure(let error):
-                    CKLog.error(message: "Got error: \(error)")
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    CKLog.error(message: "Retrieving data with error: \(error)")
                 }
-            }
+            } receiveValue: { [weak self] crypto in
+                CKLog.info(message: "Got detail successfully: \(crypto)")
+                self?.cryptoDetail.send(crypto)
+            }.store(in: &subscriptions)
     }
     
     func getSymbol() -> String {
@@ -87,7 +87,7 @@ final class CryptoDetailVM {
         guard let capRank = cryptoDetail.value?.rank else {
             return "Rank: N/A"
         }
-        return "Rank: \(String(capRank))"
+        return "Rank: #\(String(capRank))"
     }
     
     var homepageLink: String {

@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
-final class FetchCryptoList: CryptoUseCaseWithParam {
+final class FetchCryptoListUseCase: CryptoUseCaseWithParam {
     typealias Param = Int
     typealias ReturnValue = [CryptoEntity]
     private let service: CryptoServiceInterface
@@ -17,7 +17,7 @@ final class FetchCryptoList: CryptoUseCaseWithParam {
         self.service = service
     }
     
-    func execute(param: Param) -> SignalProducer<ReturnValue, Error> {
+    func execute(param: Param) -> AnyPublisher<ReturnValue, Error> {
         service.fetchCryptoList(amount: param)
     }
 }

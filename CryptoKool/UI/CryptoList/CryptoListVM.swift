@@ -6,14 +6,16 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
 final class CryptoListVM {
     
-    private let service: CryptoServiceInterface
-    private(set) var cryptoList = MutableProperty<[CryptoEntity]>([])
+    private(set) var service: CryptoServiceInterface
+    private(set) var cryptoList = CurrentValueSubject<[CryptoEntity], Never>([])
+    private var subscriptions = Set<AnyCancellable>()
+    private let amount = 100
     
-    init(service: CryptoServiceInterface) {
+    init(service: CryptoServiceInterface = CryptoService(coinGeckoService: CoinGeckoService())) {
         self.service = service
     }
     
@@ -30,17 +32,18 @@ final class CryptoListVM {
     }
     
     func fetchCryptoList() {
-        let useCase = FetchCryptoList(service: service)
-        useCase.execute(param: 100)
-            .observe(on: UIScheduler())
-            .startWithResult({ [weak self] result in
-                switch result {
-                case .success(let list):
-                    CKLog.info(message: "Got list success... : \(list.count)")
-                    self?.cryptoList.value = list
-                case .failure(let error):
-                    CKLog.error(message: error.localizedDescription)
-                }
-            })
+        let useCase = FetchCryptoListUseCase(service: service)
+        useCase.execute(param: amount)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { completion in
+                    if case .failure(let error) = completion {
+                        CKLog.error(message: "Retrieving data with error: \(error)")
+                    }
+                },
+                receiveValue: { [weak self] crytoList in
+                    self?.cryptoList.send(crytoList)
+                })
+            .store(in: &subscriptions)
     }
 }

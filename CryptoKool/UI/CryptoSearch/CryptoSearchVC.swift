@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import ReactiveSwift
+import Combine
 
 final class CryptoSearchVC: UITableViewController {
 
     // MARK: - Properties
     private let viewModel: CryptoSearchVM
+    private var subscriptions = [AnyCancellable]()
     private let searchController = UISearchController()
     private var debouncer: Debouncer!
     private var textFieldValue = "" {
@@ -52,10 +53,11 @@ final class CryptoSearchVC: UITableViewController {
     
     // MARK: - Helpers
     private func setupObserver() {
-        viewModel.state.signal.observe { [weak self] _ in
-            CKLog.info(message: "Reload data...")
-            self?.tableView.reloadData()
-        }
+        viewModel.state
+            .sink { [weak self] _ in
+                CKLog.info(message: "Reload data...")
+                self?.tableView.reloadData()
+            }.store(in: &subscriptions)
     }
     
     private func setupNavigationBar() {

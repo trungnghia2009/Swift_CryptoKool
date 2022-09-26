@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
 final class FetchCryptoDetailUseCase: CryptoUseCaseWithParam {
     typealias Param = String
@@ -17,7 +17,7 @@ final class FetchCryptoDetailUseCase: CryptoUseCaseWithParam {
         self.service = service
     }
     
-    func execute(param: Param) -> SignalProducer<CryptoDetailEntity, Error> {
+    func execute(param: Param) -> AnyPublisher<CryptoDetailEntity, Error> {
         service.fetchCryptoDetail(id: param)
     }
 }

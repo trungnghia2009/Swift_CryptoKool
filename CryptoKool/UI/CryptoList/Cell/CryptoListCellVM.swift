@@ -29,7 +29,7 @@ final class CryptoListCellVM {
         guard let capRank = crypto.rank else {
             return "Rank: N/A"
         }
-        return "Rank: \(String(capRank))"
+        return "Rank: #\(String(capRank))"
     }
     
     var imageURL: String? {

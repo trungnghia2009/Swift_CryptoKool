@@ -16,7 +16,6 @@
 		07671F5427C35FE100AC5C2C /* CryptoSearchVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07671F5327C35FE100AC5C2C /* CryptoSearchVMTest.swift */; };
 		079032E427C398A700354A98 /* CryptoDetailVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079032E327C398A700354A98 /* CryptoDetailVMTest.swift */; };
 		0794161127E9A0B000C08793 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0794161027E9A0B000C08793 /* DeepLink.swift */; };
-		07A2109827D9E60A0050BCA4 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 07A2109727D9E60A0050BCA4 /* Algorithms */; };
 		2C578A6227C679E700FDCEE4 /* cryptoDetail2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C578A6027C679E700FDCEE4 /* cryptoDetail2.json */; };
 		2C578A6327C679E700FDCEE4 /* cryptoDetail3.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C578A6127C679E700FDCEE4 /* cryptoDetail3.json */; };
 		2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B5DB027C0727F006B439D /* CryptoService.swift */; };
@@ -112,7 +111,6 @@
 		07671F5327C35FE100AC5C2C /* CryptoSearchVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoSearchVMTest.swift; sourceTree = "<group>"; };
 		079032E327C398A700354A98 /* CryptoDetailVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVMTest.swift; sourceTree = "<group>"; };
 		0794161027E9A0B000C08793 /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
-		07A2109927D9E6240050BCA4 /* MyTesting.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyTesting.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		15B5639B9870F2754ADF7224 /* Pods-CryptoKoolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKoolTests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoKoolTests/Pods-CryptoKoolTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C578A6027C679E700FDCEE4 /* cryptoDetail2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cryptoDetail2.json; sourceTree = "<group>"; };
 		2C578A6127C679E700FDCEE4 /* cryptoDetail3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cryptoDetail3.json; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07A2109827D9E60A0050BCA4 /* Algorithms in Frameworks */,
 				FED1996D0F6C8895F84F6681 /* Pods_CryptoKool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,7 +339,6 @@
 		2C63C39F27BFE02500339740 /* CryptoKool */ = {
 			isa = PBXGroup;
 			children = (
-				07A2109927D9E6240050BCA4 /* MyTesting.playground */,
 				2C63C3D527BFE15B00339740 /* Application */,
 				2C63C3D027BFE03C00339740 /* UI */,
 				2C63C3FD27BFF91100339740 /* Entity+Response */,
@@ -610,7 +606,6 @@
 			);
 			name = CryptoKool;
 			packageProductDependencies = (
-				07A2109727D9E60A0050BCA4 /* Algorithms */,
 			);
 			productName = CryptoKool;
 			productReference = 2C63C39D27BFE02500339740 /* CryptoKool.app */;
@@ -690,7 +685,6 @@
 			);
 			mainGroup = 2C63C39427BFE02500339740;
 			packageReferences = (
-				07A2109627D9E60A0050BCA4 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 2C63C39E27BFE02500339740 /* Products */;
 			projectDirPath = "";
@@ -1089,12 +1083,11 @@
 				DEVELOPMENT_TEAM = A6799ZJFEN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoKool/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1119,12 +1112,11 @@
 				DEVELOPMENT_TEAM = A6799ZJFEN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoKool/Resources/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1148,7 +1140,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A6799ZJFEN;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nghiahunter2020.com.CryptoKoolTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1169,7 +1161,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A6799ZJFEN;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nghiahunter2020.com.CryptoKoolTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1271,25 +1263,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		07A2109627D9E60A0050BCA4 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-algorithms.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		07A2109727D9E60A0050BCA4 /* Algorithms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 07A2109627D9E60A0050BCA4 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
-			productName = Algorithms;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C63C39527BFE02500339740 /* Project object */;
 }

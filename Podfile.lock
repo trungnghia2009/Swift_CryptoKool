@@ -1,26 +1,22 @@
 PODS:
   - lottie-ios (3.2.3)
-  - ReactiveSwift (6.6.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
 
 DEPENDENCIES:
   - lottie-ios
-  - ReactiveSwift (~> 6.1)
-  - SDWebImage (~> 5.0)
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - lottie-ios
-    - ReactiveSwift
     - SDWebImage
 
 SPEC CHECKSUMS:
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
-  ReactiveSwift: be9407e2aaf8a11e53a5229255693cffd9a63ccf
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 71dc87a4d88c3f6e2c2a003c96ac2e81e9006afa
+PODFILE CHECKSUM: 79dcd3bf897c89471d4ec1a3c608a8b59da2718e
 
 COCOAPODS: 1.11.3

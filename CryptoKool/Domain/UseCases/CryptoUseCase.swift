@@ -6,18 +6,18 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
 protocol CryptoUseCaseWithResult: AnyObject {
     associatedtype ReturnValue
-    func execute() -> SignalProducer<ReturnValue, Error>
+    func execute() -> AnyPublisher<ReturnValue, Error>
 }
 
 protocol CryptoUseCaseWithParam: AnyObject {
     associatedtype Param
     associatedtype ReturnValue
 
-    func execute(param: Param) -> SignalProducer<ReturnValue, Error>
+    func execute(param: Param) -> AnyPublisher<ReturnValue, Error>
 }
 
 protocol CryptoUseCaseWithoutResult {

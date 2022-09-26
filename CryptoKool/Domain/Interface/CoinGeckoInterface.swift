@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import ReactiveSwift
+import Combine
 
 protocol CoinGeckoInterface: AnyObject {
-    func fetchCryptoList(amount: Int) -> SignalProducer<[CryptoEntity], Error>
-    func fetchCryptoDetail(id: String) -> SignalProducer<CryptoDetailEntity, Error>
-    func searchCrypto(keyword: String) -> SignalProducer<[CryptoSearchEntity], Error>
+    func fetchCryptoList(amount: Int) -> AnyPublisher<[CryptoEntity], Error>
+    func fetchCryptoDetail(id: String) -> AnyPublisher<CryptoDetailEntity, Error>
+    func searchCrypto(keyword: String) -> AnyPublisher<[CryptoSearchEntity], Error>
 }

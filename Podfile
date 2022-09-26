@@ -6,8 +6,7 @@ target 'CryptoKool' do
   use_frameworks!
 
   # Pods for CryptoKool
-  pod 'ReactiveSwift', '~> 6.1'
-  pod 'SDWebImage', '~> 5.0'
+  pod 'SDWebImage'
   pod 'lottie-ios'
 
   target 'CryptoKoolTests' do

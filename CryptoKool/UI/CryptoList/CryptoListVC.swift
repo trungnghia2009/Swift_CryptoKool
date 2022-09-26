@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 final class CryptoListVC: UITableViewController {
     
     // MARK: Properties
-    private let cryptoService =  CryptoService(coinGeckoService: CoinGeckoService())
-    private var viewModel: CryptoListVM?
+    private var subscriptions = [AnyCancellable]()
+    private let viewModel = CryptoListVM()
     private var timer: Timer?
     private let fetchCycle: Double = 30
     
@@ -52,8 +53,7 @@ final class CryptoListVC: UITableViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CryptoListVM(service: cryptoService)
-        viewModel?.fetchCryptoList()
+        viewModel.fetchCryptoList()
         setupNavigationBar()
         setTableView()
         setupPullToRefresh()
@@ -109,13 +109,15 @@ final class CryptoListVC: UITableViewController {
     }
     
     private func setupObserver() {
-        viewModel?.cryptoList.signal.observe { [weak self] _ in
-            CKLog.info(message: "Reload tableview...")
-            self?.loadingIndicatorView.stopAnimating()
-            self?.tableView.refreshControl?.endRefreshing()
-            self?.stackView.isHidden = true
-            self?.tableView.reloadData()
-        }
+        viewModel.cryptoList
+            .dropFirst(1) // Do not receive first value: []
+            .sink { [weak self] _ in
+                CKLog.info(message: "Reload tableview...")
+                self?.tableView.refreshControl?.endRefreshing()
+                self?.loadingIndicatorView.stopAnimating()
+                self?.stackView.isHidden = true
+                self?.tableView.reloadData()
+            }.store(in: &subscriptions)
     }
     
     private func setupPullToRefresh() {
@@ -144,26 +146,24 @@ final class CryptoListVC: UITableViewController {
     
     @objc private func didTapSearchButton() {
         CKLog.info(message: "Did tap search button")
-        let cryptoSearchVM = CryptoSearchVM(service: cryptoService)
+        let cryptoSearchVM = CryptoSearchVM(service: viewModel.service)
         navigationController?.pushViewController(CryptoSearchVC(viewModel: cryptoSearchVM), animated: true)
     }
     
     @objc private func callFetchData() {
         CKLog.info(message: "Fetching crpto list again...")
-        viewModel?.fetchCryptoList()
+        viewModel.fetchCryptoList()
     }
 }
 
 // MARK: UITableViewDataSource
 extension CryptoListVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else { return 0 }
         return viewModel.numberOfRowsInSection(section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoListCell.reuseIdentifier, for: indexPath) as? CryptoListCell,
-              let viewModel = viewModel
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoListCell.reuseIdentifier, for: indexPath) as? CryptoListCell
         else {
             return UITableViewCell()
         }
@@ -177,7 +177,6 @@ extension CryptoListVC {
 // MARK: UITableViewDelegate
 extension CryptoListVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewModel = viewModel else { return }
         let selectedItem = viewModel.cryptoAtIndex(indexPath.row)
         CKLog.info(message: "Did tap item with id: \(selectedItem.id)")
         
@@ -187,7 +186,7 @@ extension CryptoListVC {
         }
         
         let cryptoDetailEntity = selectedItem.mapToDetailEntity()
-        let cryptoDetailVM = CryptoDetailVM(service: cryptoService, entity: cryptoDetailEntity)
+        let cryptoDetailVM = CryptoDetailVM(service: viewModel.service, entity: cryptoDetailEntity)
         controller.viewModel =  cryptoDetailVM
         navigationController?.pushViewController(controller, animated: true)
     }
