@@ -1,9 +1,8 @@
 # Swift - CryptoKool
 
-- Support from iOS 13
+- Support from iOS 14
 - Use API from https://www.coingecko.com/vi/api/documentation
 - CocoaPod library:
-    - ReactiveSwift
     - SDWebImage
     - lottie-ios
 - Features:
