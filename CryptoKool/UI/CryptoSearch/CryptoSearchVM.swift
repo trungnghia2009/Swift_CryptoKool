@@ -19,9 +19,13 @@ enum SearchState: String {
 final class CryptoSearchVM {
     
     private let service: CryptoServiceInterface
-    private(set) var state = CurrentValueSubject<SearchState, Never>(.begin)
-    private(set) var searchList = [CryptoSearchEntity]()
+    private var searchList = [CryptoSearchEntity]()
     private var subscriptions = Set<AnyCancellable>()
+    
+    private let stateSubject = CurrentValueSubject<SearchState, Never>(.begin)
+    var state: AnyPublisher<SearchState, Never> {
+        return stateSubject.eraseToAnyPublisher()
+    }
     
     init(service: CryptoServiceInterface) {
         self.service = service
@@ -34,11 +38,11 @@ final class CryptoSearchVM {
     func searchCrypto(searchKey: String) {
         if searchKey.isEmpty {
             searchList.removeAll()
-            state.send(.begin)
+            stateSubject.send(.begin)
             return
         }
         
-        state.send(.loading)
+        stateSubject.send(.loading)
         let useCase = SearchCryptoUseCase(service: service)
         useCase.execute(param: searchKey)
             .receive(on: DispatchQueue.main)
@@ -50,9 +54,9 @@ final class CryptoSearchVM {
                 CKLog.info(message: "Got list success... : \(crytoList.count)")
                 self?.searchList = crytoList
                 if crytoList.count == 0 {
-                    self?.state.send(.noResult)
+                    self?.stateSubject.send(.noResult)
                 } else {
-                    self?.state.send(.done)
+                    self?.stateSubject.send(.done)
                 }
             }.store(in: &subscriptions)
     }
@@ -71,6 +75,6 @@ final class CryptoSearchVM {
     }
     
     func getState() -> SearchState {
-        return state.value
+        return stateSubject.value
     }
 }

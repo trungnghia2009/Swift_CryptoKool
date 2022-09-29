@@ -8,19 +8,31 @@
 import Foundation
 import Combine
 
-enum CoinGeckoServiceError: Error {
-    case unvalidURL
+enum CoinGeckoServiceError: Error, CustomStringConvertible {
     case statusCodeError(code: Int)
-    case dataError
-    case decodingError
     case apiError(reason: String)
+    case urlInvalid
+    
+    var description: String {
+        switch self {
+        case .statusCodeError(code: let code):
+            return "Request got error with status code: \(code)"
+        case .apiError(reason: let reason):
+            return reason
+        case .urlInvalid:
+            return "Invalid URL"
+        }
+    }
 }
 
 final class CoinGeckoService: CoinGeckoInterface {
     
     func fetchCryptoList(amount: Int) -> AnyPublisher<[CryptoEntity], Error> {
+        
         guard let url = URL(string: QueryLink.shared.getCryptoList(amount: amount)) else {
-            fatalError("Invalid URL")
+            return Fail<[CryptoEntity], Error>(
+                error: CoinGeckoServiceError.urlInvalid
+            ).eraseToAnyPublisher()
         }
         CKLog.info(message: "Request: \(url.absoluteURL)")
         
@@ -30,6 +42,8 @@ final class CoinGeckoService: CoinGeckoInterface {
                 guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
                     throw CoinGeckoServiceError.statusCodeError(code: (response as? HTTPURLResponse)?.statusCode ?? 400)
                 }
+                
+                print("---Current thread: \(Thread.current)")
                 
                 var cryptoList = [CryptoEntity]()
                 
@@ -58,7 +72,9 @@ final class CoinGeckoService: CoinGeckoInterface {
     
     func fetchCryptoDetail(id: String) -> AnyPublisher<CryptoDetailEntity, Error> {
         guard let url = URL(string: QueryLink.shared.getCryptoDetail(id: id)) else {
-            fatalError("Invalid URL")
+            return Fail<CryptoDetailEntity, Error>(
+                error: CoinGeckoServiceError.urlInvalid
+            ).eraseToAnyPublisher()
         }
         CKLog.info(message: "Request: \(url.absoluteURL)")
         
@@ -94,9 +110,11 @@ final class CoinGeckoService: CoinGeckoInterface {
     }
     
     func searchCrypto(keyword: String) -> AnyPublisher<[CryptoSearchEntity], Error> {
-        let query = QueryLink.shared.getSearch(keyword: keyword)
-        guard let url = URL(string: query.replacingOccurrences(of: " ", with: "%20")) else {
-            fatalError("Invalid URL")
+
+        guard let url = URL(string: QueryLink.shared.getSearch(keyword: keyword)) else {
+            return Fail<[CryptoSearchEntity], Error>(
+                error: CoinGeckoServiceError.urlInvalid
+            ).eraseToAnyPublisher()
         }
         CKLog.info(message: "Request: \(url.absoluteURL)")
         

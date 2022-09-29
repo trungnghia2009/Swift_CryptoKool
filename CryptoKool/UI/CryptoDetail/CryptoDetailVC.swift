@@ -107,3 +107,11 @@ private extension NSAttributedString {
         return attributedString
     }
 }
+
+
+class Something {
+    private let button: UIButton
+    init(button: UIButton!) {
+        self.button = button
+    }
+}

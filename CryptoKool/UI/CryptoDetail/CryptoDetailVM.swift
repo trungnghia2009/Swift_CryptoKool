@@ -14,7 +14,10 @@ final class CryptoDetailVM {
     private let entity: CryptoDetailEntity
     private var subscriptions = Set<AnyCancellable>()
     
-    private(set) var cryptoDetail = CurrentValueSubject<CryptoDetailEntity?, Never>(nil)
+    private let cryptoDetailSubject = CurrentValueSubject<CryptoDetailEntity?, Never>(nil)
+    var cryptoDetail: AnyPublisher<CryptoDetailEntity?, Never> {
+        return cryptoDetailSubject.eraseToAnyPublisher()
+    }
     
     init(service: CryptoServiceInterface, entity: CryptoDetailEntity) {
         self.service = service
@@ -35,7 +38,7 @@ final class CryptoDetailVM {
                 }
             } receiveValue: { [weak self] crypto in
                 CKLog.info(message: "Got detail successfully: \(crypto)")
-                self?.cryptoDetail.send(crypto)
+                self?.cryptoDetailSubject.send(crypto)
             }.store(in: &subscriptions)
     }
     
@@ -55,25 +58,25 @@ final class CryptoDetailVM {
     }
     
     var imageURL: String? {
-        return cryptoDetail.value?.imageURL
+        return cryptoDetailSubject.value?.imageURL
     }
     
     var checkPrice: Percentage24hState {
-        guard let price = cryptoDetail.value?.priceChangePercentage24h else {
+        guard let price = cryptoDetailSubject.value?.priceChangePercentage24h else {
             return .zero
         }
         return price > 0 ? .increasing : .decreasing
     }
     
     var currentPrice: String {
-        guard let price = cryptoDetail.value?.currentPrice else {
+        guard let price = cryptoDetailSubject.value?.currentPrice else {
             return "$0.00"
         }
         return parsePrice(price: price)
     }
     
     var priceChangePercentage24h: String {
-        guard let price = cryptoDetail.value?.priceChangePercentage24h else {
+        guard let price = cryptoDetailSubject.value?.priceChangePercentage24h else {
             return "0.00"
         }
         if price > 0 {
@@ -84,14 +87,14 @@ final class CryptoDetailVM {
     }
     
     var rank: String {
-        guard let capRank = cryptoDetail.value?.rank else {
+        guard let capRank = cryptoDetailSubject.value?.rank else {
             return "Rank: N/A"
         }
         return "Rank: #\(String(capRank))"
     }
     
     var homepageLink: String {
-        guard let homepage = cryptoDetail.value?.homePage else {
+        guard let homepage = cryptoDetailSubject.value?.homePage else {
             return "N/A"
         }
         
@@ -100,14 +103,14 @@ final class CryptoDetailVM {
     }
     
     var high24h: String? {
-        guard let price = cryptoDetail.value?.high24h else {
+        guard let price = cryptoDetailSubject.value?.high24h else {
             return "0.00"
         }
         return parsePrice(price: price)
     }
     
     var low24h: String? {
-        guard let price = cryptoDetail.value?.low24h else {
+        guard let price = cryptoDetailSubject.value?.low24h else {
             return "0.00"
         }
         return parsePrice(price: price)

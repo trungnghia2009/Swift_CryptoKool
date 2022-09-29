@@ -11,9 +11,13 @@ import Combine
 final class CryptoListVM {
     
     private(set) var service: CryptoServiceInterface
-    private(set) var cryptoList = CurrentValueSubject<[CryptoEntity], Never>([])
     private var subscriptions = Set<AnyCancellable>()
     private let amount = 100
+    
+    private let cryptpListSubject = CurrentValueSubject<[CryptoEntity], Never>([])
+    var cryptoList: AnyPublisher<[CryptoEntity], Never> {
+        return cryptpListSubject.eraseToAnyPublisher()
+    }
     
     init(service: CryptoServiceInterface = CryptoService(coinGeckoService: CoinGeckoService())) {
         self.service = service
@@ -24,11 +28,11 @@ final class CryptoListVM {
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
-        return cryptoList.value.count
+        return cryptpListSubject.value.count
     }
     
     func cryptoAtIndex(_ index: Int) -> CryptoEntity {
-        return cryptoList.value[index]
+        return cryptpListSubject.value[index]
     }
     
     func fetchCryptoList() {
@@ -37,12 +41,17 @@ final class CryptoListVM {
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { completion in
-                    if case .failure(let error) = completion {
-                        CKLog.error(message: "Retrieving data with error: \(error)")
+                    switch completion {
+                    case .finished:
+                        CKLog.info(message: "FetchCryptoListUseCase completed...")
+                    case .failure(let error):
+                        if let coinError = error as? CoinGeckoServiceError {
+                            print("Error: \(coinError)")
+                        }
                     }
                 },
                 receiveValue: { [weak self] crytoList in
-                    self?.cryptoList.send(crytoList)
+                    self?.cryptpListSubject.send(crytoList)
                 })
             .store(in: &subscriptions)
     }
