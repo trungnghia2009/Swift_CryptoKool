@@ -23,8 +23,10 @@ final class CryptoSearchVM {
     private var subscriptions = Set<AnyCancellable>()
     
     private let stateSubject = CurrentValueSubject<SearchState, Never>(.begin)
-    var state: AnyPublisher<SearchState, Never> {
-        return stateSubject.eraseToAnyPublisher()
+    var state: AnyPublisher<Void, Never> {
+        return stateSubject
+            .map { searchState -> Void in }
+            .eraseToAnyPublisher()
     }
     
     init(service: CryptoServiceInterface) {

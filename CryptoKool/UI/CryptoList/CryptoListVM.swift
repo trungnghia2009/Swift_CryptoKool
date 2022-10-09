@@ -14,9 +14,12 @@ final class CryptoListVM {
     private var subscriptions = Set<AnyCancellable>()
     private let amount = 100
     
-    private let cryptpListSubject = CurrentValueSubject<[CryptoEntity], Never>([])
-    var cryptoList: AnyPublisher<[CryptoEntity], Never> {
-        return cryptpListSubject.eraseToAnyPublisher()
+    private let cryptoListSubject = CurrentValueSubject<[CryptoEntity], Never>([])
+    var updateObserver: AnyPublisher<Void, Never> {
+        return cryptoListSubject
+            .map { list -> Void in }
+            .dropFirst(1) // drop [] value
+            .eraseToAnyPublisher()
     }
     
     init(service: CryptoServiceInterface = CryptoService(coinGeckoService: CoinGeckoService())) {
@@ -28,11 +31,11 @@ final class CryptoListVM {
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
-        return cryptpListSubject.value.count
+        return cryptoListSubject.value.count
     }
     
     func cryptoAtIndex(_ index: Int) -> CryptoEntity {
-        return cryptpListSubject.value[index]
+        return cryptoListSubject.value[index]
     }
     
     func fetchCryptoList() {
@@ -51,7 +54,7 @@ final class CryptoListVM {
                     }
                 },
                 receiveValue: { [weak self] crytoList in
-                    self?.cryptpListSubject.send(crytoList)
+                    self?.cryptoListSubject.send(crytoList)
                 })
             .store(in: &subscriptions)
     }

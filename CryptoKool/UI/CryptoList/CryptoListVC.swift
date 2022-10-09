@@ -109,9 +109,8 @@ final class CryptoListVC: UITableViewController {
     }
     
     private func setupObserver() {
-        viewModel.cryptoList
-            .dropFirst(1) // Do not receive first value: []
-            .sink { [weak self] _ in
+        viewModel.updateObserver
+            .sink { [weak self] in
                 CKLog.info(message: "Reload tableview...")
                 self?.tableView.refreshControl?.endRefreshing()
                 self?.loadingIndicatorView.stopAnimating()

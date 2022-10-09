@@ -15,8 +15,11 @@ final class CryptoDetailVM {
     private var subscriptions = Set<AnyCancellable>()
     
     private let cryptoDetailSubject = CurrentValueSubject<CryptoDetailEntity?, Never>(nil)
-    var cryptoDetail: AnyPublisher<CryptoDetailEntity?, Never> {
-        return cryptoDetailSubject.eraseToAnyPublisher()
+    var updateObserver: AnyPublisher<Void, Never> {
+        return cryptoDetailSubject
+            .map { detail -> Void in }
+            .dropFirst(1) // drop nil value
+            .eraseToAnyPublisher()
     }
     
     init(service: CryptoServiceInterface, entity: CryptoDetailEntity) {

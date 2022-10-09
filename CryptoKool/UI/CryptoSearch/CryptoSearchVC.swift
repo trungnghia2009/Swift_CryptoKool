@@ -54,7 +54,7 @@ final class CryptoSearchVC: UITableViewController {
     // MARK: - Helpers
     private func setupObserver() {
         viewModel.state
-            .sink { [weak self] _ in
+            .sink { [weak self] in
                 CKLog.info(message: "Reload data...")
                 self?.tableView.reloadData()
             }.store(in: &subscriptions)
