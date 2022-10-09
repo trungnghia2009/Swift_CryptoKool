@@ -78,6 +78,8 @@
 		2C93A99727C1C8ED0063AF98 /* CryptoDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93A99627C1C8ED0063AF98 /* CryptoDetailVM.swift */; };
 		2C93A99927C1CA1C0063AF98 /* FetchCryptoDetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C93A99827C1CA1C0063AF98 /* FetchCryptoDetailUseCase.swift */; };
 		2C93A99B27C1E02E0063AF98 /* CryptoDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C93A99A27C1E02E0063AF98 /* CryptoDetailVC.storyboard */; };
+		2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743028F2D0C2001C18D0 /* Resolver.swift */; };
+		2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743228F2D0D1001C18D0 /* Injections.swift */; };
 		80B5DB603C081B007D6C4FEA /* Pods_CryptoKool_CryptoKoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675C40A10206830B94F875E /* Pods_CryptoKool_CryptoKoolUITests.framework */; };
 		F5A66209C11CEC2D2ADE2A78 /* Pods_CryptoKoolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A06317E260ACB8B16240874 /* Pods_CryptoKoolTests.framework */; };
 		FED1996D0F6C8895F84F6681 /* Pods_CryptoKool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A29B9B561FF321E09A72F30 /* Pods_CryptoKool.framework */; };
@@ -180,6 +182,8 @@
 		2C93A99627C1C8ED0063AF98 /* CryptoDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVM.swift; sourceTree = "<group>"; };
 		2C93A99827C1CA1C0063AF98 /* FetchCryptoDetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCryptoDetailUseCase.swift; sourceTree = "<group>"; };
 		2C93A99A27C1E02E0063AF98 /* CryptoDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CryptoDetailVC.storyboard; sourceTree = "<group>"; };
+		2E0A743028F2D0C2001C18D0 /* Resolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		2E0A743228F2D0D1001C18D0 /* Injections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injections.swift; sourceTree = "<group>"; };
 		4A06317E260ACB8B16240874 /* Pods_CryptoKoolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoKoolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D64A82599CC186114C9A46 /* Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoKool-CryptoKoolUITests/Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A29B9B561FF321E09A72F30 /* Pods_CryptoKool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoKool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,6 +343,7 @@
 		2C63C39F27BFE02500339740 /* CryptoKool */ = {
 			isa = PBXGroup;
 			children = (
+				2E0A742F28F2D091001C18D0 /* Resolver */,
 				2C63C3D527BFE15B00339740 /* Application */,
 				2C63C3D027BFE03C00339740 /* UI */,
 				2C63C3FD27BFF91100339740 /* Entity+Response */,
@@ -562,6 +567,15 @@
 				2C711E4A27C3E58800C68CA8 /* SearchPage.swift */,
 			);
 			path = TestPOM;
+			sourceTree = "<group>";
+		};
+		2E0A742F28F2D091001C18D0 /* Resolver */ = {
+			isa = PBXGroup;
+			children = (
+				2E0A743028F2D0C2001C18D0 /* Resolver.swift */,
+				2E0A743228F2D0D1001C18D0 /* Injections.swift */,
+			);
+			path = Resolver;
 			sourceTree = "<group>";
 		};
 		49546FC14DAB64CE991C9CE8 /* Frameworks */ = {
@@ -843,6 +857,7 @@
 				2C5B5DC027C099F4006B439D /* CryptoListVC.swift in Sources */,
 				2C5B5DD627C0F006006B439D /* CryptoUseCase.swift in Sources */,
 				2C5B5DBB27C084F3006B439D /* CryptoDetailEntity.swift in Sources */,
+				2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */,
 				2C5B5DBD27C08D36006B439D /* CryptoSearchEntity.swift in Sources */,
 				2C63C3D927BFE24B00339740 /* UIView.swift in Sources */,
 				2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */,
@@ -874,6 +889,7 @@
 				2C5B5DD227C0EABA006B439D /* CryptoSearchResponse.swift in Sources */,
 				2C5B5DC727C0A80A006B439D /* InformationScreen.swift in Sources */,
 				2C5B5DE227C135C6006B439D /* CryptoSearchCell.swift in Sources */,
+				2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */,
 				2C63C3DF27BFE2EC00339740 /* UIViewController.swift in Sources */,
 				2C5B5DB527C0748F006B439D /* CoinGeckoService.swift in Sources */,
 				2C5B5DD827C0F09A006B439D /* FetchCryptoListUseCase.swift in Sources */,

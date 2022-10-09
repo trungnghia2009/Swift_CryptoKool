@@ -10,7 +10,7 @@ import Combine
 
 final class CryptoListVM {
     
-    private(set) var service: CryptoServiceInterface
+    @Injected var service: CryptoServiceInterface
     private var subscriptions = Set<AnyCancellable>()
     private let amount = 100
     
@@ -20,10 +20,6 @@ final class CryptoListVM {
             .map { list -> Void in }
             .dropFirst(1) // drop [] value
             .eraseToAnyPublisher()
-    }
-    
-    init(service: CryptoServiceInterface = CryptoService(coinGeckoService: CoinGeckoService())) {
-        self.service = service
     }
     
     deinit {
