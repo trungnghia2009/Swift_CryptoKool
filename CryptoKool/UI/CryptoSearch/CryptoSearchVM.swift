@@ -76,6 +76,10 @@ final class CryptoSearchVM {
         return searchList[index]
     }
     
+    func getCryptoList() -> [CryptoSearchEntity] {
+        return searchList
+    }
+    
     func getState() -> SearchState {
         return stateSubject.value
     }

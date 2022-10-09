@@ -30,12 +30,12 @@ final class CryptoListVM {
         CKLog.info(message: "Deinit CryptoListVM...")
     }
     
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        return cryptoListSubject.value.count
-    }
-    
     func cryptoAtIndex(_ index: Int) -> CryptoEntity {
         return cryptoListSubject.value[index]
+    }
+    
+    func getCryptoList() -> [CryptoEntity] {
+        return cryptoListSubject.value
     }
     
     func fetchCryptoList() {

@@ -21,6 +21,29 @@ final class CryptoSearchVC: UITableViewController {
         }
     }
     
+    enum CryptoSearchVCSection {
+        case main
+    }
+    
+    private lazy var dataSource: UITableViewDiffableDataSource<CryptoSearchVCSection, CryptoSearchEntity> = {
+        let dataSource = UITableViewDiffableDataSource<CryptoSearchVCSection, CryptoSearchEntity>(tableView: tableView)
+        { [weak self] tableView, indexPath, cryptoEntity in
+            
+            guard let self = self,
+                  let cell = tableView.dequeueReusableCell(withIdentifier: CryptoSearchCell.reuseIdentifier) as? CryptoSearchCell
+            else {
+                return UITableViewCell()
+            }
+            cell.accessoryType = .disclosureIndicator
+            
+            let cryptoSearchEntity = self.viewModel.cryptoAtIndex(indexPath.row)
+            cell.viewModel = CryptoSearchCellVM(crypto: cryptoSearchEntity)
+            return cell
+        }
+        
+        return dataSource
+    }()
+    
     // MARK: - Lifecycle
     init(viewModel: CryptoSearchVM) {
         self.viewModel = viewModel
@@ -55,8 +78,9 @@ final class CryptoSearchVC: UITableViewController {
     private func setupObserver() {
         viewModel.state
             .sink { [weak self] in
+                guard let self = self else { return }
                 CKLog.info(message: "Reload data...")
-                self?.tableView.reloadData()
+                self.configureSnapshot(for: self.viewModel.getCryptoList())
             }.store(in: &subscriptions)
     }
     
@@ -87,29 +111,18 @@ final class CryptoSearchVC: UITableViewController {
         CKLog.info(message: "Search value: \(textFieldValue)")
         viewModel.searchCrypto(searchKey: textFieldValue)
     }
-}
-
-// MARK: - UITableViewDataSource
-extension CryptoSearchVC {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.numberOfRowsInSection(section) == 0 {
+    
+    private func configureSnapshot(for list: [CryptoSearchEntity]) {
+        var snapshot = NSDiffableDataSourceSnapshot<CryptoSearchVCSection, CryptoSearchEntity>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(list, toSection: .main)
+        
+        dataSource.apply(snapshot, animatingDifferences: false)
+        if list.count == 0 {
             tableView.setEmptyMessage(message: viewModel.getState().rawValue, size: 20)
         } else {
             tableView.restore()
         }
-        return viewModel.numberOfRowsInSection(section)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoSearchCell.reuseIdentifier, for: indexPath) as? CryptoSearchCell
-        else {
-            return UITableViewCell()
-        }
-        cell.accessoryType = .disclosureIndicator
-        
-        let cryptoSearchEntity = viewModel.cryptoAtIndex(indexPath.row)
-        cell.viewModel = CryptoSearchCellVM(crypto: cryptoSearchEntity)
-        return cell
     }
 }
 

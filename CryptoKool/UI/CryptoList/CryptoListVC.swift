@@ -16,6 +16,27 @@ final class CryptoListVC: UITableViewController {
     private var timer: Timer?
     private let fetchCycle: Double = 30
     
+    enum CryptoListVCSection {
+        case main
+    }
+    
+    private lazy var dataSource: UITableViewDiffableDataSource<CryptoListVCSection, CryptoEntity> = {
+        let dataSource = UITableViewDiffableDataSource<CryptoListVCSection, CryptoEntity>(tableView: tableView)
+        { [weak self] tableView, indexPath, cryptoEntity in
+            
+            guard let self = self,
+                  let cell = tableView.dequeueReusableCell(withIdentifier: CryptoListCell.reuseIdentifier) as? CryptoListCell
+            else {
+                return UITableViewCell()
+            }
+            cell.accessoryType = .disclosureIndicator
+            cell.viewModel = CryptoListCellVM(crypto: cryptoEntity)
+            
+            return cell
+        }
+        return dataSource
+    }()
+    
     private let searchButton: ActionButton = {
         let button = ActionButton(type: .system)
         button.tintColor = .white
@@ -111,11 +132,12 @@ final class CryptoListVC: UITableViewController {
     private func setupObserver() {
         viewModel.updateObserver
             .sink { [weak self] in
+                guard let self = self else { return }
                 CKLog.info(message: "Reload tableview...")
-                self?.tableView.refreshControl?.endRefreshing()
-                self?.loadingIndicatorView.stopAnimating()
-                self?.stackView.isHidden = true
-                self?.tableView.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
+                self.loadingIndicatorView.stopAnimating()
+                self.stackView.isHidden = true
+                self.configureSnapshot(for: self.viewModel.getCryptoList())
             }.store(in: &subscriptions)
     }
     
@@ -129,6 +151,13 @@ final class CryptoListVC: UITableViewController {
     private func reset() {
         timer?.invalidate()
         timer = nil
+    }
+    
+    private func configureSnapshot(for list: [CryptoEntity]) {
+        var snapshot = NSDiffableDataSourceSnapshot<CryptoListVCSection, CryptoEntity>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(list, toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     
@@ -152,24 +181,6 @@ final class CryptoListVC: UITableViewController {
     @objc private func callFetchData() {
         CKLog.info(message: "Fetching crpto list again...")
         viewModel.fetchCryptoList()
-    }
-}
-
-// MARK: UITableViewDataSource
-extension CryptoListVC {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection(section)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CryptoListCell.reuseIdentifier, for: indexPath) as? CryptoListCell
-        else {
-            return UITableViewCell()
-        }
-        cell.accessoryType = .disclosureIndicator
-        let cryptoEntity = viewModel.cryptoAtIndex(indexPath.row)
-        cell.viewModel = CryptoListCellVM(crypto: cryptoEntity)
-        return cell
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoSearchEntity: Equatable {
+struct CryptoSearchEntity: Equatable, Hashable {
     let id: String
     let symbol: String
     let name: String
