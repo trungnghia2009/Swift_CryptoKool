@@ -11,6 +11,8 @@ import Combine
 final class CryptoListVM {
     
     @Injected var service: CryptoServiceInterface
+    @Injected var coreDataService: CoreDataInterface
+    
     private var subscriptions = Set<AnyCancellable>()
     private let amount = 100
     
@@ -50,8 +52,29 @@ final class CryptoListVM {
                     }
                 },
                 receiveValue: { [weak self] crytoList in
+                    self?.coreDataService.saveData(entity: crytoList)
                     self?.cryptoListSubject.send(crytoList)
                 })
             .store(in: &subscriptions)
+    }
+    
+    func firstFetchFromDataBase() {
+        coreDataService.fetchData()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                CKLog.info(message: "Completed with: \(completion)")
+            } receiveValue: { [weak self] cryptoDBList in
+                let cryptoCount = cryptoDBList.count
+                CKLog.info(message: "crptoDBList count: \(cryptoDBList.count)")
+                if cryptoCount == 0 { return }
+                
+                var entityList = [CryptoEntity]()
+                cryptoDBList.forEach { cryptoDB in
+                    entityList.append(cryptoDB.mapToCryptoEntity())
+                }
+                self?.cryptoListSubject.send(entityList)
+            }
+            .store(in: &subscriptions)
+
     }
 }

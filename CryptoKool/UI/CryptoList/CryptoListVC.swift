@@ -74,6 +74,7 @@ final class CryptoListVC: UITableViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.firstFetchFromDataBase()
         viewModel.fetchCryptoList()
         setupNavigationBar()
         setTableView()

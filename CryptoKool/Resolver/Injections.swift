@@ -17,5 +17,6 @@ extension Resolver: ResolverRegistering {
 extension Resolver {
     public static func registerAppServices() {
         register { CryptoService(coinGeckoService: CoinGeckoService()) as CryptoServiceInterface }
+        register {  CoreDataService() as CoreDataInterface }
     }
 }
