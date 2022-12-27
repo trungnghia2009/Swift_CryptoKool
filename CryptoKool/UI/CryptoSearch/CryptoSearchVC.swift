@@ -11,7 +11,7 @@ import Combine
 final class CryptoSearchVC: UITableViewController {
 
     // MARK: - Properties
-    private let viewModel: CryptoSearchVM
+    private let viewModel = CryptoSearchVM()
     private var subscriptions = [AnyCancellable]()
     private let searchController = UISearchController()
     private var debouncer: Debouncer!
@@ -45,15 +45,6 @@ final class CryptoSearchVC: UITableViewController {
     }()
     
     // MARK: - Lifecycle
-    init(viewModel: CryptoSearchVM) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         debouncer = Debouncer(delay: 0.5) { [weak self] in
@@ -137,7 +128,7 @@ extension CryptoSearchVC {
         }
         
         let cryptoDetailEntity = selectedItem.mapToDetailEntity()
-        let cryptoDetailVM = CryptoDetailVM(service: viewModel.getService(), entity: cryptoDetailEntity)
+        let cryptoDetailVM = CryptoDetailVM(entity: cryptoDetailEntity)
         controller.viewModel = cryptoDetailVM
         navigationController?.pushViewController(controller, animated: true)
     }

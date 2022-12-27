@@ -10,18 +10,23 @@ import Combine
 
 final class CryptoListVM {
     
-    @Injected var service: CryptoServiceInterface
+    @Injected private var service: CryptoServiceInterface
     @Injected var coreDataService: CoreDataInterface
     
     private var subscriptions = Set<AnyCancellable>()
     private let amount = 100
     
     private let cryptoListSubject = CurrentValueSubject<[CryptoEntity], Never>([])
-    var updateObserver: AnyPublisher<Void, Never> {
+    private let errorSubject = PassthroughSubject<CoinGeckoServiceError, Never>()
+    
+    var onCryptoListChange: AnyPublisher<Void, Never> {
         return cryptoListSubject
             .map { list -> Void in }
             .dropFirst(1) // drop [] value
             .eraseToAnyPublisher()
+    }
+    var onError: AnyPublisher<CoinGeckoServiceError, Never> {
+        return errorSubject.eraseToAnyPublisher()
     }
     
     deinit {
@@ -41,13 +46,14 @@ final class CryptoListVM {
         useCase.execute(param: amount)
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { completion in
+                receiveCompletion: { [weak self] completion in
                     switch completion {
                     case .finished:
                         CKLog.info(message: "FetchCryptoListUseCase completed...")
                     case .failure(let error):
                         if let coinError = error as? CoinGeckoServiceError {
-                            print("Error: \(coinError)")
+                            CKLog.error(message: "Error: \(coinError)")
+                            self?.errorSubject.send(coinError)
                         }
                     }
                 },

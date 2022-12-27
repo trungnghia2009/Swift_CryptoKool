@@ -68,7 +68,7 @@ final class CryptoListCell: UITableViewCell {
         nameStack.alignment = .leading
         addSubview(nameStack)
         nameStack.centerY(inView: self, left: cryptoImageView.rightAnchor, paddingLeft: 12)
-        nameStack.anchor(right: self.rightAnchor, paddingRight: 90)
+        nameStack.anchor(right: self.rightAnchor, paddingRight: 150)
         
         let priceStack = UIStackView(arrangedSubviews: [cryptoCurrentPriceLabel, cryptoPriceChangePercentage24hLabel])
         priceStack.axis = .vertical

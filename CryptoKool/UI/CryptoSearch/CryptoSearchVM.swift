@@ -18,7 +18,8 @@ enum SearchState: String {
 
 final class CryptoSearchVM {
     
-    private let service: CryptoServiceInterface
+    @Injected private var service: CryptoServiceInterface
+    
     private var searchList = [CryptoSearchEntity]()
     private var subscriptions = Set<AnyCancellable>()
     
@@ -27,10 +28,6 @@ final class CryptoSearchVM {
         return stateSubject
             .map { searchState -> Void in }
             .eraseToAnyPublisher()
-    }
-    
-    init(service: CryptoServiceInterface) {
-        self.service = service
     }
     
     deinit {
@@ -61,15 +58,6 @@ final class CryptoSearchVM {
                     self?.stateSubject.send(.done)
                 }
             }.store(in: &subscriptions)
-    }
-    
-    func getService() -> CryptoServiceInterface {
-        return service
-    }
-    
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        let numberOfRows = searchList.count
-        return numberOfRows
     }
     
     func cryptoAtIndex(_ index: Int) -> CryptoSearchEntity {

@@ -79,11 +79,15 @@
 		2C93A99B27C1E02E0063AF98 /* CryptoDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C93A99A27C1E02E0063AF98 /* CryptoDetailVC.storyboard */; };
 		2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743028F2D0C2001C18D0 /* Resolver.swift */; };
 		2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743228F2D0D1001C18D0 /* Injections.swift */; };
+		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
 		58AC5ECC28F2F9B600BA95A6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */; };
 		58AC5ECE28F2F9D200BA95A6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECD28F2F9D200BA95A6 /* CoreDataService.swift */; };
 		58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED028F2FA9E00BA95A6 /* Crypto.xcdatamodeld */; };
 		58AC5ED628F2FC5700BA95A6 /* CryptoDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED428F2FC5700BA95A6 /* CryptoDB.swift */; };
 		58AC5ED828F3A76F00BA95A6 /* CryptoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED728F3A76E00BA95A6 /* CryptoEntity.swift */; };
+		58DF9313295AA28F00A35D3A /* Resolver+XCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DF9312295AA28F00A35D3A /* Resolver+XCTest.swift */; };
+		58DF9315295AED7800A35D3A /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DF9314295AED7800A35D3A /* TestVC.swift */; };
+		58DF9317295B006700A35D3A /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DF9316295B006700A35D3A /* TestCoreDataStack.swift */; };
 		80B5DB603C081B007D6C4FEA /* Pods_CryptoKool_CryptoKoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675C40A10206830B94F875E /* Pods_CryptoKool_CryptoKoolUITests.framework */; };
 		F5A66209C11CEC2D2ADE2A78 /* Pods_CryptoKoolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A06317E260ACB8B16240874 /* Pods_CryptoKoolTests.framework */; };
 		FED1996D0F6C8895F84F6681 /* Pods_CryptoKool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A29B9B561FF321E09A72F30 /* Pods_CryptoKool.framework */; };
@@ -189,11 +193,15 @@
 		2E0A743228F2D0D1001C18D0 /* Injections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injections.swift; sourceTree = "<group>"; };
 		4A06317E260ACB8B16240874 /* Pods_CryptoKoolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoKoolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D64A82599CC186114C9A46 /* Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoKool-CryptoKoolUITests/Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
 		58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		58AC5ECD28F2F9D200BA95A6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		58AC5ED128F2FA9E00BA95A6 /* Crypto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crypto.xcdatamodel; sourceTree = "<group>"; };
 		58AC5ED428F2FC5700BA95A6 /* CryptoDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDB.swift; sourceTree = "<group>"; };
 		58AC5ED728F3A76E00BA95A6 /* CryptoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoEntity.swift; sourceTree = "<group>"; };
+		58DF9312295AA28F00A35D3A /* Resolver+XCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+XCTest.swift"; sourceTree = "<group>"; };
+		58DF9314295AED7800A35D3A /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		58DF9316295B006700A35D3A /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		6A29B9B561FF321E09A72F30 /* Pods_CryptoKool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoKool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B29F892D18B1D2490D59F31 /* Pods-CryptoKool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKool.debug.xcconfig"; path = "Target Support Files/Pods-CryptoKool/Pods-CryptoKool.debug.xcconfig"; sourceTree = "<group>"; };
 		6F42557FF70F183C682E4A77 /* Pods-CryptoKool-CryptoKoolUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKool-CryptoKoolUITests.release.xcconfig"; path = "Target Support Files/Pods-CryptoKool-CryptoKoolUITests/Pods-CryptoKool-CryptoKoolUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -367,12 +375,8 @@
 		2C63C3B627BFE02700339740 /* CryptoKoolTests */ = {
 			isa = PBXGroup;
 			children = (
-				2C63C3B727BFE02700339740 /* CryptoListVMTest.swift */,
-				07671F5327C35FE100AC5C2C /* CryptoSearchVMTest.swift */,
-				079032E327C398A700354A98 /* CryptoDetailVMTest.swift */,
-				07671F4827C3527100AC5C2C /* MockCoinGeckAPI+Success.swift */,
-				07671F5127C3598400AC5C2C /* MockCoinGeckoAPI+Fail.swift */,
-				0739B03D27C38CCF009DA0F3 /* MockCoinGeckoAPI+NoData.swift */,
+				58DF9319295B3FAD00A35D3A /* ViewModel */,
+				58DF931A295B3FC200A35D3A /* Injection+Mock */,
 			);
 			path = CryptoKoolTests;
 			sourceTree = "<group>";
@@ -449,6 +453,7 @@
 			children = (
 				2C63C3A027BFE02500339740 /* AppDelegate.swift */,
 				2C63C3A227BFE02500339740 /* SceneDelegate.swift */,
+				58DF9314295AED7800A35D3A /* TestVC.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				2C63C3F327BFEEC200339740 /* ActionButton.swift */,
+				589AE8A3295958210070E46B /* CryptoAlert.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -614,6 +620,28 @@
 				58AC5ED028F2FA9E00BA95A6 /* Crypto.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		58DF9319295B3FAD00A35D3A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C63C3B727BFE02700339740 /* CryptoListVMTest.swift */,
+				07671F5327C35FE100AC5C2C /* CryptoSearchVMTest.swift */,
+				079032E327C398A700354A98 /* CryptoDetailVMTest.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		58DF931A295B3FC200A35D3A /* Injection+Mock */ = {
+			isa = PBXGroup;
+			children = (
+				58DF9312295AA28F00A35D3A /* Resolver+XCTest.swift */,
+				58DF9316295B006700A35D3A /* TestCoreDataStack.swift */,
+				07671F4827C3527100AC5C2C /* MockCoinGeckAPI+Success.swift */,
+				07671F5127C3598400AC5C2C /* MockCoinGeckoAPI+Fail.swift */,
+				0739B03D27C38CCF009DA0F3 /* MockCoinGeckoAPI+NoData.swift */,
+			);
+			path = "Injection+Mock";
 			sourceTree = "<group>";
 		};
 		68A18057338F148372604CE9 /* Pods */ = {
@@ -892,6 +920,7 @@
 				2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */,
 				2C63C3EE27BFE70800339740 /* String.swift in Sources */,
 				2C63C3EA27BFE6AE00339740 /* CKLog.swift in Sources */,
+				58DF9315295AED7800A35D3A /* TestVC.swift in Sources */,
 				2C5B5DC427C09A68006B439D /* CryptoListCell.swift in Sources */,
 				2C63C3DD27BFE2CE00339740 /* UITableView.swift in Sources */,
 				58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */,
@@ -923,6 +952,7 @@
 				2C5B5DC727C0A80A006B439D /* InformationScreen.swift in Sources */,
 				2C5B5DE227C135C6006B439D /* CryptoSearchCell.swift in Sources */,
 				2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */,
+				589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */,
 				2C63C3DF27BFE2EC00339740 /* UIViewController.swift in Sources */,
 				2C5B5DB527C0748F006B439D /* CoinGeckoService.swift in Sources */,
 				2C5B5DD827C0F09A006B439D /* FetchCryptoListUseCase.swift in Sources */,
@@ -941,8 +971,10 @@
 				07671F5227C3598400AC5C2C /* MockCoinGeckoAPI+Fail.swift in Sources */,
 				0739B03E27C38CCF009DA0F3 /* MockCoinGeckoAPI+NoData.swift in Sources */,
 				07671F5427C35FE100AC5C2C /* CryptoSearchVMTest.swift in Sources */,
+				58DF9317295B006700A35D3A /* TestCoreDataStack.swift in Sources */,
 				2C63C3B827BFE02700339740 /* CryptoListVMTest.swift in Sources */,
 				079032E427C398A700354A98 /* CryptoDetailVMTest.swift in Sources */,
+				58DF9313295AA28F00A35D3A /* Resolver+XCTest.swift in Sources */,
 				07671F4927C3527100AC5C2C /* MockCoinGeckAPI+Success.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

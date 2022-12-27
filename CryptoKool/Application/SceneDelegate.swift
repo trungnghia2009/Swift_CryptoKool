@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         let nav = UINavigationController(rootViewController: FirstScreen())
         window?.makeKeyAndVisible()
-        window?.rootViewController = nav
+        window?.rootViewController = (NSClassFromString("XCTestCase") == nil) ? nav : TestVC() // Prevent Unit Tests from running SceneDelegate
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

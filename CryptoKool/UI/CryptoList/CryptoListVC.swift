@@ -131,14 +131,20 @@ final class CryptoListVC: UITableViewController {
     }
     
     private func setupObserver() {
-        viewModel.updateObserver
+        viewModel.onCryptoListChange
             .sink { [weak self] in
                 guard let self = self else { return }
                 CKLog.info(message: "Reload tableview...")
-                self.tableView.refreshControl?.endRefreshing()
-                self.loadingIndicatorView.stopAnimating()
-                self.stackView.isHidden = true
+                self.hideLoadingIndicatorView()
                 self.configureSnapshot(for: self.viewModel.getCryptoList())
+            }.store(in: &subscriptions)
+        
+        viewModel.onError
+            .sink { [weak self] error in
+                guard let self = self else { return }
+                self.hideLoadingIndicatorView()
+                let alert = CryptoAlert(controller: self)
+                alert.showSimple(title: "Error", content: error.description)
             }.store(in: &subscriptions)
     }
     
@@ -147,6 +153,12 @@ final class CryptoListVC: UITableViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(callFetchData), for: .valueChanged)
         tableView.refreshControl = refreshControl
+    }
+    
+    private func hideLoadingIndicatorView() {
+        self.tableView.refreshControl?.endRefreshing()
+        self.loadingIndicatorView.stopAnimating()
+        self.stackView.isHidden = true
     }
     
     private func reset() {
@@ -175,8 +187,7 @@ final class CryptoListVC: UITableViewController {
     
     @objc private func didTapSearchButton() {
         CKLog.info(message: "Did tap search button")
-        let cryptoSearchVM = CryptoSearchVM(service: viewModel.service)
-        navigationController?.pushViewController(CryptoSearchVC(viewModel: cryptoSearchVM), animated: true)
+        navigationController?.pushViewController(CryptoSearchVC(), animated: true)
     }
     
     @objc private func callFetchData() {
@@ -197,7 +208,7 @@ extension CryptoListVC {
         }
         
         let cryptoDetailEntity = selectedItem.mapToDetailEntity()
-        let cryptoDetailVM = CryptoDetailVM(service: viewModel.service, entity: cryptoDetailEntity)
+        let cryptoDetailVM = CryptoDetailVM(entity: cryptoDetailEntity)
         controller.viewModel =  cryptoDetailVM
         navigationController?.pushViewController(controller, animated: true)
     }

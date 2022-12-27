@@ -14,14 +14,18 @@ enum CoreDataError: Error {
 }
 
 protocol CoreDataInterface: AnyObject {
-    var coreDataStack: CoreDataStack { get set }
     func fetchData() -> AnyPublisher<[CryptoDB], Error>
     func saveData(entity: [CryptoEntity])
     func saveData()
 }
 
 final class CoreDataService: CoreDataInterface {
-    lazy var coreDataStack: CoreDataStack = CoreDataStack(modelName: "Crypto")
+    
+    private let coreDataStack: CoreDataStack
+    
+    init(coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
+    }
     
     func fetchData() -> AnyPublisher<[CryptoDB], Error> {
         return Future<[CryptoDB], Error> { [weak self] promise in

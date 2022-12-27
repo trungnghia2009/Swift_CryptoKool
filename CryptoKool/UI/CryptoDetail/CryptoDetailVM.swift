@@ -10,20 +10,20 @@ import Combine
 
 final class CryptoDetailVM {
     
-    private let service: CryptoServiceInterface
+    @Injected private var service: CryptoServiceInterface
+    
     private let entity: CryptoDetailEntity
     private var subscriptions = Set<AnyCancellable>()
     
     private let cryptoDetailSubject = CurrentValueSubject<CryptoDetailEntity?, Never>(nil)
-    var updateObserver: AnyPublisher<Void, Never> {
+    var onCryptoDetailChange: AnyPublisher<Void, Never> {
         return cryptoDetailSubject
             .map { detail -> Void in }
             .dropFirst(1) // drop nil value
             .eraseToAnyPublisher()
     }
     
-    init(service: CryptoServiceInterface, entity: CryptoDetailEntity) {
-        self.service = service
+    init(entity: CryptoDetailEntity) {
         self.entity = entity
     }
     

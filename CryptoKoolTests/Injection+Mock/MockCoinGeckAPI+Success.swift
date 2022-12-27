@@ -6,14 +6,14 @@
 //
 
 @testable import CryptoKool
-import ReactiveSwift
+import Foundation
+import Combine
 
 class MockCongeckoAPI_Success1: CoinGeckoInterface {
-    func fetchCryptoList(amount: Int) -> SignalProducer<[CryptoEntity], Error> {
-        return SignalProducer { observer, _ in
+    func fetchCryptoList(amount: Int) -> AnyPublisher<[CryptoEntity], Error> {
+        return Future<[CryptoEntity], Error> { promise in
             guard let data = Helpers.shared.getJsonData(name: "cryptoList") else {
-                observer.send(value: [CryptoEntity]())
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot find data")))
                 return
             }
             
@@ -30,18 +30,17 @@ class MockCongeckoAPI_Success1: CoinGeckoInterface {
                                                     priceChangePercentage24h: crypto.priceChangePercentage24h)
                     cryptoList.append(cryptoEntity)
                 }
-                observer.send(value: cryptoList)
-                observer.sendCompleted()
+                promise(.success(cryptoList))
             } catch {
-                print("Nothing here")
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot decode")))
             }
-        }
+        }.eraseToAnyPublisher()
     }
     
-    func fetchCryptoDetail(id: String) -> SignalProducer<CryptoDetailEntity, Error> {
-        return SignalProducer { observer, _ in
+    func fetchCryptoDetail(id: String) -> AnyPublisher<CryptoDetailEntity, Error> {
+        return Future<CryptoDetailEntity, Error> { promise in
             guard let data = Helpers.shared.getJsonData(name: "cryptoDetail1") else {
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot find data")))
                 return
             }
             
@@ -59,20 +58,17 @@ class MockCongeckoAPI_Success1: CoinGeckoInterface {
                                                             low24h: cryptoDetail.marketData.low24h?.usd,
                                                             marketCap: cryptoDetail.marketData.marketCap?.usd)
                 
-                observer.send(value: cryptoDetailEntity)
-                observer.sendCompleted()
+                promise(.success(cryptoDetailEntity))
             } catch {
-                observer.send(error: CoinGeckoServiceError.decodingError)
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot decode")))
             }
-        }
+        }.eraseToAnyPublisher()
     }
     
-    func searchCrypto(keyword: String) -> SignalProducer<[CryptoSearchEntity], Error> {
-        return SignalProducer { observer, _ in
+    func searchCrypto(keyword: String) -> AnyPublisher<[CryptoSearchEntity], Error> {
+        return Future<[CryptoSearchEntity], Error> { promise in
             guard let data = Helpers.shared.getJsonData(name: "cryptoSearch") else {
-                observer.sendCompleted()
-                observer.send(value: [CryptoSearchEntity]())
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot find data")))
                 return
             }
             
@@ -88,29 +84,26 @@ class MockCongeckoAPI_Success1: CoinGeckoInterface {
                     
                     searchList.append(cryptoSearchEntity)
                 }
-                observer.send(value: searchList)
-                observer.sendCompleted()
+                promise(.success(searchList))
             } catch {
-                observer.send(error: CoinGeckoServiceError.decodingError)
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot decode")))
             }
-        }
+        }.eraseToAnyPublisher()
     }
 }
 
 
 class MockCongeckoAPI_Success2: CoinGeckoInterface {
-    func fetchCryptoList(amount: Int) -> SignalProducer<[CryptoEntity], Error> {
-        return SignalProducer { observer, _ in
-            observer.send(error: CoinGeckoServiceError.decodingError)
-            observer.sendCompleted()
-        }
+    func fetchCryptoList(amount: Int) -> AnyPublisher<[CryptoEntity], Error> {
+        return Future<[CryptoEntity], Error> { promise in
+            promise(.failure(CoinGeckoServiceError.apiError(reason: "Not use this function")))
+        }.eraseToAnyPublisher()
     }
     
-    func fetchCryptoDetail(id: String) -> SignalProducer<CryptoDetailEntity, Error> {
-        return SignalProducer { observer, _ in
+    func fetchCryptoDetail(id: String) -> AnyPublisher<CryptoDetailEntity, Error> {
+        return Future<CryptoDetailEntity, Error> { promise in
             guard let data = Helpers.shared.getJsonData(name: "cryptoDetail2") else {
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot find data")))
                 return
             }
             
@@ -128,35 +121,31 @@ class MockCongeckoAPI_Success2: CoinGeckoInterface {
                                                             low24h: cryptoDetail.marketData.low24h?.usd,
                                                             marketCap: cryptoDetail.marketData.marketCap?.usd)
                 
-                observer.send(value: cryptoDetailEntity)
-                observer.sendCompleted()
+                promise(.success(cryptoDetailEntity))
             } catch {
-                observer.send(error: CoinGeckoServiceError.decodingError)
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot decode")))
             }
-        }
+        }.eraseToAnyPublisher()
     }
     
-    func searchCrypto(keyword: String) -> SignalProducer<[CryptoSearchEntity], Error> {
-        return SignalProducer { observer, _ in
-            observer.send(error: CoinGeckoServiceError.statusCodeError)
-            observer.sendCompleted()
-        }
+    func searchCrypto(keyword: String) -> AnyPublisher<[CryptoSearchEntity], Error> {
+        return Future<[CryptoSearchEntity], Error> { promise in
+            promise(.failure(CoinGeckoServiceError.apiError(reason: "Not use this function")))
+        }.eraseToAnyPublisher()
     }
 }
 
 class MockCongeckoAPI_Success3: CoinGeckoInterface {
-    func fetchCryptoList(amount: Int) -> SignalProducer<[CryptoEntity], Error> {
-        return SignalProducer { observer, _ in
-            observer.send(error: CoinGeckoServiceError.decodingError)
-            observer.sendCompleted()
-        }
+    func fetchCryptoList(amount: Int) -> AnyPublisher<[CryptoEntity], Error> {
+        return Future<[CryptoEntity], Error> { promise in
+            promise(.failure(CoinGeckoServiceError.apiError(reason: "Not use this function")))
+        }.eraseToAnyPublisher()
     }
     
-    func fetchCryptoDetail(id: String) -> SignalProducer<CryptoDetailEntity, Error> {
-        return SignalProducer { observer, _ in
+    func fetchCryptoDetail(id: String) -> AnyPublisher<CryptoDetailEntity, Error> {
+        return Future<CryptoDetailEntity, Error> { promise in
             guard let data = Helpers.shared.getJsonData(name: "cryptoDetail3") else {
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot find data")))
                 return
             }
             
@@ -174,19 +163,16 @@ class MockCongeckoAPI_Success3: CoinGeckoInterface {
                                                             low24h: cryptoDetail.marketData.low24h?.usd,
                                                             marketCap: cryptoDetail.marketData.marketCap?.usd)
                 
-                observer.send(value: cryptoDetailEntity)
-                observer.sendCompleted()
+                promise(.success(cryptoDetailEntity))
             } catch {
-                observer.send(error: CoinGeckoServiceError.decodingError)
-                observer.sendCompleted()
+                promise(.failure(CoinGeckoServiceError.apiError(reason: "Cannot decode")))
             }
-        }
+        }.eraseToAnyPublisher()
     }
     
-    func searchCrypto(keyword: String) -> SignalProducer<[CryptoSearchEntity], Error> {
-        return SignalProducer { observer, _ in
-            observer.send(error: CoinGeckoServiceError.statusCodeError)
-            observer.sendCompleted()
-        }
+    func searchCrypto(keyword: String) -> AnyPublisher<[CryptoSearchEntity], Error> {
+        return Future<[CryptoSearchEntity], Error> { promise in
+            promise(.failure(CoinGeckoServiceError.apiError(reason: "Not use this function")))
+        }.eraseToAnyPublisher()
     }
 }

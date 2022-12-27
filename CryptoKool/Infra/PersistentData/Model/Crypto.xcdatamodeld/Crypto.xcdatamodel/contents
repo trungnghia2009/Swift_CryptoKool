@@ -13,4 +13,5 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="FavoriteCryptoDB" representedClassName="FavoriteCryptoDB" syncable="YES" codeGenerationType="class"/>
 </model>

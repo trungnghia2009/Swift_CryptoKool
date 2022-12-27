@@ -9,11 +9,14 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-    private let modelName: String
+    static let modelName = "Crypto"
     
-    init(modelName: String) {
-        self.modelName = modelName
-    }
+    static let model: NSManagedObjectModel = {
+        let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
+    }()
+    
+    init() {}
     
     lazy var managedContext: NSManagedObjectContext = {
         return self.storeContainer.viewContext
@@ -23,8 +26,8 @@ class CoreDataStack {
         return self.storeContainer.newBackgroundContext()
     }()
     
-    private lazy var storeContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: self.modelName)
+    lazy var storeContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: CoreDataStack.modelName, managedObjectModel: CoreDataStack.model)
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")

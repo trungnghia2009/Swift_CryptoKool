@@ -44,7 +44,7 @@ final class CryptoDetailVC: UIViewController {
     }
     
     private func setupObserver() {
-        viewModel?.updateObserver
+        viewModel?.onCryptoDetailChange
             .sink(receiveValue: { [weak self] in
                 self?.setupUI()
             }).store(in: &subscriptions)
