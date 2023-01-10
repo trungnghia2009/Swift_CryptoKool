@@ -77,7 +77,7 @@ final class CryptoSearchVC: UITableViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.setHidesBackButton(true, animated:true) // hide back button
+        self.navigationItem.setHidesBackButton(true, animated: false) // hide back button
     }
     
     private func configureSearchController() {

@@ -22,13 +22,14 @@ final class CryptoDetailVC: UIViewController {
     private var timer: Timer?
     private let fetchCycle: Double = 30
     private var subscriptions = [AnyCancellable]()
+    private var isFavorite = false
     var viewModel: CryptoDetailVM?
     
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         viewModel?.fetchCryptoDetail()
-        navigationItem.title = viewModel?.getSymbol()
         setupObserver()
         timer = Timer.scheduledTimer(timeInterval: fetchCycle, target: self, selector: #selector(callFetchData), userInfo: nil, repeats: true)
     }
@@ -47,6 +48,7 @@ final class CryptoDetailVC: UIViewController {
         viewModel?.onCryptoDetailChange
             .sink(receiveValue: { [weak self] in
                 self?.setupUI()
+                self?.navigationItem.rightBarButtonItem?.isEnabled = true
             }).store(in: &subscriptions)
     }
     
@@ -89,10 +91,30 @@ final class CryptoDetailVC: UIViewController {
         linkTextView.font = font
     }
     
+    private func setupNavigationBar() {
+        navigationItem.title = viewModel?.getSymbol()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(didTapFavoriteButton))
+        navigationItem.rightBarButtonItem?.isEnabled = false
+    }
+    
     // MARK: Selectors
     @objc private func callFetchData() {
         CKLog.info(message: "Fetching crypto detail again...")
         viewModel?.fetchCryptoDetail()
+    }
+    
+    @objc private func didTapFavoriteButton() {
+        CKLog.info(message: "Did tap Favorite Button...")
+        isFavorite.toggle()
+        if isFavorite {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
+        } else {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
+        }
+        
     }
 }
 

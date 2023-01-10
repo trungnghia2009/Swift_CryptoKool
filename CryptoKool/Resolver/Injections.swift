@@ -18,6 +18,6 @@ extension Resolver {
     public static func registerAppServices() {
         defaultScope = .graph
         register { CryptoService(coinGeckoService: CoinGeckoService()) as CryptoServiceInterface }
-        register { CoreDataService(coreDataStack: CoreDataStack()) as CoreDataInterface }
+        register { CryptoDBService(coreDataStack: CoreDataStack()) as CoreDataInterface }
     }
 }

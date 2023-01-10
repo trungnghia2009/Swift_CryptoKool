@@ -17,7 +17,7 @@ extension Resolver {
         root = Resolver.mock
         defaultScope = .graph
         Resolver.mock.register { CryptoService(coinGeckoService: MockCongeckoAPI_Success1()) }.implements(CryptoServiceInterface.self)
-        Resolver.mock.register { CoreDataService(coreDataStack: TestCoreDataStack()) }.implements(CoreDataInterface.self)
+        Resolver.mock.register { CryptoDBService(coreDataStack: TestCoreDataStack()) }.implements(CoreDataInterface.self)
     }
     
     static func registerMockServices_success_2() {
@@ -36,7 +36,7 @@ extension Resolver {
         root = Resolver.mock
         defaultScope = .graph
         Resolver.mock.register { CryptoService(coinGeckoService: MockCongeckoAPI_Fail()) }.implements(CryptoServiceInterface.self)
-        Resolver.mock.register { CoreDataService(coreDataStack: TestCoreDataStack()) }.implements(CoreDataInterface.self)
+        Resolver.mock.register { CryptoDBService(coreDataStack: TestCoreDataStack()) }.implements(CoreDataInterface.self)
     }
     
     static func registerMockServices_search_no_data() {

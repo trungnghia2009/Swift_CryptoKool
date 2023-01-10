@@ -79,9 +79,17 @@
 		2C93A99B27C1E02E0063AF98 /* CryptoDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C93A99A27C1E02E0063AF98 /* CryptoDetailVC.storyboard */; };
 		2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743028F2D0C2001C18D0 /* Resolver.swift */; };
 		2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743228F2D0D1001C18D0 /* Injections.swift */; };
+		582AB11D295ED4E1007B00A3 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB115295ED4E1007B00A3 /* MenuViewModel.swift */; };
+		582AB11E295ED4E1007B00A3 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB117295ED4E1007B00A3 /* MenuSection.swift */; };
+		582AB11F295ED4E1007B00A3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB118295ED4E1007B00A3 /* MenuCell.swift */; };
+		582AB120295ED4E1007B00A3 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582AB119295ED4E1007B00A3 /* MenuCell.xib */; };
+		582AB121295ED4E1007B00A3 /* MenuSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582AB11A295ED4E1007B00A3 /* MenuSection.xib */; };
+		582AB122295ED4E1007B00A3 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11B295ED4E1007B00A3 /* MenuModel.swift */; };
+		582AB123295ED4E1007B00A3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11C295ED4E1007B00A3 /* MenuViewController.swift */; };
+		582AB125295ED8EF007B00A3 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB124295ED8EF007B00A3 /* UINavigationController.swift */; };
 		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
 		58AC5ECC28F2F9B600BA95A6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */; };
-		58AC5ECE28F2F9D200BA95A6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECD28F2F9D200BA95A6 /* CoreDataService.swift */; };
+		58AC5ECE28F2F9D200BA95A6 /* CryptoDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECD28F2F9D200BA95A6 /* CryptoDBService.swift */; };
 		58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED028F2FA9E00BA95A6 /* Crypto.xcdatamodeld */; };
 		58AC5ED628F2FC5700BA95A6 /* CryptoDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED428F2FC5700BA95A6 /* CryptoDB.swift */; };
 		58AC5ED828F3A76F00BA95A6 /* CryptoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED728F3A76E00BA95A6 /* CryptoEntity.swift */; };
@@ -193,9 +201,17 @@
 		2E0A743228F2D0D1001C18D0 /* Injections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injections.swift; sourceTree = "<group>"; };
 		4A06317E260ACB8B16240874 /* Pods_CryptoKoolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoKoolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D64A82599CC186114C9A46 /* Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoKool-CryptoKoolUITests/Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		582AB115295ED4E1007B00A3 /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		582AB117295ED4E1007B00A3 /* MenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		582AB118295ED4E1007B00A3 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		582AB119295ED4E1007B00A3 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		582AB11A295ED4E1007B00A3 /* MenuSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSection.xib; sourceTree = "<group>"; };
+		582AB11B295ED4E1007B00A3 /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		582AB11C295ED4E1007B00A3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		582AB124295ED8EF007B00A3 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
 		58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		58AC5ECD28F2F9D200BA95A6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		58AC5ECD28F2F9D200BA95A6 /* CryptoDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDBService.swift; sourceTree = "<group>"; };
 		58AC5ED128F2FA9E00BA95A6 /* Crypto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crypto.xcdatamodel; sourceTree = "<group>"; };
 		58AC5ED428F2FC5700BA95A6 /* CryptoDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDB.swift; sourceTree = "<group>"; };
 		58AC5ED728F3A76E00BA95A6 /* CryptoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoEntity.swift; sourceTree = "<group>"; };
@@ -399,6 +415,7 @@
 			children = (
 				2C5B5DC627C0A80A006B439D /* InformationScreen.swift */,
 				2C63C3E627BFE3CB00339740 /* FirstScreen.swift */,
+				582AB114295ED4E1007B00A3 /* Menu */,
 				2C5B5DA827C064C6006B439D /* CryptoList */,
 				2C5B5DAA27C064EC006B439D /* CryptoSearch */,
 				2C5B5DA927C064D8006B439D /* CryptoDetail */,
@@ -493,6 +510,7 @@
 				2C63C3D827BFE24B00339740 /* UIView.swift */,
 				2C63C3DC27BFE2CE00339740 /* UITableView.swift */,
 				2C63C3DE27BFE2EC00339740 /* UIViewController.swift */,
+				582AB124295ED8EF007B00A3 /* UINavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -603,12 +621,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		582AB114295ED4E1007B00A3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				582AB11C295ED4E1007B00A3 /* MenuViewController.swift */,
+				582AB115295ED4E1007B00A3 /* MenuViewModel.swift */,
+				582AB11B295ED4E1007B00A3 /* MenuModel.swift */,
+				582AB116295ED4E1007B00A3 /* Cell */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		582AB116295ED4E1007B00A3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				582AB117295ED4E1007B00A3 /* MenuSection.swift */,
+				582AB118295ED4E1007B00A3 /* MenuCell.swift */,
+				582AB119295ED4E1007B00A3 /* MenuCell.xib */,
+				582AB11A295ED4E1007B00A3 /* MenuSection.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		58AC5ECA28F2F94E00BA95A6 /* PersistentData */ = {
 			isa = PBXGroup;
 			children = (
 				58AC5ECF28F2FA3300BA95A6 /* Model */,
 				58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */,
-				58AC5ECD28F2F9D200BA95A6 /* CoreDataService.swift */,
+				58AC5ECD28F2F9D200BA95A6 /* CryptoDBService.swift */,
 			);
 			path = PersistentData;
 			sourceTree = "<group>";
@@ -668,15 +708,13 @@
 				2C63C39927BFE02500339740 /* Sources */,
 				2C63C39A27BFE02500339740 /* Frameworks */,
 				2C63C39B27BFE02500339740 /* Resources */,
-				32BC7F908A640DF5203FD1EA /* [CP] Embed Pods Frameworks */,
+				238CA6701A5DBCA5CBA5D0DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CryptoKool;
-			packageProductDependencies = (
-			);
 			productName = CryptoKool;
 			productReference = 2C63C39D27BFE02500339740 /* CryptoKool.app */;
 			productType = "com.apple.product-type.application";
@@ -708,7 +746,7 @@
 				2C63C3B927BFE02700339740 /* Sources */,
 				2C63C3BA27BFE02700339740 /* Frameworks */,
 				2C63C3BB27BFE02700339740 /* Resources */,
-				9F9BB6FB3FE84D88EC84FEFB /* [CP] Embed Pods Frameworks */,
+				52D506B2675ADAA5A08674FA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -754,8 +792,6 @@
 				vi,
 			);
 			mainGroup = 2C63C39427BFE02500339740;
-			packageReferences = (
-			);
 			productRefGroup = 2C63C39E27BFE02500339740 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -772,12 +808,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582AB121295ED4E1007B00A3 /* MenuSection.xib in Resources */,
 				07671F4F27C352E800AC5C2C /* cryptoSearch.json in Resources */,
 				2C63C40127BFFA2000339740 /* Localizable.strings in Resources */,
 				2C63C3AD27BFE02600339740 /* LaunchScreen.storyboard in Resources */,
 				2C578A6227C679E700FDCEE4 /* cryptoDetail2.json in Resources */,
 				2C63C3AA27BFE02600339740 /* Assets.xcassets in Resources */,
 				2C578A6327C679E700FDCEE4 /* cryptoDetail3.json in Resources */,
+				582AB120295ED4E1007B00A3 /* MenuCell.xib in Resources */,
 				2C63C3FA27BFF1A100339740 /* love.json in Resources */,
 				07671F5027C352E800AC5C2C /* cryptoDetail1.json in Resources */,
 				2C5B5DCB27C0DE5C006B439D /* cryptocurrency.json in Resources */,
@@ -825,7 +863,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		32BC7F908A640DF5203FD1EA /* [CP] Embed Pods Frameworks */ = {
+		238CA6701A5DBCA5CBA5D0DB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -842,7 +880,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoKool/Pods-CryptoKool-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9F9BB6FB3FE84D88EC84FEFB /* [CP] Embed Pods Frameworks */ = {
+		52D506B2675ADAA5A08674FA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -912,10 +950,12 @@
 			files = (
 				2C5B5DC027C099F4006B439D /* CryptoListVC.swift in Sources */,
 				58AC5ECC28F2F9B600BA95A6 /* CoreDataStack.swift in Sources */,
+				582AB11F295ED4E1007B00A3 /* MenuCell.swift in Sources */,
 				2C5B5DD627C0F006006B439D /* CryptoUseCase.swift in Sources */,
 				2C5B5DBB27C084F3006B439D /* CryptoDetailEntity.swift in Sources */,
 				2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */,
 				2C5B5DBD27C08D36006B439D /* CryptoSearchEntity.swift in Sources */,
+				582AB122295ED4E1007B00A3 /* MenuModel.swift in Sources */,
 				2C63C3D927BFE24B00339740 /* UIView.swift in Sources */,
 				2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */,
 				2C63C3EE27BFE70800339740 /* String.swift in Sources */,
@@ -933,12 +973,14 @@
 				2C63C3EC27BFE6DA00339740 /* Date.swift in Sources */,
 				2C5B5DDF27C13597006B439D /* CryptoSearchVM.swift in Sources */,
 				2C5B5DC227C09A2F006B439D /* CryptoListVM.swift in Sources */,
+				582AB11D295ED4E1007B00A3 /* MenuViewModel.swift in Sources */,
 				2C63C3E527BFE38200339740 /* SafeSet.swift in Sources */,
 				2C63C3E127BFE34500339740 /* SafeArray.swift in Sources */,
 				2C63C3F627BFEF0000339740 /* Helpers.swift in Sources */,
 				2C7FA29327C15F19000141C1 /* SearchCryptoUseCase.swift in Sources */,
 				58AC5ED628F2FC5700BA95A6 /* CryptoDB.swift in Sources */,
-				58AC5ECE28F2F9D200BA95A6 /* CoreDataService.swift in Sources */,
+				582AB123295ED4E1007B00A3 /* MenuViewController.swift in Sources */,
+				58AC5ECE28F2F9D200BA95A6 /* CryptoDBService.swift in Sources */,
 				2C715F8727C27C7A001AFC00 /* Debouncer.swift in Sources */,
 				58AC5ED828F3A76F00BA95A6 /* CryptoEntity.swift in Sources */,
 				2C93A99927C1CA1C0063AF98 /* FetchCryptoDetailUseCase.swift in Sources */,
@@ -948,6 +990,7 @@
 				2C5B5DDD27C1356C006B439D /* CryptoSearchVC.swift in Sources */,
 				2C5B5DB727C074A1006B439D /* MockCoinGeckoService.swift in Sources */,
 				2C5B5DE427C13607006B439D /* CryptoSearchCellVM.swift in Sources */,
+				582AB125295ED8EF007B00A3 /* UINavigationController.swift in Sources */,
 				2C5B5DD227C0EABA006B439D /* CryptoSearchResponse.swift in Sources */,
 				2C5B5DC727C0A80A006B439D /* InformationScreen.swift in Sources */,
 				2C5B5DE227C135C6006B439D /* CryptoSearchCell.swift in Sources */,
@@ -955,6 +998,7 @@
 				589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */,
 				2C63C3DF27BFE2EC00339740 /* UIViewController.swift in Sources */,
 				2C5B5DB527C0748F006B439D /* CoinGeckoService.swift in Sources */,
+				582AB11E295ED4E1007B00A3 /* MenuSection.swift in Sources */,
 				2C5B5DD827C0F09A006B439D /* FetchCryptoListUseCase.swift in Sources */,
 				0794161127E9A0B000C08793 /* DeepLink.swift in Sources */,
 				2C5B5DCD27C0E85D006B439D /* QueryLink.swift in Sources */,
@@ -1175,6 +1219,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nghiahunter2020.com.CryptoKool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1204,6 +1251,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nghiahunter2020.com.CryptoKool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

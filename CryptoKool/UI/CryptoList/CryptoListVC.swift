@@ -116,11 +116,10 @@ final class CryptoListVC: UITableViewController {
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(didTapRightBarButton))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"),
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"),
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(didTapLeftBarButton))
-        navigationItem.leftBarButtonItem?.isEnabled = false
     }
     
     private func setTableView() {
@@ -177,17 +176,19 @@ final class CryptoListVC: UITableViewController {
     // MARK: Selectors
     @objc private func didTapRightBarButton() {
         CKLog.info(message: "Did tap right bar button")
-        navigationController?.pushViewController(InformationScreen(), animated: true)
+        show(InformationScreen(), sender: nil)
     }
     
     @objc private func didTapLeftBarButton() {
         CKLog.info(message: "Did tap left bar button")
-        reset()
+        let menu = MenuViewController()
+        menu.delegate = self
+        show(menu, sender: nil)
     }
     
     @objc private func didTapSearchButton() {
         CKLog.info(message: "Did tap search button")
-        navigationController?.pushViewController(CryptoSearchVC(), animated: true)
+        show(CryptoSearchVC(), sender: nil)
     }
     
     @objc private func callFetchData() {
@@ -211,5 +212,12 @@ extension CryptoListVC {
         let cryptoDetailVM = CryptoDetailVM(entity: cryptoDetailEntity)
         controller.viewModel =  cryptoDetailVM
         navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+// MARK: MenuViewControllerDelegate
+extension CryptoListVC: MenuViewControllerDelegate {
+    func didFinishPop() {
+        navigationController?.pushViewController(CryptoSearchVC(), animated: true)
     }
 }

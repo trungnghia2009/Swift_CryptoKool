@@ -11,7 +11,7 @@ import Lottie
 final class FirstScreen: UIViewController {
     
     // MARK: Properties
-    private let heartAnimationView = AnimationView(animation: Animation.named("love"))
+    private let heartAnimationView = LottieAnimationView(animation: LottieAnimation.named("love"))
     private let onboardingKey = "onBoarding"
     
     private let startNowButton: ActionButton = {

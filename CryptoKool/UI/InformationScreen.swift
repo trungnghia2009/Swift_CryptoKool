@@ -11,7 +11,7 @@ import Lottie
 final class InformationScreen: UIViewController {
 
     // MARK: Properties
-    private let waitingAnimationView = AnimationView(animation: Animation.named("cryptocurrency"))
+    private let waitingAnimationView = LottieAnimationView(animation: LottieAnimation.named("cryptocurrency"))
     
     private let copyrightLabel: UILabel = {
         let label = UILabel()

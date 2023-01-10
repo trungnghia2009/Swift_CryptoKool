@@ -3,7 +3,7 @@
 </p>
 
 
-[![Build Status](http://img.shields.io/travis/SDWebImage/SDWebImage/master.svg?style=flat)](https://travis-ci.org/SDWebImage/SDWebImage)
+[![Build Status](https://github.com/SDWebImage/SDWebImage/actions/workflows/CI.yml/badge.svg)](https://github.com/SDWebImage/SDWebImage/actions/workflows/CI.yml)
 [![Pod Version](http://img.shields.io/cocoapods/v/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
 [![Pod License](http://img.shields.io/cocoapods/l/SDWebImage.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
@@ -75,7 +75,7 @@ The new framework introduce two View structs `WebImage` and `AnimatedImage` for 
 
 #### Integration with 3rd party libraries
 - [SDWebImageLottiePlugin](https://github.com/SDWebImage/SDWebImageLottiePlugin) - plugin to support [Lottie-iOS](https://github.com/airbnb/lottie-ios), vector animation rending with remote JSON files
-- [SDWebImageSVGKitPlugin](https://github.com/SDWebImage/SDWebImageLottiePlugin) - plugin to support [SVGKit](https://github.com/SVGKit/SVGKit), SVG rendering using Core Animation, iOS 8+/macOS 10.10+ support
+- [SDWebImageSVGKitPlugin](https://github.com/SDWebImage/SDWebImageSVGKitPlugin) - plugin to support [SVGKit](https://github.com/SVGKit/SVGKit), SVG rendering using Core Animation, iOS 8+/macOS 10.10+ support
 - [SDWebImageFLPlugin](https://github.com/SDWebImage/SDWebImageFLPlugin) - plugin to support [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) as the engine for animated GIFs
 - [SDWebImageYYPlugin](https://github.com/SDWebImage/SDWebImageYYPlugin) - plugin to integrate [YYImage](https://github.com/ibireme/YYImage) & [YYCache](https://github.com/ibireme/YYCache) for image rendering & caching
 

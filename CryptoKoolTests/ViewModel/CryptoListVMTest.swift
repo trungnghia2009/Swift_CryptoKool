@@ -82,7 +82,7 @@ class CryptoListVMTest: XCTestCase {
                      priceChangePercentage24h: 30.0)
         ]
         
-        sut.coreDataService.saveData(entity: cryptoList)
+        sut.saveData(list: cryptoList)
         sut.firstFetchFromDataBase()
         sut.onCryptoListChange
             .sink { _ in
