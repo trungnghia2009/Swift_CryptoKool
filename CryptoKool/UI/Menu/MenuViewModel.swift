@@ -10,7 +10,8 @@ import Foundation
 class MenuViewModel {
     let sections: [MenuModel] = [
         MenuModel(title: .home, options: [.homeFeature1, .homeFeature2]),
-        MenuModel(title: .favorite, options: [])
+        MenuModel(title: .favorite, options: []),
+        MenuModel(title: .about, options: [])
     ]
     
     func createMainMenuWithoutSubMenu(menu: String) -> MenuModel.MainMenuWithoutSubMenu? {

@@ -8,7 +8,8 @@
 import UIKit
 
 protocol MenuViewControllerDelegate: AnyObject {
-    func didFinishPop()
+    func didTapSearchMenu()
+    func didTapInfomationMenu()
 }
 
 class MenuViewController: UIViewController {
@@ -78,7 +79,7 @@ extension MenuViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             let menuModel = sections[indexPath.section]
-            cell.model = menuModel
+            cell.configure(menu: menuModel)
             return cell
         } else {
             // Setup cell
@@ -104,9 +105,14 @@ extension MenuViewController: UITableViewDelegate {
             if let menu = viewModel.createMainMenuWithoutSubMenu(menu: sections[indexPath.section].title.rawValue) {
                 switch menu {
                 case .favorite:
-                    print("Did tap section: \(menu.rawValue)")
+                    print("Did tap menu: \(menu.rawValue)")
+                    navigationController?.popViewController(animated: true)
+                case .about:
+                    print("Did tap menu: \(menu.rawValue)")
+                    navigationController?.popViewController(animated: false, completion: { [weak self] in
+                        self?.delegate?.didTapInfomationMenu()
+                    })
                 }
-                navigationController?.popViewController(animated: true)
             }
         } else {
             
@@ -119,7 +125,7 @@ extension MenuViewController: UITableViewDelegate {
             case .homeFeature2:
                 print("Did tap cell: \(cellName.rawValue)")
                 navigationController?.popViewController(animated: false, completion: { [weak self] in
-                    self?.delegate?.didFinishPop()
+                    self?.delegate?.didTapSearchMenu()
                 })
             }
             

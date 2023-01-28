@@ -10,12 +10,6 @@ import UIKit
 class MenuSection: UITableViewCell {
     
     static let reuseIdentifier = String(describing: MenuSection.self)
-
-    var model: MenuModel? {
-        didSet {
-            configure()
-        }
-    }
     
     @IBOutlet private weak var menuImage: UIImageView!
     @IBOutlet private weak var menuTitleLabel: UILabel!
@@ -28,8 +22,8 @@ class MenuSection: UITableViewCell {
         menuImage.tintColor = .label
     }
     
-    private func configureUI() {
-        model?.options.count == 0 ?
+    private func configureUI(menu: MenuModel) {
+        menu.options.count == 0 ?
             (expandCollapseImage.isHidden = true) :
             (selectionStyle = .none)
         isOpened ?
@@ -37,11 +31,10 @@ class MenuSection: UITableViewCell {
             (expandCollapseImage.image = UIImage(systemName: "arrowtriangle.down.fill"))
     }
     
-    func configure() {
-        guard let model = model else { return }
-        self.isOpened = model.isOpened
-        configureUI()
-        menuImage.image = UIImage(systemName: model.title.menuImage)
-        menuTitleLabel.text = model.title.rawValue
+    func configure(menu: MenuModel) {
+        self.isOpened = menu.isOpened
+        configureUI(menu: menu)
+        menuImage.image = UIImage(systemName: menu.title.menuImage)
+        menuTitleLabel.text = menu.title.rawValue.capitalized
     }
 }

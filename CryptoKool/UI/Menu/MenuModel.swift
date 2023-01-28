@@ -13,6 +13,7 @@ protocol MenuNameWithSubMenu {
 
 protocol MenuNameWithOutSubMenu {
     static var favorite: Self { get }
+    static var about: Self { get }
 }
 
 class MenuModel {
@@ -27,19 +28,22 @@ class MenuModel {
     }
     
     enum MainMenu: String, MenuNameWithSubMenu, MenuNameWithOutSubMenu {
-        case home = "Home"
-        case favorite = "Favorite"
+        case home
+        case favorite
+        case about
         
         var menuImage: String {
             switch self {
             case .home: return "house"
             case .favorite: return "star"
+            case .about: return "info.circle"
             }
         }
     }
     
     enum MainMenuWithoutSubMenu: String, MenuNameWithOutSubMenu {
-        case favorite = "Favorite"
+        case favorite
+        case about
     }
     
     enum SubMenu: String {

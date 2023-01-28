@@ -217,7 +217,11 @@ extension CryptoListVC {
 
 // MARK: MenuViewControllerDelegate
 extension CryptoListVC: MenuViewControllerDelegate {
-    func didFinishPop() {
+    func didTapSearchMenu() {
         navigationController?.pushViewController(CryptoSearchVC(), animated: true)
+    }
+    
+    func didTapInfomationMenu() {
+        navigationController?.pushViewController(InformationScreen(), animated: true)
     }
 }

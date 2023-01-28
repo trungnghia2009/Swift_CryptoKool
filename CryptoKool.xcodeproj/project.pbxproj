@@ -88,6 +88,7 @@
 		582AB123295ED4E1007B00A3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11C295ED4E1007B00A3 /* MenuViewController.swift */; };
 		582AB125295ED8EF007B00A3 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB124295ED8EF007B00A3 /* UINavigationController.swift */; };
 		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
+		58AA570829828FC500A71F75 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570729828FC500A71F75 /* ToDo.swift */; };
 		58AC5ECC28F2F9B600BA95A6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */; };
 		58AC5ECE28F2F9D200BA95A6 /* CryptoDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECD28F2F9D200BA95A6 /* CryptoDBService.swift */; };
 		58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED028F2FA9E00BA95A6 /* Crypto.xcdatamodeld */; };
@@ -210,6 +211,7 @@
 		582AB11C295ED4E1007B00A3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		582AB124295ED8EF007B00A3 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
+		58AA570729828FC500A71F75 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		58AC5ECD28F2F9D200BA95A6 /* CryptoDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDBService.swift; sourceTree = "<group>"; };
 		58AC5ED128F2FA9E00BA95A6 /* Crypto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crypto.xcdatamodel; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 		2C63C39F27BFE02500339740 /* CryptoKool */ = {
 			isa = PBXGroup;
 			children = (
+				58AA570729828FC500A71F75 /* ToDo.swift */,
 				2E0A742F28F2D091001C18D0 /* Resolver */,
 				2C63C3D527BFE15B00339740 /* Application */,
 				2C63C3D027BFE03C00339740 /* UI */,
@@ -987,6 +990,7 @@
 				2C93A99527C1C8DD0063AF98 /* CryptoDetailVC.swift in Sources */,
 				2C63C3A327BFE02500339740 /* SceneDelegate.swift in Sources */,
 				2C63C3F227BFEDBF00339740 /* PresenterManager.swift in Sources */,
+				58AA570829828FC500A71F75 /* ToDo.swift in Sources */,
 				2C5B5DDD27C1356C006B439D /* CryptoSearchVC.swift in Sources */,
 				2C5B5DB727C074A1006B439D /* MockCoinGeckoService.swift in Sources */,
 				2C5B5DE427C13607006B439D /* CryptoSearchCellVM.swift in Sources */,

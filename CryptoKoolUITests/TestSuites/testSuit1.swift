@@ -9,7 +9,7 @@ import XCTest
 
 class TestSuit1: BaseTestCase {
 
-    func testCase1_navigate_from_List_view_to_bitcoin_detail_view() throws {
+    func testCase1_navigate_from_list_view_to_bitcoin_detail_view() throws {
         Logger.info(msg: "Start testCase1...")
         if FirstPage.checkFirstPageExist() {
             FirstPage.navToListPage()

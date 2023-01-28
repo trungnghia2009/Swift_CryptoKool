@@ -9,7 +9,7 @@ import Foundation
 
 class FirstPage: BasePage {
     
-    static private let LABEL_TITLE = staticTexts["APIs was provided by"]
+    static private let LABEL_TITLE = staticTexts["APIs provided by"]
     static private let BTN_START_NOW = buttons["Start now"]
     
     static func navToListPage() {
