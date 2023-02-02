@@ -13,6 +13,7 @@ final class CryptoDetailVM {
     @Injected private var service: CryptoServiceInterface
     
     private let entity: CryptoDetailEntity
+    private let _imageRepository: ImageRepositoryProtocol
     private var subscriptions = Set<AnyCancellable>()
     
     private let cryptoDetailSubject = CurrentValueSubject<CryptoDetailEntity?, Never>(nil)
@@ -23,8 +24,9 @@ final class CryptoDetailVM {
             .eraseToAnyPublisher()
     }
     
-    init(entity: CryptoDetailEntity) {
+    init(entity: CryptoDetailEntity, imageRepository: ImageRepositoryProtocol = ImageRepository()) {
         self.entity = entity
+        self._imageRepository = imageRepository
     }
     
     deinit {
@@ -117,5 +119,9 @@ final class CryptoDetailVM {
             return "0.00"
         }
         return parsePrice(price: price)
+    }
+    
+    var imageRepository: ImageRepositoryProtocol {
+        return _imageRepository
     }
 }

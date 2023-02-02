@@ -55,7 +55,7 @@
 		2C63C3EA27BFE6AE00339740 /* CKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E927BFE6AE00339740 /* CKLog.swift */; };
 		2C63C3EC27BFE6DA00339740 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3EB27BFE6DA00339740 /* Date.swift */; };
 		2C63C3EE27BFE70800339740 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3ED27BFE70800339740 /* String.swift */; };
-		2C63C3F227BFEDBF00339740 /* PresenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F127BFEDBF00339740 /* PresenterManager.swift */; };
+		2C63C3F227BFEDBF00339740 /* RootViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F127BFEDBF00339740 /* RootViewManager.swift */; };
 		2C63C3F427BFEEC200339740 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F327BFEEC200339740 /* ActionButton.swift */; };
 		2C63C3F627BFEF0000339740 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F527BFEF0000339740 /* Helpers.swift */; };
 		2C63C3FA27BFF1A100339740 /* love.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C63C3F827BFF1A100339740 /* love.json */; };
@@ -79,16 +79,19 @@
 		2C93A99B27C1E02E0063AF98 /* CryptoDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C93A99A27C1E02E0063AF98 /* CryptoDetailVC.storyboard */; };
 		2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743028F2D0C2001C18D0 /* Resolver.swift */; };
 		2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A743228F2D0D1001C18D0 /* Injections.swift */; };
-		582AB11D295ED4E1007B00A3 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB115295ED4E1007B00A3 /* MenuViewModel.swift */; };
+		582AB11D295ED4E1007B00A3 /* CryptoMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB115295ED4E1007B00A3 /* CryptoMenuViewModel.swift */; };
 		582AB11E295ED4E1007B00A3 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB117295ED4E1007B00A3 /* MenuSection.swift */; };
 		582AB11F295ED4E1007B00A3 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB118295ED4E1007B00A3 /* MenuCell.swift */; };
 		582AB120295ED4E1007B00A3 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582AB119295ED4E1007B00A3 /* MenuCell.xib */; };
 		582AB121295ED4E1007B00A3 /* MenuSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582AB11A295ED4E1007B00A3 /* MenuSection.xib */; };
-		582AB122295ED4E1007B00A3 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11B295ED4E1007B00A3 /* MenuModel.swift */; };
-		582AB123295ED4E1007B00A3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11C295ED4E1007B00A3 /* MenuViewController.swift */; };
+		582AB122295ED4E1007B00A3 /* CryptoMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11B295ED4E1007B00A3 /* CryptoMenuModel.swift */; };
+		582AB123295ED4E1007B00A3 /* CryptoMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11C295ED4E1007B00A3 /* CryptoMenuViewController.swift */; };
 		582AB125295ED8EF007B00A3 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB124295ED8EF007B00A3 /* UINavigationController.swift */; };
+		584F44E9298BFBC80045B1BA /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F44E8298BFBC80045B1BA /* ImageRepository.swift */; };
 		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
 		58AA570829828FC500A71F75 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570729828FC500A71F75 /* ToDo.swift */; };
+		58AA570B29851EB400A71F75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570A29851EB400A71F75 /* Coordinator.swift */; };
+		58AA570D2985207E00A71F75 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570C2985207E00A71F75 /* MainCoordinator.swift */; };
 		58AC5ECC28F2F9B600BA95A6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */; };
 		58AC5ECE28F2F9D200BA95A6 /* CryptoDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ECD28F2F9D200BA95A6 /* CryptoDBService.swift */; };
 		58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58AC5ED028F2FA9E00BA95A6 /* Crypto.xcdatamodeld */; };
@@ -174,7 +177,7 @@
 		2C63C3E927BFE6AE00339740 /* CKLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLog.swift; sourceTree = "<group>"; };
 		2C63C3EB27BFE6DA00339740 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2C63C3ED27BFE70800339740 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		2C63C3F127BFEDBF00339740 /* PresenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterManager.swift; sourceTree = "<group>"; };
+		2C63C3F127BFEDBF00339740 /* RootViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewManager.swift; sourceTree = "<group>"; };
 		2C63C3F327BFEEC200339740 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2C63C3F527BFEF0000339740 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		2C63C3F827BFF1A100339740 /* love.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = love.json; sourceTree = "<group>"; };
@@ -202,16 +205,19 @@
 		2E0A743228F2D0D1001C18D0 /* Injections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injections.swift; sourceTree = "<group>"; };
 		4A06317E260ACB8B16240874 /* Pods_CryptoKoolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoKoolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D64A82599CC186114C9A46 /* Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; path = "Target Support Files/Pods-CryptoKool-CryptoKoolUITests/Pods-CryptoKool-CryptoKoolUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		582AB115295ED4E1007B00A3 /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		582AB115295ED4E1007B00A3 /* CryptoMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoMenuViewModel.swift; sourceTree = "<group>"; };
 		582AB117295ED4E1007B00A3 /* MenuSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		582AB118295ED4E1007B00A3 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		582AB119295ED4E1007B00A3 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		582AB11A295ED4E1007B00A3 /* MenuSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSection.xib; sourceTree = "<group>"; };
-		582AB11B295ED4E1007B00A3 /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
-		582AB11C295ED4E1007B00A3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		582AB11B295ED4E1007B00A3 /* CryptoMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoMenuModel.swift; sourceTree = "<group>"; };
+		582AB11C295ED4E1007B00A3 /* CryptoMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoMenuViewController.swift; sourceTree = "<group>"; };
 		582AB124295ED8EF007B00A3 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		584F44E8298BFBC80045B1BA /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
 		58AA570729828FC500A71F75 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		58AA570A29851EB400A71F75 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		58AA570C2985207E00A71F75 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		58AC5ECB28F2F9B600BA95A6 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		58AC5ECD28F2F9D200BA95A6 /* CryptoDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDBService.swift; sourceTree = "<group>"; };
 		58AC5ED128F2FA9E00BA95A6 /* Crypto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crypto.xcdatamodel; sourceTree = "<group>"; };
@@ -378,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				58AA570729828FC500A71F75 /* ToDo.swift */,
+				58AA570929851E9900A71F75 /* Coordinator */,
 				2E0A742F28F2D091001C18D0 /* Resolver */,
 				2C63C3D527BFE15B00339740 /* Application */,
 				2C63C3D027BFE03C00339740 /* UI */,
@@ -522,10 +529,10 @@
 			isa = PBXGroup;
 			children = (
 				2C63C3E927BFE6AE00339740 /* CKLog.swift */,
-				2C63C3F127BFEDBF00339740 /* PresenterManager.swift */,
 				2C63C3F527BFEF0000339740 /* Helpers.swift */,
 				2C715F8627C27C7A001AFC00 /* Debouncer.swift */,
 				0794161027E9A0B000C08793 /* DeepLink.swift */,
+				584F44E8298BFBC80045B1BA /* ImageRepository.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -627,9 +634,9 @@
 		582AB114295ED4E1007B00A3 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				582AB11C295ED4E1007B00A3 /* MenuViewController.swift */,
-				582AB115295ED4E1007B00A3 /* MenuViewModel.swift */,
-				582AB11B295ED4E1007B00A3 /* MenuModel.swift */,
+				582AB11C295ED4E1007B00A3 /* CryptoMenuViewController.swift */,
+				582AB115295ED4E1007B00A3 /* CryptoMenuViewModel.swift */,
+				582AB11B295ED4E1007B00A3 /* CryptoMenuModel.swift */,
 				582AB116295ED4E1007B00A3 /* Cell */,
 			);
 			path = Menu;
@@ -644,6 +651,16 @@
 				582AB11A295ED4E1007B00A3 /* MenuSection.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		58AA570929851E9900A71F75 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2C63C3F127BFEDBF00339740 /* RootViewManager.swift */,
+				58AA570A29851EB400A71F75 /* Coordinator.swift */,
+				58AA570C2985207E00A71F75 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		58AC5ECA28F2F94E00BA95A6 /* PersistentData */ = {
@@ -958,12 +975,13 @@
 				2C5B5DBB27C084F3006B439D /* CryptoDetailEntity.swift in Sources */,
 				2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */,
 				2C5B5DBD27C08D36006B439D /* CryptoSearchEntity.swift in Sources */,
-				582AB122295ED4E1007B00A3 /* MenuModel.swift in Sources */,
+				582AB122295ED4E1007B00A3 /* CryptoMenuModel.swift in Sources */,
 				2C63C3D927BFE24B00339740 /* UIView.swift in Sources */,
 				2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */,
 				2C63C3EE27BFE70800339740 /* String.swift in Sources */,
 				2C63C3EA27BFE6AE00339740 /* CKLog.swift in Sources */,
 				58DF9315295AED7800A35D3A /* TestVC.swift in Sources */,
+				58AA570D2985207E00A71F75 /* MainCoordinator.swift in Sources */,
 				2C5B5DC427C09A68006B439D /* CryptoListCell.swift in Sources */,
 				2C63C3DD27BFE2CE00339740 /* UITableView.swift in Sources */,
 				58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */,
@@ -974,22 +992,23 @@
 				2C5B5DD427C0EACF006B439D /* CryptoDetailResponse.swift in Sources */,
 				2C63C3E327BFE36400339740 /* SafeDictionary.swift in Sources */,
 				2C63C3EC27BFE6DA00339740 /* Date.swift in Sources */,
+				58AA570B29851EB400A71F75 /* Coordinator.swift in Sources */,
 				2C5B5DDF27C13597006B439D /* CryptoSearchVM.swift in Sources */,
 				2C5B5DC227C09A2F006B439D /* CryptoListVM.swift in Sources */,
-				582AB11D295ED4E1007B00A3 /* MenuViewModel.swift in Sources */,
+				582AB11D295ED4E1007B00A3 /* CryptoMenuViewModel.swift in Sources */,
 				2C63C3E527BFE38200339740 /* SafeSet.swift in Sources */,
 				2C63C3E127BFE34500339740 /* SafeArray.swift in Sources */,
 				2C63C3F627BFEF0000339740 /* Helpers.swift in Sources */,
 				2C7FA29327C15F19000141C1 /* SearchCryptoUseCase.swift in Sources */,
 				58AC5ED628F2FC5700BA95A6 /* CryptoDB.swift in Sources */,
-				582AB123295ED4E1007B00A3 /* MenuViewController.swift in Sources */,
+				582AB123295ED4E1007B00A3 /* CryptoMenuViewController.swift in Sources */,
 				58AC5ECE28F2F9D200BA95A6 /* CryptoDBService.swift in Sources */,
 				2C715F8727C27C7A001AFC00 /* Debouncer.swift in Sources */,
 				58AC5ED828F3A76F00BA95A6 /* CryptoEntity.swift in Sources */,
 				2C93A99927C1CA1C0063AF98 /* FetchCryptoDetailUseCase.swift in Sources */,
 				2C93A99527C1C8DD0063AF98 /* CryptoDetailVC.swift in Sources */,
 				2C63C3A327BFE02500339740 /* SceneDelegate.swift in Sources */,
-				2C63C3F227BFEDBF00339740 /* PresenterManager.swift in Sources */,
+				2C63C3F227BFEDBF00339740 /* RootViewManager.swift in Sources */,
 				58AA570829828FC500A71F75 /* ToDo.swift in Sources */,
 				2C5B5DDD27C1356C006B439D /* CryptoSearchVC.swift in Sources */,
 				2C5B5DB727C074A1006B439D /* MockCoinGeckoService.swift in Sources */,
@@ -1005,6 +1024,7 @@
 				582AB11E295ED4E1007B00A3 /* MenuSection.swift in Sources */,
 				2C5B5DD827C0F09A006B439D /* FetchCryptoListUseCase.swift in Sources */,
 				0794161127E9A0B000C08793 /* DeepLink.swift in Sources */,
+				584F44E9298BFBC80045B1BA /* ImageRepository.swift in Sources */,
 				2C5B5DCD27C0E85D006B439D /* QueryLink.swift in Sources */,
 				2C63C3F427BFEEC200339740 /* ActionButton.swift in Sources */,
 				2C93A99727C1C8ED0063AF98 /* CryptoDetailVM.swift in Sources */,

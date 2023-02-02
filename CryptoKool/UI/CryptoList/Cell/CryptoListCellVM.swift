@@ -16,9 +16,11 @@ enum Percentage24hState {
 final class CryptoListCellVM {
     
     private let crypto: CryptoEntity
+    private let _imageRepository: ImageRepositoryProtocol
     
-    init(crypto: CryptoEntity) {
+    init(crypto: CryptoEntity, imageRepository: ImageRepositoryProtocol = ImageRepository()) {
         self.crypto = crypto
+        self._imageRepository = imageRepository
     }
     
     var cryptoName: String {
@@ -66,5 +68,9 @@ final class CryptoListCellVM {
             return "+\(String(format: "%.2f", price))" + "%"
         }
         return "\(String(format: "%.2f", price))" + "%"
+    }
+    
+    var imageRepository: ImageRepositoryProtocol {
+        return _imageRepository
     }
 }

@@ -10,9 +10,11 @@ import Foundation
 final class CryptoSearchCellVM {
     
     private let crypto: CryptoSearchEntity
+    private let _imageRepository: ImageRepositoryProtocol
     
-    init(crypto: CryptoSearchEntity) {
+    init(crypto: CryptoSearchEntity, imageRepository: ImageRepositoryProtocol = ImageRepository()) {
         self.crypto = crypto
+        self._imageRepository = imageRepository
     }
     
     var cryptoName: String {
@@ -28,5 +30,9 @@ final class CryptoSearchCellVM {
     
     var imageURL: String? {
         return crypto.imageURL
+    }
+    
+    var imageRepository: ImageRepositoryProtocol {
+        return _imageRepository
     }
 }

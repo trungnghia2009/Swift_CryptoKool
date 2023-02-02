@@ -8,9 +8,10 @@
 import UIKit
 import Lottie
 
-final class FirstScreen: UIViewController {
+final class FirstScreen: UIViewController, Coordinating {
     
     // MARK: Properties
+    var coordinator: Coordinator?
     private let heartAnimationView = LottieAnimationView(animation: LottieAnimation.named("love"))
     private let onboardingKey = "onBoarding"
     
@@ -46,7 +47,7 @@ final class FirstScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserDefaults.standard.bool(forKey: onboardingKey) == true {
-            PresenterManager.shared.show(vc: .cryptoListScreen)
+            RootViewManager.shared.show(view: .cryptoListScreen)
         }
         setupGradientLayer(fromColor: .white, toColor: .orange)
         setupUI()
@@ -95,6 +96,6 @@ final class FirstScreen: UIViewController {
     @objc private func didTapStartNowButton() {
         UserDefaults.standard.set(true, forKey: onboardingKey)
         heartAnimationView.stop()
-        PresenterManager.shared.show(vc: .cryptoListScreen)
+        RootViewManager.shared.show(view: .cryptoListScreen)
     }
 }

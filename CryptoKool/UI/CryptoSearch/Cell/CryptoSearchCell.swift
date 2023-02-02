@@ -6,11 +6,13 @@
 //
 
 import UIKit
-import SDWebImage
+import Combine
 
 final class CryptoSearchCell: UITableViewCell {
 
     static let reuseIdentifier = String(describing: CryptoSearchCell.self)
+    private var subscriptions = Set<AnyCancellable>()
+    
     var viewModel: CryptoSearchCellVM? {
         didSet {
             setup()
@@ -25,7 +27,6 @@ final class CryptoSearchCell: UITableViewCell {
         iv.contentMode = .scaleAspectFit
         iv.layer.cornerRadius = 20
         iv.clipsToBounds = true
-        iv.image = UIImage(named: "launchScreenImage")
         return iv
     }()
     
@@ -33,7 +34,6 @@ final class CryptoSearchCell: UITableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16)
         label.numberOfLines = 1
-        label.text = "Helium (HNT)"
         return label
     }()
     
@@ -65,6 +65,12 @@ final class CryptoSearchCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        cryptoImageView.image = nil
+        cryptoNameLabel.text = nil
+        cryptoRankLabel.text = nil
+    }
+    
     // MARK: Helper
     private func setup() {
         guard let viewModel = viewModel else { return }
@@ -74,7 +80,24 @@ final class CryptoSearchCell: UITableViewCell {
         if let imageURL = viewModel.imageURL,
            let url = URL(string: imageURL) {
             cryptoImageView.backgroundColor = .clear
-            cryptoImageView.sd_setImage(with: url)
+            loadImage(imageUrl: url)
         }
+    }
+    
+    private func loadImage(imageUrl: URL) {
+        viewModel?.imageRepository
+            .getImage(imageUrl: imageUrl)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    //CKLog.info(message: "Load image successfully")
+                    break
+                case .failure(let error):
+                    CKLog.error(message: "Load image failure: \(error)")
+                }
+            } receiveValue: { [weak self] image in
+                self?.cryptoImageView.image = image
+            }.store(in: &subscriptions)
     }
 }

@@ -8,9 +8,10 @@
 import UIKit
 import Lottie
 
-final class InformationScreen: UIViewController {
+final class InformationScreen: UIViewController, Coordinating {
 
     // MARK: Properties
+    var coordinator: Coordinator?
     private let waitingAnimationView = LottieAnimationView(animation: LottieAnimation.named("cryptocurrency"))
     
     private let copyrightLabel: UILabel = {

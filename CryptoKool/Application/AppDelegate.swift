@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .home:
             break
         case .search:
-            PresenterManager.shared.show(vc: .informationScreen)
+            break
         }
         
         return true

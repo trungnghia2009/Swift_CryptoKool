@@ -22,4 +22,17 @@ class CryptoAlert {
             self.controller.present(alert, animated: true)
         }
     }
+    
+    func showOptions(title: String,
+                     content: String,
+                     okButton: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: content, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default) { _ in okButton() }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+        alert.addAction(okButton)
+        alert.addAction(cancelButton)
+        DispatchQueue.main.async {
+            self.controller.present(alert, animated: true)
+        }
+    }
 }

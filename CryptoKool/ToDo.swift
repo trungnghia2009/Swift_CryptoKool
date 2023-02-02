@@ -6,5 +6,6 @@
 //
 
 import Foundation
-// Implement Coordinator design pattern
-// Implement Image/API caching then remove SDWebImage library
+// Implement Coordinator design pattern -> Done, but need to fix memory leaks issue
+// Implement Image/API caching then remove SDWebImage library -> Done, need to refactor later
+// Favorit list (View + data persistent)

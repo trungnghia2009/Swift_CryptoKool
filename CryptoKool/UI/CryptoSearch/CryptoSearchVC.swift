@@ -8,9 +8,10 @@
 import UIKit
 import Combine
 
-final class CryptoSearchVC: UITableViewController {
+final class CryptoSearchVC: UITableViewController, Coordinating {
 
     // MARK: - Properties
+    var coordinator: Coordinator?
     private let viewModel = CryptoSearchVM()
     private var subscriptions = [AnyCancellable]()
     private let searchController = UISearchController()
@@ -122,15 +123,11 @@ extension CryptoSearchVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = viewModel.cryptoAtIndex(indexPath.row)
         CKLog.info(message: "Did tap item with id: \(selectedItem.id)")
-        let storyboard = UIStoryboard(name: "CryptoDetailVC", bundle: Bundle.main)
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "CryptoDetailVC") as? CryptoDetailVC else {
-            return
-        }
         
         let cryptoDetailEntity = selectedItem.mapToDetailEntity()
         let cryptoDetailVM = CryptoDetailVM(entity: cryptoDetailEntity)
-        controller.viewModel = cryptoDetailVM
-        navigationController?.pushViewController(controller, animated: true)
+        
+        coordinator?.eventOccurred(with: .detailScreen(viewModel: cryptoDetailVM))
     }
 }
 

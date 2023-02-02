@@ -22,7 +22,7 @@ class MenuSection: UITableViewCell {
         menuImage.tintColor = .label
     }
     
-    private func configureUI(menu: MenuModel) {
+    private func configureUI(menu: CryptoMenuModel) {
         menu.options.count == 0 ?
             (expandCollapseImage.isHidden = true) :
             (selectionStyle = .none)
@@ -31,7 +31,7 @@ class MenuSection: UITableViewCell {
             (expandCollapseImage.image = UIImage(systemName: "arrowtriangle.down.fill"))
     }
     
-    func configure(menu: MenuModel) {
+    func configure(menu: CryptoMenuModel) {
         self.isOpened = menu.isOpened
         configureUI(menu: menu)
         menuImage.image = UIImage(systemName: menu.title.menuImage)

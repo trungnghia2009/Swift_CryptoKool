@@ -8,9 +8,10 @@
 import UIKit
 import Combine
 
-final class CryptoListVC: UITableViewController {
+final class CryptoListVC: UITableViewController, Coordinating {
     
     // MARK: Properties
+    var coordinator: Coordinator?
     private var subscriptions = [AnyCancellable]()
     private let viewModel = CryptoListVM()
     private var timer: Timer?
@@ -115,11 +116,11 @@ final class CryptoListVC: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
                                                             style: .done,
                                                             target: self,
-                                                            action: #selector(didTapRightBarButton))
+                                                            action: #selector(didInfoButton))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"),
                                                            style: .done,
                                                            target: self,
-                                                           action: #selector(didTapLeftBarButton))
+                                                           action: #selector(didTapMenuButton))
     }
     
     private func setTableView() {
@@ -174,21 +175,20 @@ final class CryptoListVC: UITableViewController {
     
     
     // MARK: Selectors
-    @objc private func didTapRightBarButton() {
-        CKLog.info(message: "Did tap right bar button")
-        show(InformationScreen(), sender: nil)
+    @objc private func didInfoButton() {
+        CKLog.info(message: "Did tap Info button")
+        coordinator?.eventOccurred(with: .informationScreen)
     }
     
-    @objc private func didTapLeftBarButton() {
-        CKLog.info(message: "Did tap left bar button")
-        let menu = MenuViewController()
-        menu.delegate = self
-        show(menu, sender: nil)
+    @objc private func didTapMenuButton() {
+        CKLog.info(message: "Did tap Menu button")
+        coordinator?.eventOccurred(with: .menuScreen(delegate: self))
     }
     
     @objc private func didTapSearchButton() {
         CKLog.info(message: "Did tap search button")
-        show(CryptoSearchVC(), sender: nil)
+        coordinator?.eventOccurred(with: .searchScreen)
+        
     }
     
     @objc private func callFetchData() {
@@ -201,27 +201,20 @@ final class CryptoListVC: UITableViewController {
 extension CryptoListVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = viewModel.cryptoAtIndex(indexPath.row)
-        CKLog.info(message: "Did tap item with id: \(selectedItem.id)")
-        
-        let storyboard = UIStoryboard(name: "CryptoDetailVC", bundle: Bundle.main)
-        guard let controller = storyboard.instantiateViewController(withIdentifier: "CryptoDetailVC") as? CryptoDetailVC else {
-            return
-        }
         
         let cryptoDetailEntity = selectedItem.mapToDetailEntity()
         let cryptoDetailVM = CryptoDetailVM(entity: cryptoDetailEntity)
-        controller.viewModel =  cryptoDetailVM
-        navigationController?.pushViewController(controller, animated: true)
+        coordinator?.eventOccurred(with: .detailScreen(viewModel: cryptoDetailVM))
     }
 }
 
 // MARK: MenuViewControllerDelegate
-extension CryptoListVC: MenuViewControllerDelegate {
+extension CryptoListVC: CryptoMenuViewControllerDelegate {
     func didTapSearchMenu() {
-        navigationController?.pushViewController(CryptoSearchVC(), animated: true)
+        coordinator?.eventOccurred(with: .searchScreen)
     }
     
     func didTapInfomationMenu() {
-        navigationController?.pushViewController(InformationScreen(), animated: true)
+        coordinator?.eventOccurred(with: .informationScreen)
     }
 }

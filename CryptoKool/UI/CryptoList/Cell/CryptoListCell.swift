@@ -6,11 +6,13 @@
 //
 
 import UIKit
-import SDWebImage
+import Combine
 
 final class CryptoListCell: UITableViewCell {
 
     static let reuseIdentifier = String(describing: CryptoListCell.self)
+    private var subscriptions = Set<AnyCancellable>()
+    
     var viewModel: CryptoListCellVM? {
         didSet {
             setup()
@@ -103,8 +105,26 @@ final class CryptoListCell: UITableViewCell {
         if let imageURL = viewModel.imageURL,
            let url = URL(string: imageURL) {
             cryptoImageView.backgroundColor = .tertiarySystemGroupedBackground
-            cryptoImageView.sd_setImage(with: url)
+            loadImage(imageUrl: url)
         }
+            
+    }
+    
+    private func loadImage(imageUrl: URL) {
+        viewModel?.imageRepository
+            .getImage(imageUrl: imageUrl)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    //CKLog.info(message: "Load image successfully")
+                    break
+                case .failure(let error):
+                    CKLog.error(message: "Load image failure: \(error)")
+                }
+            } receiveValue: { [weak self] image in
+                self?.cryptoImageView.image = image
+            }.store(in: &subscriptions)
     }
     
 }
