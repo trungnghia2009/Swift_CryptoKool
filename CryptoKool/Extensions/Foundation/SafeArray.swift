@@ -32,10 +32,19 @@ class SafeArray<T: Equatable> {
             }
         }
     }
+    
     var last: T? {
         var result: T?
         self.concurrentQueue.sync {
             result = self._array.last
+        }
+        return result
+    }
+    
+    var first: T? {
+        var result: T?
+        self.concurrentQueue.sync {
+            result = self._array.first
         }
         return result
     }

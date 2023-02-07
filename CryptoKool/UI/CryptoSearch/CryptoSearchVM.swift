@@ -31,7 +31,7 @@ final class CryptoSearchVM {
     }
     
     deinit {
-        CKLog.info(message: "Deinit CryptoSearchVM...")
+        CKLog.info("Deinit CryptoSearchVM...")
     }
     
     func searchCrypto(searchKey: String) {
@@ -47,10 +47,10 @@ final class CryptoSearchVM {
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 if case .failure(let error) = completion {
-                    CKLog.error(message: "Retrieving data with error: \(error)")
+                    CKLog.error("Retrieving data with error: \(error)")
                 }
             } receiveValue: { [weak self] crytoList in
-                CKLog.info(message: "Got list success... : \(crytoList.count)")
+                CKLog.info("Got list success... : \(crytoList.count)")
                 self?.searchList = crytoList
                 if crytoList.count == 0 {
                     self?.stateSubject.send(.noResult)

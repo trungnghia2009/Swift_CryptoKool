@@ -30,7 +30,7 @@ final class CryptoDetailVM {
     }
     
     deinit {
-        CKLog.info(message: "Deinit CryptoDetailVM...")
+        CKLog.info("Deinit CryptoDetailVM...")
     }
     
     func fetchCryptoDetail() {
@@ -39,10 +39,10 @@ final class CryptoDetailVM {
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 if case .failure(let error) = completion {
-                    CKLog.error(message: "Retrieving data with error: \(error)")
+                    CKLog.error("Retrieving data with error: \(error)")
                 }
             } receiveValue: { [weak self] crypto in
-                CKLog.info(message: "Got detail successfully: \(crypto)")
+                CKLog.info("Got detail successfully: \(crypto)")
                 self?.cryptoDetailSubject.send(crypto)
             }.store(in: &subscriptions)
     }
@@ -52,7 +52,7 @@ final class CryptoDetailVM {
     }
     
     private func parsePrice(price: Double) -> String {
-        CKLog.info(message: "Price is :\(price)")
+        CKLog.info("Price is :\(price)")
         if price < 0.0099 {
             return "$\(String(format: "%.8f", price))"
         }

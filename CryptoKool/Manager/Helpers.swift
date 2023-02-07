@@ -25,7 +25,7 @@ final class Helpers {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 return data
             } catch let error as NSError {
-                CKLog.error(message: "getJsonData got error: \(error), \(error.userInfo)")
+                CKLog.error("getJsonData got error: \(error), \(error.userInfo)")
                 return nil
             }
         }

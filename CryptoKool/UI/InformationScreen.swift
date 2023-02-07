@@ -72,7 +72,7 @@ final class InformationScreen: UIViewController, Coordinating {
     
     // MARK: Selectors
     @objc private func didTapVersionLabel() {
-        CKLog.info(message: "Did tap version label...")
+        CKLog.info("Did tap version label...")
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()

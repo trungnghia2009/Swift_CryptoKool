@@ -45,7 +45,7 @@ final class CryptoDBService: CoreDataInterface {
             do {
                 try self?.coreDataStack.backgroundContext.execute(asyncFetchRequest)
             } catch let error as NSError {
-                CKLog.info(message: "Could not fetch \(error), \(error.userInfo)")
+                CKLog.info("Could not fetch \(error), \(error.userInfo)")
                 promise(.failure(CoreDataError.couldNotFetch))
             }
             
@@ -59,13 +59,13 @@ final class CryptoDBService: CoreDataInterface {
     }
     
     func saveData(entity: [CryptoEntity]) {
-        CKLog.info(message: "SaveData to database")
+        CKLog.info("SaveData to database")
         
         // Delete CryptoDB before saving
         do {
             try coreDataStack.managedContext.execute(CryptoDB.deleteRequest())
         } catch let error as NSError {
-            CKLog.info(message: "Cannot delete CryptoDB: \(error)")
+            CKLog.info("Cannot delete CryptoDB: \(error)")
         }
         
         entity.forEach { crypto in

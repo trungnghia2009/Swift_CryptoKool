@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        CKLog.info(message: "didFinishLaunchingWithOptions...")
+        CKLog.info("didFinishLaunchingWithOptions...")
         try! FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Library/SplashBoard")
         
         do {
@@ -32,15 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
               let host = components.host
         else {
-            CKLog.error(message: "Invalid URL")
+            CKLog.error("Invalid URL")
             return false
         }
         
-        CKLog.info(message: "Components: \(components)")
+        CKLog.info("Components: \(components)")
         
         // Create the deep link
         guard let deepLink = DeepLink(rawValue: host) else {
-            CKLog.error(message: "Deeplink not found: \(host)")
+            CKLog.error("Deeplink not found: \(host)")
             return false
         }
         

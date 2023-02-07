@@ -45,16 +45,16 @@
 		2C63C3AA27BFE02600339740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C63C3A927BFE02600339740 /* Assets.xcassets */; };
 		2C63C3AD27BFE02600339740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C63C3AB27BFE02600339740 /* LaunchScreen.storyboard */; };
 		2C63C3B827BFE02700339740 /* CryptoListVMTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3B727BFE02700339740 /* CryptoListVMTest.swift */; };
-		2C63C3D927BFE24B00339740 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3D827BFE24B00339740 /* UIView.swift */; };
-		2C63C3DD27BFE2CE00339740 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3DC27BFE2CE00339740 /* UITableView.swift */; };
-		2C63C3DF27BFE2EC00339740 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3DE27BFE2EC00339740 /* UIViewController.swift */; };
+		2C63C3D927BFE24B00339740 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3D827BFE24B00339740 /* ExtUIView.swift */; };
+		2C63C3DD27BFE2CE00339740 /* ExtUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3DC27BFE2CE00339740 /* ExtUITableView.swift */; };
+		2C63C3DF27BFE2EC00339740 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3DE27BFE2EC00339740 /* ExtUIViewController.swift */; };
 		2C63C3E127BFE34500339740 /* SafeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E027BFE34500339740 /* SafeArray.swift */; };
 		2C63C3E327BFE36400339740 /* SafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E227BFE36400339740 /* SafeDictionary.swift */; };
 		2C63C3E527BFE38200339740 /* SafeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E427BFE38200339740 /* SafeSet.swift */; };
 		2C63C3E727BFE3CB00339740 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E627BFE3CB00339740 /* FirstScreen.swift */; };
 		2C63C3EA27BFE6AE00339740 /* CKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E927BFE6AE00339740 /* CKLog.swift */; };
-		2C63C3EC27BFE6DA00339740 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3EB27BFE6DA00339740 /* Date.swift */; };
-		2C63C3EE27BFE70800339740 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3ED27BFE70800339740 /* String.swift */; };
+		2C63C3EC27BFE6DA00339740 /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3EB27BFE6DA00339740 /* ExtDate.swift */; };
+		2C63C3EE27BFE70800339740 /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3ED27BFE70800339740 /* ExtString.swift */; };
 		2C63C3F227BFEDBF00339740 /* RootViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F127BFEDBF00339740 /* RootViewManager.swift */; };
 		2C63C3F427BFEEC200339740 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F327BFEEC200339740 /* ActionButton.swift */; };
 		2C63C3F627BFEF0000339740 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F527BFEF0000339740 /* Helpers.swift */; };
@@ -86,7 +86,7 @@
 		582AB121295ED4E1007B00A3 /* MenuSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582AB11A295ED4E1007B00A3 /* MenuSection.xib */; };
 		582AB122295ED4E1007B00A3 /* CryptoMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11B295ED4E1007B00A3 /* CryptoMenuModel.swift */; };
 		582AB123295ED4E1007B00A3 /* CryptoMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11C295ED4E1007B00A3 /* CryptoMenuViewController.swift */; };
-		582AB125295ED8EF007B00A3 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB124295ED8EF007B00A3 /* UINavigationController.swift */; };
+		582AB125295ED8EF007B00A3 /* ExtUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB124295ED8EF007B00A3 /* ExtUINavigationController.swift */; };
 		584F44E9298BFBC80045B1BA /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F44E8298BFBC80045B1BA /* ImageRepository.swift */; };
 		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
 		58AA570829828FC500A71F75 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570729828FC500A71F75 /* ToDo.swift */; };
@@ -167,16 +167,16 @@
 		2C63C3B327BFE02700339740 /* CryptoKoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoKoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C63C3B727BFE02700339740 /* CryptoListVMTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListVMTest.swift; sourceTree = "<group>"; };
 		2C63C3BD27BFE02700339740 /* CryptoKoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoKoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C63C3D827BFE24B00339740 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		2C63C3DC27BFE2CE00339740 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		2C63C3DE27BFE2EC00339740 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		2C63C3D827BFE24B00339740 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
+		2C63C3DC27BFE2CE00339740 /* ExtUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITableView.swift; sourceTree = "<group>"; };
+		2C63C3DE27BFE2EC00339740 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		2C63C3E027BFE34500339740 /* SafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeArray.swift; sourceTree = "<group>"; };
 		2C63C3E227BFE36400339740 /* SafeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDictionary.swift; sourceTree = "<group>"; };
 		2C63C3E427BFE38200339740 /* SafeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeSet.swift; sourceTree = "<group>"; };
 		2C63C3E627BFE3CB00339740 /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
 		2C63C3E927BFE6AE00339740 /* CKLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLog.swift; sourceTree = "<group>"; };
-		2C63C3EB27BFE6DA00339740 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		2C63C3ED27BFE70800339740 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2C63C3EB27BFE6DA00339740 /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
+		2C63C3ED27BFE70800339740 /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		2C63C3F127BFEDBF00339740 /* RootViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewManager.swift; sourceTree = "<group>"; };
 		2C63C3F327BFEEC200339740 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2C63C3F527BFEF0000339740 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		582AB11A295ED4E1007B00A3 /* MenuSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSection.xib; sourceTree = "<group>"; };
 		582AB11B295ED4E1007B00A3 /* CryptoMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoMenuModel.swift; sourceTree = "<group>"; };
 		582AB11C295ED4E1007B00A3 /* CryptoMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoMenuViewController.swift; sourceTree = "<group>"; };
-		582AB124295ED8EF007B00A3 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		582AB124295ED8EF007B00A3 /* ExtUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUINavigationController.swift; sourceTree = "<group>"; };
 		584F44E8298BFBC80045B1BA /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
 		58AA570729828FC500A71F75 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
@@ -505,8 +505,8 @@
 		2C63C3DA27BFE2AC00339740 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				2C63C3ED27BFE70800339740 /* String.swift */,
-				2C63C3EB27BFE6DA00339740 /* Date.swift */,
+				2C63C3ED27BFE70800339740 /* ExtString.swift */,
+				2C63C3EB27BFE6DA00339740 /* ExtDate.swift */,
 				2C63C3E027BFE34500339740 /* SafeArray.swift */,
 				2C63C3E227BFE36400339740 /* SafeDictionary.swift */,
 				2C63C3E427BFE38200339740 /* SafeSet.swift */,
@@ -517,10 +517,10 @@
 		2C63C3DB27BFE2C000339740 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				2C63C3D827BFE24B00339740 /* UIView.swift */,
-				2C63C3DC27BFE2CE00339740 /* UITableView.swift */,
-				2C63C3DE27BFE2EC00339740 /* UIViewController.swift */,
-				582AB124295ED8EF007B00A3 /* UINavigationController.swift */,
+				2C63C3D827BFE24B00339740 /* ExtUIView.swift */,
+				2C63C3DC27BFE2CE00339740 /* ExtUITableView.swift */,
+				2C63C3DE27BFE2EC00339740 /* ExtUIViewController.swift */,
+				582AB124295ED8EF007B00A3 /* ExtUINavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -976,14 +976,14 @@
 				2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */,
 				2C5B5DBD27C08D36006B439D /* CryptoSearchEntity.swift in Sources */,
 				582AB122295ED4E1007B00A3 /* CryptoMenuModel.swift in Sources */,
-				2C63C3D927BFE24B00339740 /* UIView.swift in Sources */,
+				2C63C3D927BFE24B00339740 /* ExtUIView.swift in Sources */,
 				2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */,
-				2C63C3EE27BFE70800339740 /* String.swift in Sources */,
+				2C63C3EE27BFE70800339740 /* ExtString.swift in Sources */,
 				2C63C3EA27BFE6AE00339740 /* CKLog.swift in Sources */,
 				58DF9315295AED7800A35D3A /* TestVC.swift in Sources */,
 				58AA570D2985207E00A71F75 /* MainCoordinator.swift in Sources */,
 				2C5B5DC427C09A68006B439D /* CryptoListCell.swift in Sources */,
-				2C63C3DD27BFE2CE00339740 /* UITableView.swift in Sources */,
+				2C63C3DD27BFE2CE00339740 /* ExtUITableView.swift in Sources */,
 				58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */,
 				2C5B5DDA27C0F762006B439D /* CryptoListCellVM.swift in Sources */,
 				2C5B5DB327C072B2006B439D /* CoinGeckoInterface.swift in Sources */,
@@ -991,7 +991,7 @@
 				2C63C3E727BFE3CB00339740 /* FirstScreen.swift in Sources */,
 				2C5B5DD427C0EACF006B439D /* CryptoDetailResponse.swift in Sources */,
 				2C63C3E327BFE36400339740 /* SafeDictionary.swift in Sources */,
-				2C63C3EC27BFE6DA00339740 /* Date.swift in Sources */,
+				2C63C3EC27BFE6DA00339740 /* ExtDate.swift in Sources */,
 				58AA570B29851EB400A71F75 /* Coordinator.swift in Sources */,
 				2C5B5DDF27C13597006B439D /* CryptoSearchVM.swift in Sources */,
 				2C5B5DC227C09A2F006B439D /* CryptoListVM.swift in Sources */,
@@ -1013,13 +1013,13 @@
 				2C5B5DDD27C1356C006B439D /* CryptoSearchVC.swift in Sources */,
 				2C5B5DB727C074A1006B439D /* MockCoinGeckoService.swift in Sources */,
 				2C5B5DE427C13607006B439D /* CryptoSearchCellVM.swift in Sources */,
-				582AB125295ED8EF007B00A3 /* UINavigationController.swift in Sources */,
+				582AB125295ED8EF007B00A3 /* ExtUINavigationController.swift in Sources */,
 				2C5B5DD227C0EABA006B439D /* CryptoSearchResponse.swift in Sources */,
 				2C5B5DC727C0A80A006B439D /* InformationScreen.swift in Sources */,
 				2C5B5DE227C135C6006B439D /* CryptoSearchCell.swift in Sources */,
 				2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */,
 				589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */,
-				2C63C3DF27BFE2EC00339740 /* UIViewController.swift in Sources */,
+				2C63C3DF27BFE2EC00339740 /* ExtUIViewController.swift in Sources */,
 				2C5B5DB527C0748F006B439D /* CoinGeckoService.swift in Sources */,
 				582AB11E295ED4E1007B00A3 /* MenuSection.swift in Sources */,
 				2C5B5DD827C0F09A006B439D /* FetchCryptoListUseCase.swift in Sources */,

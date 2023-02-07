@@ -120,7 +120,7 @@ final class CryptoListCell: UITableViewCell {
                     //CKLog.info(message: "Load image successfully")
                     break
                 case .failure(let error):
-                    CKLog.error(message: "Load image failure: \(error)")
+                    CKLog.error("Load image failure: \(error)")
                 }
             } receiveValue: { [weak self] image in
                 self?.cryptoImageView.image = image

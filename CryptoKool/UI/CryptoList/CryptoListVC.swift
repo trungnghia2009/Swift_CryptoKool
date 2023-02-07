@@ -104,7 +104,7 @@ final class CryptoListVC: UITableViewController, Coordinating {
     }
     
     deinit {
-        CKLog.info(message: "Deinit CryptoListVC...")
+        CKLog.info("Deinit CryptoListVC...")
         timer?.invalidate()
         timer = nil
     }
@@ -134,7 +134,7 @@ final class CryptoListVC: UITableViewController, Coordinating {
         viewModel.onCryptoListChange
             .sink { [weak self] in
                 guard let self = self else { return }
-                CKLog.info(message: "Reload tableview...")
+                CKLog.info("Reload tableview...")
                 self.hideLoadingIndicatorView()
                 self.configureSnapshot(for: self.viewModel.getCryptoList())
             }.store(in: &subscriptions)
@@ -176,23 +176,23 @@ final class CryptoListVC: UITableViewController, Coordinating {
     
     // MARK: Selectors
     @objc private func didInfoButton() {
-        CKLog.info(message: "Did tap Info button")
+        CKLog.info("Did tap Info button")
         coordinator?.eventOccurred(with: .informationScreen)
     }
     
     @objc private func didTapMenuButton() {
-        CKLog.info(message: "Did tap Menu button")
+        CKLog.info("Did tap Menu button")
         coordinator?.eventOccurred(with: .menuScreen(delegate: self))
     }
     
     @objc private func didTapSearchButton() {
-        CKLog.info(message: "Did tap search button")
+        CKLog.info("Did tap search button")
         coordinator?.eventOccurred(with: .searchScreen)
         
     }
     
     @objc private func callFetchData() {
-        CKLog.info(message: "Fetching crpto list again...")
+        CKLog.info("Fetching crpto list again...")
         viewModel.fetchCryptoList()
     }
 }

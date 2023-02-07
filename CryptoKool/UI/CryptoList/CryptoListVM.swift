@@ -30,7 +30,7 @@ final class CryptoListVM {
     }
     
     deinit {
-        CKLog.info(message: "Deinit CryptoListVM...")
+        CKLog.info("Deinit CryptoListVM...")
     }
     
     func cryptoAtIndex(_ index: Int) -> CryptoEntity {
@@ -49,10 +49,10 @@ final class CryptoListVM {
                 receiveCompletion: { [weak self] completion in
                     switch completion {
                     case .finished:
-                        CKLog.info(message: "FetchCryptoListUseCase completed...")
+                        CKLog.info("FetchCryptoListUseCase completed...")
                     case .failure(let error):
                         if let coinError = error as? CoinGeckoServiceError {
-                            CKLog.error(message: "Error: \(coinError)")
+                            CKLog.error("Error: \(coinError)")
                             self?.errorSubject.send(coinError)
                         }
                     }
@@ -72,10 +72,10 @@ final class CryptoListVM {
         coreDataService.fetchData()
             .receive(on: DispatchQueue.main)
             .sink { completion in
-                CKLog.info(message: "Completed with: \(completion)")
+                CKLog.info("Completed with: \(completion)")
             } receiveValue: { [weak self] cryptoDBList in
                 let cryptoCount = cryptoDBList.count
-                CKLog.info(message: "crptoDBList count: \(cryptoDBList.count)")
+                CKLog.info("crptoDBList count: \(cryptoDBList.count)")
                 if cryptoCount == 0 { return }
                 
                 var entityList = [CryptoEntity]()
