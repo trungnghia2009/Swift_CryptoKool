@@ -17,7 +17,7 @@ final class FirstScreen: UIViewController, Coordinating {
     
     private let startNowButton: ActionButton = {
         let button = ActionButton(type: .system)
-        button.setTitle(NSLocalizedString("Start_now", comment: "Start now"), for: .normal)
+        button.setTitle(CKLanguage.text("start_now"), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange

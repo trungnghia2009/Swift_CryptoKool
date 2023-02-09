@@ -94,7 +94,7 @@ final class CryptoSearchCell: UITableViewCell {
                     //CKLog.info(message: "Load image successfully")
                     break
                 case .failure(let error):
-                    CKLog.error("Load image failure: \(error)")
+                    CKLogger.error("Load image failure: \(error)")
                 }
             } receiveValue: { [weak self] image in
                 self?.cryptoImageView.image = image

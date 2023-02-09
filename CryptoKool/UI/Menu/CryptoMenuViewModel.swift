@@ -12,6 +12,7 @@ class CryptoMenuViewModel {
         CryptoMenuModel(title: .home, options: [.homeFeature1, .homeFeature2]),
         CryptoMenuModel(title: .favorite, options: []),
         CryptoMenuModel(title: .about, options: []),
+        CryptoMenuModel(title: .report, options: []),
         CryptoMenuModel(title: .exit, options: [])
     ]
     

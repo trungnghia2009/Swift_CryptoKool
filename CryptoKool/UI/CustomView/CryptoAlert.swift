@@ -7,32 +7,31 @@
 
 import UIKit
 
-class CryptoAlert {
+struct AlertInfo {
+    let controller: UIViewController
+    let title: String
+    let content: String
+}
+
+struct CryptoAlert {
     
-    private let controller: UIViewController
-    
-    init(controller: UIViewController) {
-        self.controller = controller
-    }
-    
-    func showSimple(title: String, content: String) {
-        let alert = UIAlertController(title: title, message: content, preferredStyle: .alert)
+    func showSimple(alertInfo: AlertInfo) {
+        let alert = UIAlertController(title: alertInfo.title, message: alertInfo.content, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         DispatchQueue.main.async {
-            self.controller.present(alert, animated: true)
+            alertInfo.controller.present(alert, animated: true)
         }
     }
     
-    func showOptions(title: String,
-                     content: String,
+    func showOptions(alertInfo: AlertInfo,
                      okButton: @escaping () -> Void) {
-        let alert = UIAlertController(title: title, message: content, preferredStyle: .alert)
+        let alert = UIAlertController(title: alertInfo.title, message: alertInfo.content, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default) { _ in okButton() }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         alert.addAction(okButton)
         alert.addAction(cancelButton)
         DispatchQueue.main.async {
-            self.controller.present(alert, animated: true)
+            alertInfo.controller.present(alert, animated: true)
         }
     }
 }

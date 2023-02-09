@@ -104,7 +104,7 @@ final class CryptoListVC: UITableViewController, Coordinating {
     }
     
     deinit {
-        CKLog.info("Deinit CryptoListVC...")
+        CKLogger.info("Deinit CryptoListVC...")
         timer?.invalidate()
         timer = nil
     }
@@ -134,7 +134,7 @@ final class CryptoListVC: UITableViewController, Coordinating {
         viewModel.onCryptoListChange
             .sink { [weak self] in
                 guard let self = self else { return }
-                CKLog.info("Reload tableview...")
+                CKLogger.info("Reload tableview...")
                 self.hideLoadingIndicatorView()
                 self.configureSnapshot(for: self.viewModel.getCryptoList())
             }.store(in: &subscriptions)
@@ -142,9 +142,8 @@ final class CryptoListVC: UITableViewController, Coordinating {
         viewModel.onError
             .sink { [weak self] error in
                 guard let self = self else { return }
-                self.hideLoadingIndicatorView()
-                let alert = CryptoAlert(controller: self)
-                alert.showSimple(title: "Error", content: error.description)
+                let info = AlertInfo(controller: self, title: "Error", content: error.description)
+                self.coordinator?.eventOccurred(with: .alertSimpleScreen(info: info))
             }.store(in: &subscriptions)
     }
     
@@ -176,23 +175,23 @@ final class CryptoListVC: UITableViewController, Coordinating {
     
     // MARK: Selectors
     @objc private func didInfoButton() {
-        CKLog.info("Did tap Info button")
+        CKLogger.info("Did tap Info button")
         coordinator?.eventOccurred(with: .informationScreen)
     }
     
     @objc private func didTapMenuButton() {
-        CKLog.info("Did tap Menu button")
+        CKLogger.info("Did tap Menu button")
         coordinator?.eventOccurred(with: .menuScreen(delegate: self))
     }
     
     @objc private func didTapSearchButton() {
-        CKLog.info("Did tap search button")
+        CKLogger.info("Did tap search button")
         coordinator?.eventOccurred(with: .searchScreen)
         
     }
     
     @objc private func callFetchData() {
-        CKLog.info("Fetching crpto list again...")
+        CKLogger.info("Fetching crpto list again...")
         viewModel.fetchCryptoList()
     }
 }

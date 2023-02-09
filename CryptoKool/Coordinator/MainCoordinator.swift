@@ -9,6 +9,7 @@ import UIKit
 
 class MainCoordinator: Coordinator {
     var navigationController: UINavigationController?
+    private let alertController = CryptoAlert()
     
     func eventOccurred(with type: Event) {
         switch type {
@@ -33,6 +34,15 @@ class MainCoordinator: Coordinator {
             vc.coordinator = self
             vc.viewModel =  viewModel
             navigationController?.pushViewController(vc, animated: true)
+        case .emailScreen(let vc, let delegate):
+            let mailManager = MailManager()
+            mailManager.sendEmailWithLogAttachment(controller: vc, delegate: delegate)
+        
+        // Handle Alert
+        case .alertSimpleScreen(let info):
+            alertController.showSimple(alertInfo: info)
+        case .alertOptionsScreen(let info, let action):
+            alertController.showOptions(alertInfo: info, okButton: action)
         }
     }
     

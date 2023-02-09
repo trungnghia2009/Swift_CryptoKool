@@ -34,7 +34,7 @@ final class CoinGeckoService: CoinGeckoInterface {
                 error: CoinGeckoServiceError.urlInvalid
             ).eraseToAnyPublisher()
         }
-        CKLog.info("Request: \(url.absoluteURL)")
+        CKLogger.info("Request: \(url.absoluteURL)")
         
         return URLSession.shared
             .dataTaskPublisher(for: url)
@@ -43,7 +43,7 @@ final class CoinGeckoService: CoinGeckoInterface {
                     throw CoinGeckoServiceError.statusCodeError(code: (response as? HTTPURLResponse)?.statusCode ?? 400)
                 }
                 
-                CKLog.info("---Current thread: \(Thread.current)", shouldLogContext: false)
+                CKLogger.info("---Current thread: \(Thread.current)", shouldLogContext: false)
                 
                 var cryptoList = [CryptoEntity]()
                 
@@ -76,7 +76,7 @@ final class CoinGeckoService: CoinGeckoInterface {
                 error: CoinGeckoServiceError.urlInvalid
             ).eraseToAnyPublisher()
         }
-        CKLog.info("Request: \(url.absoluteURL)")
+        CKLogger.info("Request: \(url.absoluteURL)")
         
         return URLSession.shared
             .dataTaskPublisher(for: url)
@@ -86,7 +86,7 @@ final class CoinGeckoService: CoinGeckoInterface {
                 }
                 
                 let result = try JSONDecoder().decode(CryptoDetailResponse.self, from: data)
-                CKLog.info("Result is: \(result)")
+                CKLogger.info("Result is: \(result)")
                 let cryptoDetailEntity = CryptoDetailEntity(id: result.id,
                                                             symbol: result.symbol,
                                                             name: result.name,
@@ -116,7 +116,7 @@ final class CoinGeckoService: CoinGeckoInterface {
                 error: CoinGeckoServiceError.urlInvalid
             ).eraseToAnyPublisher()
         }
-        CKLog.info("Request: \(url.absoluteURL)")
+        CKLogger.info("Request: \(url.absoluteURL)")
         
         return URLSession.shared
             .dataTaskPublisher(for: url)

@@ -63,7 +63,7 @@ final class CryptoSearchVC: UITableViewController, Coordinating {
     }
     
     deinit {
-        CKLog.info("Deinit CryptoSearchVC...")
+        CKLogger.info("Deinit CryptoSearchVC...")
     }
     
     // MARK: - Helpers
@@ -71,7 +71,7 @@ final class CryptoSearchVC: UITableViewController, Coordinating {
         viewModel.state
             .sink { [weak self] in
                 guard let self = self else { return }
-                CKLog.info("Reload data...")
+                CKLogger.info("Reload data...")
                 self.configureSnapshot(for: self.viewModel.getCryptoList())
             }.store(in: &subscriptions)
     }
@@ -85,7 +85,7 @@ final class CryptoSearchVC: UITableViewController, Coordinating {
         searchController.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = true
-        searchController.searchBar.placeholder = "Search..."
+        searchController.searchBar.placeholder = CKLanguage.text("search_placeholder", comment: "Search...")
         searchController.searchBar.searchTextField.returnKeyType = .done
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
@@ -100,7 +100,7 @@ final class CryptoSearchVC: UITableViewController, Coordinating {
     }
     
     private func callSearchAPI() {
-        CKLog.info("Search value: \(textFieldValue)")
+        CKLogger.info("Search value: \(textFieldValue)")
         viewModel.searchCrypto(searchKey: textFieldValue)
     }
     
@@ -111,7 +111,7 @@ final class CryptoSearchVC: UITableViewController, Coordinating {
         
         dataSource.apply(snapshot, animatingDifferences: false)
         if list.count == 0 {
-            tableView.setEmptyMessage(message: viewModel.getState().rawValue, size: 20)
+            tableView.setEmptyMessage(message: viewModel.getState().text, size: 20)
         } else {
             tableView.restore()
         }
@@ -122,7 +122,7 @@ final class CryptoSearchVC: UITableViewController, Coordinating {
 extension CryptoSearchVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = viewModel.cryptoAtIndex(indexPath.row)
-        CKLog.info("Did tap item with id: \(selectedItem.id)")
+        CKLogger.info("Did tap item with id: \(selectedItem.id)")
         
         let cryptoDetailEntity = selectedItem.mapToDetailEntity()
         let cryptoDetailVM = CryptoDetailVM(entity: cryptoDetailEntity)
@@ -144,7 +144,7 @@ extension CryptoSearchVC: UISearchControllerDelegate {
 
 extension CryptoSearchVC: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        CKLog.info("Tapped cancel...")
+        CKLogger.info("Tapped cancel...")
         navigationController?.popViewController(animated: true)
     }
 }

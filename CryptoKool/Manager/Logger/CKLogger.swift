@@ -7,7 +7,9 @@
 
 import Foundation
 
-public enum CKLog {
+public struct CKLogger {
+    
+    private static let logFileManager = LogFileManager.shared
     
     enum LogLevel {
         case info
@@ -36,8 +38,6 @@ public enum CKLog {
         var description: String {
             return "\(currentDate) \((file as NSString).lastPathComponent):\(line):\(function)"
         }
-        
-    
     }
     
     /// info log
@@ -49,7 +49,7 @@ public enum CKLog {
         line: Int = #line
     ) {
         let context = Context(file: file, function: function, line: line)
-        CKLog.handleLog(level: .info, str: str.description, shouldLogContext: shouldLogContext, context: context)
+        CKLogger.handleLog(level: .info, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
     
     /// warning log
@@ -61,7 +61,7 @@ public enum CKLog {
         line: Int = #line
     ) {
         let context = Context(file: file, function: function, line: line)
-        CKLog.handleLog(level: .warning, str: str.description, shouldLogContext: shouldLogContext, context: context)
+        CKLogger.handleLog(level: .warning, str: str.description, shouldLogContext: shouldLogContext, context: context)
     }
     
     /// error log
@@ -73,7 +73,26 @@ public enum CKLog {
         line: Int = #line
     ) {
         let context = Context(file: file, function: function, line: line)
-        CKLog.handleLog(level: .error, str: str.description, shouldLogContext: shouldLogContext, context: context)
+        CKLogger.handleLog(level: .error, str: str.description, shouldLogContext: shouldLogContext, context: context)
+    }
+    
+    /// starting log
+    static func start(file: String = #file, function: String = #function, line: Int = #line) {
+        // Add break line
+        CKLogger.logFileManager.writeLog("")
+        
+        let context = Context(file: file, function: function, line: line)
+        let startingText = "-------------- starting \(Config.appName) \(Config.enviroment ?? .Debug) \(Config.version)(\(Config.build)) --------------\n"
+        let deviceInfo = """
+        ----- Device Info -----
+        Model: \(DeviceInfo.modelType)
+        System name: \(DeviceInfo.systemName)
+        Version: \(DeviceInfo.version)
+        Localized model: \(DeviceInfo.localizedModel)
+        DeviceId: \(DeviceInfo.deviceID ?? "")\n
+        """
+        
+        CKLogger.handleLog(level: .info, str: "\(startingText + deviceInfo)", shouldLogContext: true, context: context)
     }
     
     fileprivate static func handleLog(level: LogLevel, str: String, shouldLogContext: Bool, context: Context) {
@@ -83,6 +102,8 @@ public enum CKLog {
         if shouldLogContext {
             fullString = "\(context.description) → " + fullString
         }
+        
+        CKLogger.logFileManager.writeLog(fullString)
         
         #if DEBUG
         print(fullString)

@@ -1,0 +1,12 @@
+//
+//  Release.xcconfig
+//  CryptoKool
+//
+//  Created by trungnghia on 09/02/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+FEATURES_ENABLED = false
+BFF_URL = https:\/\/release-nghia.com/mobile-bff-java00

@@ -8,11 +8,24 @@
 import Foundation
 import Combine
 
-enum SearchState: String {
-    case begin = "Please type your keyword."
-    case loading = "Loading..."
-    case done = ""
-    case noResult = "There is no result."
+enum SearchState {
+    case begin
+    case loading
+    case done
+    case noResult
+    
+    var text: String {
+        switch self {
+        case .begin:
+            return CKLanguage.text("search_emtpy", comment: "Please type your keyword.")
+        case .loading:
+            return CKLanguage.text("search_loading", comment: "Loading...")
+        case .done:
+            return ""
+        case .noResult:
+            return CKLanguage.text("search_no_result", comment: "There is no result.")
+        }
+    }
 }
 
 
@@ -31,7 +44,7 @@ final class CryptoSearchVM {
     }
     
     deinit {
-        CKLog.info("Deinit CryptoSearchVM...")
+        CKLogger.info("Deinit CryptoSearchVM...")
     }
     
     func searchCrypto(searchKey: String) {
@@ -47,10 +60,10 @@ final class CryptoSearchVM {
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 if case .failure(let error) = completion {
-                    CKLog.error("Retrieving data with error: \(error)")
+                    CKLogger.error("Retrieving data with error: \(error)")
                 }
             } receiveValue: { [weak self] crytoList in
-                CKLog.info("Got list success... : \(crytoList.count)")
+                CKLogger.info("Got list success... : \(crytoList.count)")
                 self?.searchList = crytoList
                 if crytoList.count == 0 {
                     self?.stateSubject.send(.noResult)

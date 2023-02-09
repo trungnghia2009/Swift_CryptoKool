@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 protocol CryptoMenuViewControllerDelegate: AnyObject {
     func didTapSearchMenu()
@@ -93,7 +94,7 @@ extension CryptoMenuViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             let title = sections[indexPath.section].options[indexPath.row - 1]
-            cell.configure(title: title.rawValue)
+            cell.configure(title: title.text)
             return cell
         }
     }
@@ -109,20 +110,22 @@ extension CryptoMenuViewController: UITableViewDelegate {
             
             // Handle navigation here
             if let menu = viewModel.createMainMenuWithoutSubMenu(menu: sections[indexPath.section].title.rawValue) {
+                CKLogger.info("Did tap menu: \(menu.rawValue)")
                 switch menu {
                 case .favorite:
-                    print("Did tap menu: \(menu.rawValue)")
+                    // TODO: Implement later
                     navigationController?.popViewController(animated: true)
                 case .about:
-                    print("Did tap menu: \(menu.rawValue)")
                     navigationController?.popViewController(animated: false, completion: { [weak self] in
                         self?.delegate?.didTapInfomationMenu()
                     })
+                case .report:
+                    coordinator?.eventOccurred(with: .emailScreen(controller: self, delegate: self))
                 case .exit:
-                    let alert = CryptoAlert(controller: self)
-                    alert.showOptions(title: "Exit", content: "Would you like to exit ?") {
+                    let alertInfo = AlertInfo(controller: self, title: "Exit", content: "Would you like to exit ?")
+                    coordinator?.eventOccurred(with: .alertOptionsScreen(info: alertInfo) {
                         RootViewManager.shared.show(view: .firstScreen)
-                    }
+                    })
                 }
             }
         } else {
@@ -145,3 +148,9 @@ extension CryptoMenuViewController: UITableViewDelegate {
     }
 }
 
+// MARK: MFMailComposeViewControllerDelegate
+extension CryptoMenuViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+}

@@ -35,6 +35,6 @@ class MenuSection: UITableViewCell {
         self.isOpened = menu.isOpened
         configureUI(menu: menu)
         menuImage.image = UIImage(systemName: menu.title.menuImage)
-        menuTitleLabel.text = menu.title.rawValue.capitalized
+        menuTitleLabel.text = menu.title.text
     }
 }

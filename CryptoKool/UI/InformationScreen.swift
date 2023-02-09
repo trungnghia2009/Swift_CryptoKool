@@ -18,15 +18,16 @@ final class InformationScreen: UIViewController, Coordinating {
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .bold)
         label.textColor = .systemGray
-        label.text = "Created by Tran Trung nghia"
+        label.text = CKLanguage.text("information_created_by").replacingOccurrences(of: "%", with: "Tran Trung Nghia")
         return label
     }()
     
     private lazy var versionLabel: UILabel = {
+        let version = "\(Config.version)(\(Config.build))"
         let label = UILabel()
         label.font = .systemFont(ofSize: 17, weight: .bold)
         label.textColor = .systemGray
-        label.text = "Version 1.0"
+        label.text = CKLanguage.text("information_version").replacingOccurrences(of: "%", with: version)
         label.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapVersionLabel))
         tapGesture.numberOfTapsRequired = 5
@@ -59,7 +60,7 @@ final class InformationScreen: UIViewController, Coordinating {
     // MARK: Helpers
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Infomation"
+        navigationItem.title = CKLanguage.text("information_information", comment: "information")
     }
     
     private func setupAnimation() {
@@ -72,7 +73,7 @@ final class InformationScreen: UIViewController, Coordinating {
     
     // MARK: Selectors
     @objc private func didTapVersionLabel() {
-        CKLog.info("Did tap version label...")
+        CKLogger.info("Did tap version label...")
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
         UserDefaults.standard.synchronize()

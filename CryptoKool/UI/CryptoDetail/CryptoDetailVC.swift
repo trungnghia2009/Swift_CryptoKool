@@ -44,7 +44,7 @@ final class CryptoDetailVC: UIViewController, Coordinating {
     }
     
     deinit {
-        CKLog.info("Deinit CryptoDetailVC...")
+        CKLogger.info("Deinit CryptoDetailVC...")
     }
     
     private func setupObserver() {
@@ -95,7 +95,7 @@ final class CryptoDetailVC: UIViewController, Coordinating {
                     //CKLog.info("Load image successfully")
                     break
                 case .failure(let error):
-                    CKLog.error("Load image failure: \(error)")
+                    CKLogger.error("Load image failure: \(error)")
                 }
             } receiveValue: { [weak self] image in
                 self?.imageView.image = image
@@ -122,12 +122,12 @@ final class CryptoDetailVC: UIViewController, Coordinating {
     
     // MARK: Selectors
     @objc private func callFetchData() {
-        CKLog.info("Fetching crypto detail again...")
+        CKLogger.info("Fetching crypto detail again...")
         viewModel?.fetchCryptoDetail()
     }
     
     @objc private func didTapFavoriteButton() {
-        CKLog.info("Did tap Favorite Button...")
+        CKLogger.info("Did tap Favorite Button...")
         isFavorite.toggle()
         if isFavorite {
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")

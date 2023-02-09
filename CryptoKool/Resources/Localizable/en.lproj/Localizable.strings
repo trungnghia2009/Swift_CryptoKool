@@ -5,4 +5,27 @@
   Created by trungnghia on 18/02/2022.
   
 */
-"Start_now" = "Start now";
+"start_now" = "Start now";
+
+// Menu
+"menu_home" = "Home";
+"menu_top_100" = "Top 100";
+"menu_search" = "Search";
+"menu_favorite" = "Favorite";
+"menu_about" = "About";
+"menu_report" = "Report";
+"menu_exit" = "Exit";
+
+// Detail Screen
+"detail_homepage" = "Homepage:";
+
+// Search screen
+"search_emtpy" = "Please type your keyword.";
+"search_loading" = "Loading...";
+"search_no_result" = "There is no result.";
+"search_placeholder" = "Search...";
+
+// Information screen
+"information_information" = "Information";
+"information_version" = "Version %";
+"information_created_by" = "Created by %";

@@ -5,4 +5,27 @@
   Created by trungnghia on 18/02/2022.
   
 */
-"Start_now" = "Tới luôn";
+"start_now" = "Tới luôn";
+
+// Menu
+"menu_home" = "Trang chủ";
+"menu_top_100" = "Top 100";
+"menu_search" = "Tìm kiếm";
+"menu_favorite" = "Danh sách ưa thích";
+"menu_about" = "Thông tin";
+"menu_report" = "Báo cáo lỗi";
+"menu_exit" = "Thoát";
+
+// Detail Screen
+"detail_homepage" = "Trang chủ:";
+
+// Search screen
+"search_emtpy" = "Vui lòng nhập từ khóa.";
+"search_loading" = "Đang tải...";
+"search_no_result" = "Không có kết quả.";
+"search_placeholder" = "Tìm kiếm...";
+
+// Information screen
+"information_information" = "Thông tin";
+"information_version" = "Phiên bản %";
+"information_created_by" = "Created by %";

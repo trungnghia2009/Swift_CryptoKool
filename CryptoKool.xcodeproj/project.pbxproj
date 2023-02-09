@@ -52,7 +52,7 @@
 		2C63C3E327BFE36400339740 /* SafeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E227BFE36400339740 /* SafeDictionary.swift */; };
 		2C63C3E527BFE38200339740 /* SafeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E427BFE38200339740 /* SafeSet.swift */; };
 		2C63C3E727BFE3CB00339740 /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E627BFE3CB00339740 /* FirstScreen.swift */; };
-		2C63C3EA27BFE6AE00339740 /* CKLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E927BFE6AE00339740 /* CKLog.swift */; };
+		2C63C3EA27BFE6AE00339740 /* CKLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3E927BFE6AE00339740 /* CKLogger.swift */; };
 		2C63C3EC27BFE6DA00339740 /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3EB27BFE6DA00339740 /* ExtDate.swift */; };
 		2C63C3EE27BFE70800339740 /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3ED27BFE70800339740 /* ExtString.swift */; };
 		2C63C3F227BFEDBF00339740 /* RootViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63C3F127BFEDBF00339740 /* RootViewManager.swift */; };
@@ -88,6 +88,12 @@
 		582AB123295ED4E1007B00A3 /* CryptoMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB11C295ED4E1007B00A3 /* CryptoMenuViewController.swift */; };
 		582AB125295ED8EF007B00A3 /* ExtUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582AB124295ED8EF007B00A3 /* ExtUINavigationController.swift */; };
 		584F44E9298BFBC80045B1BA /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584F44E8298BFBC80045B1BA /* ImageRepository.swift */; };
+		586BC7EC2994DAC800647D86 /* LogFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7EB2994DAC800647D86 /* LogFileManager.swift */; };
+		586BC7F12994DB5E00647D86 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F02994DB5E00647D86 /* AppConfiguration.swift */; };
+		586BC7F32994DB7000647D86 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F22994DB7000647D86 /* DeviceInfo.swift */; };
+		586BC7F52994DB8E00647D86 /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F42994DB8E00647D86 /* MailManager.swift */; };
+		586BC7F72994FDBA00647D86 /* CKLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F62994FDBA00647D86 /* CKLanguage.swift */; };
+		586BC7F9299504A100647D86 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F8299504A100647D86 /* ExtUILabel.swift */; };
 		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
 		58AA570829828FC500A71F75 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570729828FC500A71F75 /* ToDo.swift */; };
 		58AA570B29851EB400A71F75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570A29851EB400A71F75 /* Coordinator.swift */; };
@@ -174,7 +180,7 @@
 		2C63C3E227BFE36400339740 /* SafeDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDictionary.swift; sourceTree = "<group>"; };
 		2C63C3E427BFE38200339740 /* SafeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeSet.swift; sourceTree = "<group>"; };
 		2C63C3E627BFE3CB00339740 /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
-		2C63C3E927BFE6AE00339740 /* CKLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLog.swift; sourceTree = "<group>"; };
+		2C63C3E927BFE6AE00339740 /* CKLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLogger.swift; sourceTree = "<group>"; };
 		2C63C3EB27BFE6DA00339740 /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
 		2C63C3ED27BFE70800339740 /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		2C63C3F127BFEDBF00339740 /* RootViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewManager.swift; sourceTree = "<group>"; };
@@ -214,6 +220,14 @@
 		582AB11C295ED4E1007B00A3 /* CryptoMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoMenuViewController.swift; sourceTree = "<group>"; };
 		582AB124295ED8EF007B00A3 /* ExtUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUINavigationController.swift; sourceTree = "<group>"; };
 		584F44E8298BFBC80045B1BA /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		586BC7EB2994DAC800647D86 /* LogFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFileManager.swift; sourceTree = "<group>"; };
+		586BC7EE2994DB1E00647D86 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		586BC7EF2994DB2800647D86 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		586BC7F02994DB5E00647D86 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		586BC7F22994DB7000647D86 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		586BC7F42994DB8E00647D86 /* MailManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
+		586BC7F62994FDBA00647D86 /* CKLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLanguage.swift; sourceTree = "<group>"; };
+		586BC7F8299504A100647D86 /* ExtUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUILabel.swift; sourceTree = "<group>"; };
 		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
 		58AA570729828FC500A71F75 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		58AA570A29851EB400A71F75 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -383,6 +397,7 @@
 		2C63C39F27BFE02500339740 /* CryptoKool */ = {
 			isa = PBXGroup;
 			children = (
+				586BC7ED2994DAF600647D86 /* Settings */,
 				58AA570729828FC500A71F75 /* ToDo.swift */,
 				58AA570929851E9900A71F75 /* Coordinator */,
 				2E0A742F28F2D091001C18D0 /* Resolver */,
@@ -497,6 +512,7 @@
 		2C63C3D727BFE20600339740 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
+				586BC7F62994FDBA00647D86 /* CKLanguage.swift */,
 				2C63C40327BFFA2000339740 /* Localizable.strings */,
 			);
 			path = Localizable;
@@ -519,6 +535,7 @@
 			children = (
 				2C63C3D827BFE24B00339740 /* ExtUIView.swift */,
 				2C63C3DC27BFE2CE00339740 /* ExtUITableView.swift */,
+				586BC7F8299504A100647D86 /* ExtUILabel.swift */,
 				2C63C3DE27BFE2EC00339740 /* ExtUIViewController.swift */,
 				582AB124295ED8EF007B00A3 /* ExtUINavigationController.swift */,
 			);
@@ -528,7 +545,7 @@
 		2C63C3E827BFE67000339740 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				2C63C3E927BFE6AE00339740 /* CKLog.swift */,
+				586BC7EA2994DAA000647D86 /* Logger */,
 				2C63C3F527BFEF0000339740 /* Helpers.swift */,
 				2C715F8627C27C7A001AFC00 /* Debouncer.swift */,
 				0794161027E9A0B000C08793 /* DeepLink.swift */,
@@ -651,6 +668,27 @@
 				582AB11A295ED4E1007B00A3 /* MenuSection.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		586BC7EA2994DAA000647D86 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				2C63C3E927BFE6AE00339740 /* CKLogger.swift */,
+				586BC7EB2994DAC800647D86 /* LogFileManager.swift */,
+				586BC7F42994DB8E00647D86 /* MailManager.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		586BC7ED2994DAF600647D86 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				586BC7F02994DB5E00647D86 /* AppConfiguration.swift */,
+				586BC7F22994DB7000647D86 /* DeviceInfo.swift */,
+				586BC7EE2994DB1E00647D86 /* Debug.xcconfig */,
+				586BC7EF2994DB2800647D86 /* Release.xcconfig */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		58AA570929851E9900A71F75 /* Coordinator */ = {
@@ -975,11 +1013,12 @@
 				2C5B5DBB27C084F3006B439D /* CryptoDetailEntity.swift in Sources */,
 				2E0A743128F2D0C2001C18D0 /* Resolver.swift in Sources */,
 				2C5B5DBD27C08D36006B439D /* CryptoSearchEntity.swift in Sources */,
+				586BC7F32994DB7000647D86 /* DeviceInfo.swift in Sources */,
 				582AB122295ED4E1007B00A3 /* CryptoMenuModel.swift in Sources */,
 				2C63C3D927BFE24B00339740 /* ExtUIView.swift in Sources */,
 				2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */,
 				2C63C3EE27BFE70800339740 /* ExtString.swift in Sources */,
-				2C63C3EA27BFE6AE00339740 /* CKLog.swift in Sources */,
+				2C63C3EA27BFE6AE00339740 /* CKLogger.swift in Sources */,
 				58DF9315295AED7800A35D3A /* TestVC.swift in Sources */,
 				58AA570D2985207E00A71F75 /* MainCoordinator.swift in Sources */,
 				2C5B5DC427C09A68006B439D /* CryptoListCell.swift in Sources */,
@@ -987,6 +1026,7 @@
 				58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */,
 				2C5B5DDA27C0F762006B439D /* CryptoListCellVM.swift in Sources */,
 				2C5B5DB327C072B2006B439D /* CoinGeckoInterface.swift in Sources */,
+				586BC7F9299504A100647D86 /* ExtUILabel.swift in Sources */,
 				2C63C3A127BFE02500339740 /* AppDelegate.swift in Sources */,
 				2C63C3E727BFE3CB00339740 /* FirstScreen.swift in Sources */,
 				2C5B5DD427C0EACF006B439D /* CryptoDetailResponse.swift in Sources */,
@@ -1012,6 +1052,7 @@
 				58AA570829828FC500A71F75 /* ToDo.swift in Sources */,
 				2C5B5DDD27C1356C006B439D /* CryptoSearchVC.swift in Sources */,
 				2C5B5DB727C074A1006B439D /* MockCoinGeckoService.swift in Sources */,
+				586BC7EC2994DAC800647D86 /* LogFileManager.swift in Sources */,
 				2C5B5DE427C13607006B439D /* CryptoSearchCellVM.swift in Sources */,
 				582AB125295ED8EF007B00A3 /* ExtUINavigationController.swift in Sources */,
 				2C5B5DD227C0EABA006B439D /* CryptoSearchResponse.swift in Sources */,
@@ -1021,10 +1062,13 @@
 				589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */,
 				2C63C3DF27BFE2EC00339740 /* ExtUIViewController.swift in Sources */,
 				2C5B5DB527C0748F006B439D /* CoinGeckoService.swift in Sources */,
+				586BC7F12994DB5E00647D86 /* AppConfiguration.swift in Sources */,
 				582AB11E295ED4E1007B00A3 /* MenuSection.swift in Sources */,
+				586BC7F72994FDBA00647D86 /* CKLanguage.swift in Sources */,
 				2C5B5DD827C0F09A006B439D /* FetchCryptoListUseCase.swift in Sources */,
 				0794161127E9A0B000C08793 /* DeepLink.swift in Sources */,
 				584F44E9298BFBC80045B1BA /* ImageRepository.swift in Sources */,
+				586BC7F52994DB8E00647D86 /* MailManager.swift in Sources */,
 				2C5B5DCD27C0E85D006B439D /* QueryLink.swift in Sources */,
 				2C63C3F427BFEEC200339740 /* ActionButton.swift in Sources */,
 				2C93A99727C1C8ED0063AF98 /* CryptoDetailVM.swift in Sources */,
@@ -1240,9 +1284,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nghiahunter2020.com.CryptoKool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCHEME_NAME = Debug;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1272,9 +1317,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nghiahunter2020.com.CryptoKool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCHEME_NAME = Release;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
