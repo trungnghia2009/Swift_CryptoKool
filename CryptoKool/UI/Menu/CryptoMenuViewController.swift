@@ -11,6 +11,7 @@ import MessageUI
 protocol CryptoMenuViewControllerDelegate: AnyObject {
     func didTapSearchMenu()
     func didTapInfomationMenu()
+    func didTapFavoriteMenu()
 }
 
 class CryptoMenuViewController: UIViewController, Coordinating {
@@ -113,8 +114,9 @@ extension CryptoMenuViewController: UITableViewDelegate {
                 CKLogger.info("Did tap menu: \(menu.rawValue)")
                 switch menu {
                 case .favorite:
-                    // TODO: Implement later
-                    navigationController?.popViewController(animated: true)
+                    navigationController?.popViewController(animated: false, completion: { [weak self] in
+                        self?.delegate?.didTapFavoriteMenu()
+                    })
                 case .about:
                     navigationController?.popViewController(animated: false, completion: { [weak self] in
                         self?.delegate?.didTapInfomationMenu()
@@ -122,7 +124,9 @@ extension CryptoMenuViewController: UITableViewDelegate {
                 case .report:
                     coordinator?.eventOccurred(with: .emailScreen(controller: self, delegate: self))
                 case .exit:
-                    let alertInfo = AlertInfo(controller: self, title: "Exit", content: "Would you like to exit ?")
+                    let title = CKLanguage.text("alert_exit_title", comment: "Exit")
+                    let content = CKLanguage.text("alert_exit_description", comment: "Would you like to exit?")
+                    let alertInfo = AlertInfo(controller: self, title: title, content: content)
                     coordinator?.eventOccurred(with: .alertOptionsScreen(info: alertInfo) {
                         RootViewManager.shared.show(view: .firstScreen)
                     })

@@ -13,6 +13,7 @@ enum Event {
     case informationScreen
     case menuScreen(delegate: CryptoMenuViewControllerDelegate)
     case detailScreen(viewModel: CryptoDetailVM)
+    case favoriteScreen
     case emailScreen(controller: UIViewController, delegate: MFMailComposeViewControllerDelegate)
     case alertSimpleScreen(info: AlertInfo)
     case alertOptionsScreen(info: AlertInfo, action: () -> Void)

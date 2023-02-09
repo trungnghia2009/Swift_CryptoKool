@@ -15,9 +15,12 @@ struct AlertInfo {
 
 struct CryptoAlert {
     
+    private let okBtnLabel = CKLanguage.text("alert_ok_button", comment: "OK")
+    private let cancelBtnLabel = CKLanguage.text("alert_cancel_button", comment: "Cancel")
+    
     func showSimple(alertInfo: AlertInfo) {
         let alert = UIAlertController(title: alertInfo.title, message: alertInfo.content, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: okBtnLabel, style: .default))
         DispatchQueue.main.async {
             alertInfo.controller.present(alert, animated: true)
         }
@@ -26,8 +29,8 @@ struct CryptoAlert {
     func showOptions(alertInfo: AlertInfo,
                      okButton: @escaping () -> Void) {
         let alert = UIAlertController(title: alertInfo.title, message: alertInfo.content, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "OK", style: .default) { _ in okButton() }
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+        let okButton = UIAlertAction(title: okBtnLabel, style: .default) { _ in okButton() }
+        let cancelButton = UIAlertAction(title: cancelBtnLabel, style: .cancel) { _ in }
         alert.addAction(okButton)
         alert.addAction(cancelButton)
         DispatchQueue.main.async {

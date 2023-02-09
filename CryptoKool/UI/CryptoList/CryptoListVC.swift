@@ -38,15 +38,15 @@ final class CryptoListVC: UITableViewController, Coordinating {
         return dataSource
     }()
     
-    private let searchButton: ActionButton = {
+    private let favoriteButton: ActionButton = {
         let button = ActionButton(type: .system)
         button.tintColor = .white
         button.backgroundColor = .systemOrange
-        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.setImage(UIImage(systemName: "star.fill"), for: .normal)
         button.setDimensions(width: 50, height: 50)
         button.layer.cornerRadius = 25
         button.addShadow()
-        button.addTarget(nil, action: #selector(didTapSearchButton), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(didTapFavoriteButton), for: .touchUpInside)
         return button
     }()
     
@@ -91,8 +91,8 @@ final class CryptoListVC: UITableViewController, Coordinating {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        view.addSubview(searchButton)
-        searchButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor,
+        view.addSubview(favoriteButton)
+        favoriteButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor,
                             right: view.safeAreaLayoutGuide.rightAnchor,
                             paddingBottom: 30,
                             paddingRight: 20)
@@ -113,10 +113,10 @@ final class CryptoListVC: UITableViewController, Coordinating {
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Top 100"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
                                                             style: .done,
                                                             target: self,
-                                                            action: #selector(didInfoButton))
+                                                            action: #selector(didTapSearchButton))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"),
                                                            style: .done,
                                                            target: self,
@@ -174,9 +174,9 @@ final class CryptoListVC: UITableViewController, Coordinating {
     
     
     // MARK: Selectors
-    @objc private func didInfoButton() {
+    @objc private func didTapSearchButton() {
         CKLogger.info("Did tap Info button")
-        coordinator?.eventOccurred(with: .informationScreen)
+        coordinator?.eventOccurred(with: .searchScreen)
     }
     
     @objc private func didTapMenuButton() {
@@ -184,14 +184,13 @@ final class CryptoListVC: UITableViewController, Coordinating {
         coordinator?.eventOccurred(with: .menuScreen(delegate: self))
     }
     
-    @objc private func didTapSearchButton() {
-        CKLogger.info("Did tap search button")
-        coordinator?.eventOccurred(with: .searchScreen)
-        
+    @objc private func didTapFavoriteButton() {
+        CKLogger.info("Did tap Farovirte button")
+        coordinator?.eventOccurred(with: .favoriteScreen)
     }
     
     @objc private func callFetchData() {
-        CKLogger.info("Fetching crpto list again...")
+        CKLogger.info("Fetching crypto list again...")
         viewModel.fetchCryptoList()
     }
 }
@@ -215,5 +214,9 @@ extension CryptoListVC: CryptoMenuViewControllerDelegate {
     
     func didTapInfomationMenu() {
         coordinator?.eventOccurred(with: .informationScreen)
+    }
+    
+    func didTapFavoriteMenu() {
+        coordinator?.eventOccurred(with: .favoriteScreen)
     }
 }

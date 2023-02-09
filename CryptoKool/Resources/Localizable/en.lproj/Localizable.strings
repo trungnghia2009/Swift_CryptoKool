@@ -25,7 +25,16 @@
 "search_no_result" = "There is no result.";
 "search_placeholder" = "Search...";
 
+// Favorite Screen
+"favorite_title" = "Favorite List";
+
 // Information screen
 "information_information" = "Information";
 "information_version" = "Version %";
 "information_created_by" = "Created by %";
+
+// Alert
+"alert_exit_title" = "Exit";
+"alert_exit_description" = "Would you like to exit?";
+"alert_ok_button" = "OK";
+"alert_cancel_button" = "Cancel";

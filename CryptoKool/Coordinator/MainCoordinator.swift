@@ -34,6 +34,9 @@ class MainCoordinator: Coordinator {
             vc.coordinator = self
             vc.viewModel =  viewModel
             navigationController?.pushViewController(vc, animated: true)
+        case .favoriteScreen:
+            let vc = CryptoFavoriteVC()
+            navigationController?.pushViewController(vc, animated: true)
         case .emailScreen(let vc, let delegate):
             let mailManager = MailManager()
             mailManager.sendEmailWithLogAttachment(controller: vc, delegate: delegate)

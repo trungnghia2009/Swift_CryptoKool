@@ -94,6 +94,8 @@
 		586BC7F52994DB8E00647D86 /* MailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F42994DB8E00647D86 /* MailManager.swift */; };
 		586BC7F72994FDBA00647D86 /* CKLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F62994FDBA00647D86 /* CKLanguage.swift */; };
 		586BC7F9299504A100647D86 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F8299504A100647D86 /* ExtUILabel.swift */; };
+		586BC7FC299532A700647D86 /* CryptoFavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7FB299532A700647D86 /* CryptoFavoriteVC.swift */; };
+		586BC7FE2995331900647D86 /* CryptoFavoriteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7FD2995331900647D86 /* CryptoFavoriteVM.swift */; };
 		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
 		58AA570829828FC500A71F75 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570729828FC500A71F75 /* ToDo.swift */; };
 		58AA570B29851EB400A71F75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570A29851EB400A71F75 /* Coordinator.swift */; };
@@ -228,6 +230,8 @@
 		586BC7F42994DB8E00647D86 /* MailManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailManager.swift; sourceTree = "<group>"; };
 		586BC7F62994FDBA00647D86 /* CKLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLanguage.swift; sourceTree = "<group>"; };
 		586BC7F8299504A100647D86 /* ExtUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUILabel.swift; sourceTree = "<group>"; };
+		586BC7FB299532A700647D86 /* CryptoFavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFavoriteVC.swift; sourceTree = "<group>"; };
+		586BC7FD2995331900647D86 /* CryptoFavoriteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFavoriteVM.swift; sourceTree = "<group>"; };
 		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
 		58AA570729828FC500A71F75 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		58AA570A29851EB400A71F75 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -444,6 +448,7 @@
 				2C5B5DA827C064C6006B439D /* CryptoList */,
 				2C5B5DAA27C064EC006B439D /* CryptoSearch */,
 				2C5B5DA927C064D8006B439D /* CryptoDetail */,
+				586BC7FA2995327800647D86 /* CryptoFavorite */,
 				2C63C3F727BFEF4E00339740 /* CustomView */,
 			);
 			path = UI;
@@ -689,6 +694,15 @@
 				586BC7EF2994DB2800647D86 /* Release.xcconfig */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		586BC7FA2995327800647D86 /* CryptoFavorite */ = {
+			isa = PBXGroup;
+			children = (
+				586BC7FB299532A700647D86 /* CryptoFavoriteVC.swift */,
+				586BC7FD2995331900647D86 /* CryptoFavoriteVM.swift */,
+			);
+			path = CryptoFavorite;
 			sourceTree = "<group>";
 		};
 		58AA570929851E9900A71F75 /* Coordinator */ = {
@@ -1021,6 +1035,7 @@
 				2C63C3EA27BFE6AE00339740 /* CKLogger.swift in Sources */,
 				58DF9315295AED7800A35D3A /* TestVC.swift in Sources */,
 				58AA570D2985207E00A71F75 /* MainCoordinator.swift in Sources */,
+				586BC7FC299532A700647D86 /* CryptoFavoriteVC.swift in Sources */,
 				2C5B5DC427C09A68006B439D /* CryptoListCell.swift in Sources */,
 				2C63C3DD27BFE2CE00339740 /* ExtUITableView.swift in Sources */,
 				58AC5ED228F2FA9E00BA95A6 /* Crypto.xcdatamodeld in Sources */,
@@ -1061,6 +1076,7 @@
 				2E0A743328F2D0D1001C18D0 /* Injections.swift in Sources */,
 				589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */,
 				2C63C3DF27BFE2EC00339740 /* ExtUIViewController.swift in Sources */,
+				586BC7FE2995331900647D86 /* CryptoFavoriteVM.swift in Sources */,
 				2C5B5DB527C0748F006B439D /* CoinGeckoService.swift in Sources */,
 				586BC7F12994DB5E00647D86 /* AppConfiguration.swift in Sources */,
 				582AB11E295ED4E1007B00A3 /* MenuSection.swift in Sources */,
@@ -1279,7 +1295,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1312,7 +1328,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -25,7 +25,16 @@
 "search_no_result" = "Không có kết quả.";
 "search_placeholder" = "Tìm kiếm...";
 
+// Favorite Screen
+"favorite_title" = "Danh sách ưa thích";
+
 // Information screen
 "information_information" = "Thông tin";
 "information_version" = "Phiên bản %";
 "information_created_by" = "Created by %";
+
+// Alert
+"alert_exit_title" = "Thoát";
+"alert_exit_description" = "Bạn có muốn thoát? ";
+"alert_ok_button" = "Có";
+"alert_cancel_button" = "Không";
