@@ -121,7 +121,7 @@ class CryptoDetailVMTest: XCTestCase {
         wait(for: [expectCalled], timeout: 0.1)
     }
     
-    func test_fetch_detail_failed() throws {
+    func test_fetch_detail_failed_dataCheck() throws {
         Resolver.registerMockServices_failed()
         let sut = CryptoDetailVM(entity: cryptoDetailEntity)
         let expectCalled = expectation(description: "Contains Network response")
@@ -144,6 +144,32 @@ class CryptoDetailVMTest: XCTestCase {
         
         let result = XCTWaiter.wait(for: [expectCalled], timeout: 0.1)
         XCTAssertEqual(result, .timedOut)
+    }
+    
+    func test_fetch_detail_failed_errorCheck() throws {
+        Resolver.registerMockServices_failed()
+        let sut = CryptoDetailVM(entity: cryptoDetailEntity)
+        let expectCalled = expectation(description: "Contains Network response")
+        
+        XCTAssertEqual(sut.getSymbol(), "\(cryptoDetailEntity.symbol.uppercased())/USD")
+        XCTAssertEqual(sut.imageURL, nil)
+        XCTAssertEqual(sut.checkPrice, .zero)
+        XCTAssertEqual(sut.currentPrice, "$0.00")
+        XCTAssertEqual(sut.priceChangePercentage24h, "0.00")
+        XCTAssertEqual(sut.rank, "Rank: N/A")
+        XCTAssertEqual(sut.homepageLink, "N/A")
+        XCTAssertEqual(sut.high24h, "0.00")
+        XCTAssertEqual(sut.low24h, "0.00")
+
+        sut.fetchCryptoDetail()
+        
+        sut.onError
+            .sink { error in
+                XCTAssertEqual(error.description, "Unknow error")
+                expectCalled.fulfill()
+            }.store(in: &subscriptions)
+        
+        wait(for: [expectCalled], timeout: 0.1)
     }
 
 }

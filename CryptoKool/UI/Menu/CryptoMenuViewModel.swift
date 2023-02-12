@@ -9,7 +9,7 @@ import Foundation
 
 class CryptoMenuViewModel {
     let sections: [CryptoMenuModel] = [
-        CryptoMenuModel(title: .home, options: [.homeFeature1, .homeFeature2]),
+        CryptoMenuModel(title: .home, options: [.homeTop100, .homeSearch]),
         CryptoMenuModel(title: .favorite, options: []),
         CryptoMenuModel(title: .about, options: []),
         CryptoMenuModel(title: .report, options: []),

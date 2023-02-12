@@ -211,12 +211,4 @@ extension CryptoListVC: CryptoMenuViewControllerDelegate {
     func didTapSearchMenu() {
         coordinator?.eventOccurred(with: .searchScreen)
     }
-    
-    func didTapInfomationMenu() {
-        coordinator?.eventOccurred(with: .informationScreen)
-    }
-    
-    func didTapFavoriteMenu() {
-        coordinator?.eventOccurred(with: .favoriteScreen)
-    }
 }

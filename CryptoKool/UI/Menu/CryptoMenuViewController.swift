@@ -10,8 +10,6 @@ import MessageUI
 
 protocol CryptoMenuViewControllerDelegate: AnyObject {
     func didTapSearchMenu()
-    func didTapInfomationMenu()
-    func didTapFavoriteMenu()
 }
 
 class CryptoMenuViewController: UIViewController, Coordinating {
@@ -114,13 +112,9 @@ extension CryptoMenuViewController: UITableViewDelegate {
                 CKLogger.info("Did tap menu: \(menu.rawValue)")
                 switch menu {
                 case .favorite:
-                    navigationController?.popViewController(animated: false, completion: { [weak self] in
-                        self?.delegate?.didTapFavoriteMenu()
-                    })
+                    coordinator?.eventOccurred(with: .favoriteScreen)
                 case .about:
-                    navigationController?.popViewController(animated: false, completion: { [weak self] in
-                        self?.delegate?.didTapInfomationMenu()
-                    })
+                    coordinator?.eventOccurred(with: .informationScreen)
                 case .report:
                     coordinator?.eventOccurred(with: .emailScreen(controller: self, delegate: self))
                 case .exit:
@@ -137,10 +131,10 @@ extension CryptoMenuViewController: UITableViewDelegate {
             // Handle navigation here
             let cellName = sections[indexPath.section].options[indexPath.row - 1]
             switch cellName {
-            case .homeFeature1:
+            case .homeTop100:
                 print("Did tap cell: \(cellName.rawValue)")
                 navigationController?.popViewController(animated: true)
-            case .homeFeature2:
+            case .homeSearch:
                 print("Did tap cell: \(cellName.rawValue)")
                 navigationController?.popViewController(animated: false, completion: { [weak self] in
                     self?.delegate?.didTapSearchMenu()

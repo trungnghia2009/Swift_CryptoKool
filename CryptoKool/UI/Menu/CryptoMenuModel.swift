@@ -70,14 +70,14 @@ class CryptoMenuModel {
     }
     
     enum SubMenu: String {
-        case homeFeature1
-        case homeFeature2
+        case homeTop100
+        case homeSearch
         
         var text: String {
             switch self {
-            case .homeFeature1:
+            case .homeTop100:
                 return CKLanguage.text("menu_top_100")
-            case .homeFeature2:
+            case .homeSearch:
                 return CKLanguage.text("menu_search")
             }
         }

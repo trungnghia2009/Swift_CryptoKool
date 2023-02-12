@@ -17,11 +17,16 @@ final class CryptoDetailVM {
     private var subscriptions = Set<AnyCancellable>()
     
     private let cryptoDetailSubject = CurrentValueSubject<CryptoDetailEntity?, Never>(nil)
+    private let errorSubject = PassthroughSubject<CoinGeckoServiceError, Never>()
+    
     var onCryptoDetailChange: AnyPublisher<Void, Never> {
         return cryptoDetailSubject
             .map { detail -> Void in }
             .dropFirst(1) // drop nil value
             .eraseToAnyPublisher()
+    }
+    var onError: AnyPublisher<CoinGeckoServiceError, Never> {
+        return errorSubject.eraseToAnyPublisher()
     }
     
     init(entity: CryptoDetailEntity, imageRepository: ImageRepositoryProtocol = ImageRepository()) {
@@ -37,9 +42,15 @@ final class CryptoDetailVM {
         let useCase = FetchCryptoDetailUseCase(service: service)
         useCase.execute(param: entity.id)
             .receive(on: DispatchQueue.main)
-            .sink { completion in
-                if case .failure(let error) = completion {
-                    CKLogger.error("Retrieving data with error: \(error)")
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    CKLogger.info("FetchCryptoDetailUseCase completed...")
+                case .failure(let error):
+                    if let coinError = error as? CoinGeckoServiceError {
+                        CKLogger.error("Error: \(coinError)")
+                        self?.errorSubject.send(coinError)
+                    }
                 }
             } receiveValue: { [weak self] crypto in
                 CKLogger.info("Got detail successfully: \(crypto)")

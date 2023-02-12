@@ -53,6 +53,13 @@ final class CryptoDetailVC: UIViewController, Coordinating {
                 self?.setupUI()
                 self?.navigationItem.rightBarButtonItem?.isEnabled = true
             }).store(in: &subscriptions)
+        
+        viewModel?.onError
+            .sink { [weak self] error in
+                guard let self = self else { return }
+                let info = AlertInfo(controller: self, title: "Error", content: error.description)
+                self.coordinator?.eventOccurred(with: .alertSimpleScreen(info: info))
+            }.store(in: &subscriptions)
     }
     
     // MARK: Helpers
