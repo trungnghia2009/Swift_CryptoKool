@@ -96,6 +96,7 @@
 		586BC7F9299504A100647D86 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7F8299504A100647D86 /* ExtUILabel.swift */; };
 		586BC7FC299532A700647D86 /* CryptoFavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7FB299532A700647D86 /* CryptoFavoriteVC.swift */; };
 		586BC7FE2995331900647D86 /* CryptoFavoriteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC7FD2995331900647D86 /* CryptoFavoriteVM.swift */; };
+		586BC8252998F23B00647D86 /* ExtUIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BC8242998F23B00647D86 /* ExtUIDevice.swift */; };
 		589AE8A4295958210070E46B /* CryptoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE8A3295958210070E46B /* CryptoAlert.swift */; };
 		58AA570829828FC500A71F75 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570729828FC500A71F75 /* ToDo.swift */; };
 		58AA570B29851EB400A71F75 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AA570A29851EB400A71F75 /* Coordinator.swift */; };
@@ -232,6 +233,7 @@
 		586BC7F8299504A100647D86 /* ExtUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUILabel.swift; sourceTree = "<group>"; };
 		586BC7FB299532A700647D86 /* CryptoFavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFavoriteVC.swift; sourceTree = "<group>"; };
 		586BC7FD2995331900647D86 /* CryptoFavoriteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFavoriteVM.swift; sourceTree = "<group>"; };
+		586BC8242998F23B00647D86 /* ExtUIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIDevice.swift; sourceTree = "<group>"; };
 		589AE8A3295958210070E46B /* CryptoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlert.swift; sourceTree = "<group>"; };
 		58AA570729828FC500A71F75 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		58AA570A29851EB400A71F75 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -401,8 +403,8 @@
 		2C63C39F27BFE02500339740 /* CryptoKool */ = {
 			isa = PBXGroup;
 			children = (
-				586BC7ED2994DAF600647D86 /* Settings */,
 				58AA570729828FC500A71F75 /* ToDo.swift */,
+				586BC7ED2994DAF600647D86 /* Settings */,
 				58AA570929851E9900A71F75 /* Coordinator */,
 				2E0A742F28F2D091001C18D0 /* Resolver */,
 				2C63C3D527BFE15B00339740 /* Application */,
@@ -543,6 +545,7 @@
 				586BC7F8299504A100647D86 /* ExtUILabel.swift */,
 				2C63C3DE27BFE2EC00339740 /* ExtUIViewController.swift */,
 				582AB124295ED8EF007B00A3 /* ExtUINavigationController.swift */,
+				586BC8242998F23B00647D86 /* ExtUIDevice.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1033,6 +1036,7 @@
 				2C5B5DB127C0727F006B439D /* CryptoService.swift in Sources */,
 				2C63C3EE27BFE70800339740 /* ExtString.swift in Sources */,
 				2C63C3EA27BFE6AE00339740 /* CKLogger.swift in Sources */,
+				586BC8252998F23B00647D86 /* ExtUIDevice.swift in Sources */,
 				58DF9315295AED7800A35D3A /* TestVC.swift in Sources */,
 				58AA570D2985207E00A71F75 /* MainCoordinator.swift in Sources */,
 				586BC7FC299532A700647D86 /* CryptoFavoriteVC.swift in Sources */,

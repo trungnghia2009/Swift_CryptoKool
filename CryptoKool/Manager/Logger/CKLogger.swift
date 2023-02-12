@@ -82,20 +82,20 @@ public struct CKLogger {
         CKLogger.logFileManager.writeLog("")
         
         let context = Context(file: file, function: function, line: line)
-        let startingText = "-------------- starting \(Config.appName) \(Config.enviroment ?? .Debug) \(Config.version)(\(Config.build)) --------------\n"
+        let startingText = "Starting \(Config.appName) \(Config.enviroment ?? .Debug) \(Config.version)(\(Config.build))\n"
         let deviceInfo = """
         ----- Device Info -----
-        Model: \(DeviceInfo.modelType)
-        System name: \(DeviceInfo.systemName)
-        Version: \(DeviceInfo.version)
-        Localized model: \(DeviceInfo.localizedModel)
-        DeviceId: \(DeviceInfo.deviceID ?? "")\n
+        - Model: \(DeviceInfo.model)
+        - System name: \(DeviceInfo.systemName)
+        - Version: \(DeviceInfo.version)
+        - Total Diskspace: \(DeviceInfo.totalDiskSpace)
+        - Used Diskspace: \(DeviceInfo.usedDiskSpace)\n
         """
         
         CKLogger.handleLog(level: .info, str: "\(startingText + deviceInfo)", shouldLogContext: true, context: context)
     }
     
-    fileprivate static func handleLog(level: LogLevel, str: String, shouldLogContext: Bool, context: Context) {
+    private static func handleLog(level: LogLevel, str: String, shouldLogContext: Bool, context: Context) {
         let logComponents = ["[\(level.prefix)]", str]
         
         var fullString = logComponents.joined(separator: " ")
